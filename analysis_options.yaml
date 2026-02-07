@@ -1,0 +1,22 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  # 型推論が失敗した時や、暗黙的な dynamic 型を制限する設定
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+  errors:
+    # 未使用の変数を「警告」ではなく「エラー」として扱い、ビルド前に絶対直させる
+    unused_local_variable: error
+    unused_import: error
+    # TODOコメントをあえて警告として出し、消し忘れを防ぐ
+    todo: warning
+
+linter:
+  rules:
+    # より堅牢なコードにするための追加ルール
+    always_declare_return_types: true # 戻り値の型を省略させない
+    prefer_final_locals: true         # 変更しない変数は final を強制する
+    unawaited_futures: true           # await のし忘れをチェックする
+    sort_pub_dependencies: true       # pubspec.yaml の並び順までチェック
