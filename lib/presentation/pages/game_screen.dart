@@ -268,7 +268,11 @@ class _GameScreenState extends State<GameScreen> {
               onPressed: () {
                 _resetInactivityTimer();
                 Navigator.of(dialogContext).pop();
-                _showAd();
+                if (_gridSize == 4) {
+                  _showReadyGoDialog(); // ステージ1は広告なし
+                } else {
+                  _showAd();
+                }
               },
               child: Text(l10n.ok),
             ),
