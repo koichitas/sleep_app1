@@ -110,5 +110,17 @@
   "@sleepCountdownMessage": { "description": "バナー/カウントダウンモーダルの上部メッセージ" },
 
   "stage1ClearExtra": "次のステージからは、どの数字まで押せたかがわからなくなります。\n難しくなるので、寝やすくなるでしょう。\nステージ 10×10 が最後のステージです。\nクリアするまでに眠れますように。",
-  "@stage1ClearExtra": { "description": "ステージ1クリア時のみ表示する追加メッセージ" }
+  "@stage1ClearExtra": { "description": "ステージ1クリア時のみ表示する追加メッセージ" },
+
+  "sleepModalTitle": "寝落ちしましたね。",
+  "@sleepModalTitle": { "description": "寝落ち検知モーダルのタイトル" },
+
+  "sleepModalMessage": "おめでとうございます！\nやすらかな眠りを。",
+  "@sleepModalMessage": { "description": "寝落ち検知モーダルのメッセージ" },
+
+  "recordNoHistory": "記録はまだありません",
+  "@recordNoHistory": { "description": "記録がない場合の表示" },
+
+  "recordResultAbandon": "途中離脱",
+  "@recordResultAbandon": { "description": "途中離脱の記録ラベル" }
 }

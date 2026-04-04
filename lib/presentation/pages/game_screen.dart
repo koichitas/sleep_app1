@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:admob_kit/admob_kit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:sleep_app1/domain/game_record.dart';
+import 'package:sleep_app1/domain/record_repository.dart';
 import 'package:sleep_app1/l10n/app_localizations.dart';
 
 class GameScreen extends StatefulWidget {
@@ -13,33 +15,155 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  int _gridSize = 4; // 初期ステージは4x4
+  // ゲーム状態
+  int _gridSize = 4;
   late List<int> _numbers;
   int _nextNumberToTap = 1;
+  int? _correctTappedNumber;
+  int? _wrongTappedNumber;
+  final Set<int> _stage1Cleared = {};
 
-  int? _correctTappedNumber; // 正解タップのフィードバック用（ステージ1以外）
-  int? _wrongTappedNumber;   // 不正解タップのフィードバック用
-  final Set<int> _stage1Cleared = {}; // ステージ1の正解済み番号（緑のまま表示）
-
-  int _countdownSeconds = 3;
+  // カウントダウン
+  int _countdownSeconds = 30;
   Timer? _countdownTimer;
+
+  // セッション管理
+  final RecordRepository _recordRepository = RecordRepository();
+  late final DateTime _sessionStartTime;
+  bool _recordSaved = false;
+
+  // タイマー
+  final Stopwatch _gameStopwatch = Stopwatch();   // ゲームアクティブ時間（モーダル/広告中は停止）
+  final Stopwatch _totalStopwatch = Stopwatch();  // 総経過時間（常に動く）
+  final Stopwatch _inactivityStopwatch = Stopwatch(); // 無操作時間（デバッグ表示用）
+  Timer? _inactivityTimer;
+  Timer? _debugRefreshTimer;
+
+  // 寝落ち検知
+  bool _pendingSleepModal = false;
+  bool _isFullScreenAdShowing = false;
+
+  static const Duration _inactivityTimeout = Duration(minutes: 10);
+
+  // ─── ライフサイクル ───────────────────────────────
 
   @override
   void initState() {
     super.initState();
+    _sessionStartTime = DateTime.now();
     _initializeGame();
-    AdmobService.loadInterstitial(); // 広告を事前ロード
-    AdmobService.loadReward();       // リワード広告を事前ロード
+    _gameStopwatch.start();
+    _totalStopwatch.start();
+    _inactivityStopwatch.start();
+    _resetInactivityTimer();
+    AdmobService.loadInterstitial();
+    AdmobService.loadReward();
+
+    if (kDebugMode) {
+      // デバッグ表示を1秒ごとに更新
+      _debugRefreshTimer = Timer.periodic(
+        const Duration(seconds: 1),
+        (_) { if (mounted) setState(() {}); },
+      );
+    }
   }
 
   @override
   void dispose() {
+    _inactivityTimer?.cancel();
     _countdownTimer?.cancel();
+    _debugRefreshTimer?.cancel();
+    _gameStopwatch.stop();
+    _totalStopwatch.stop();
+
+    if (!_recordSaved) {
+      _recordRepository.saveRecord(GameRecord(
+        startTime: _sessionStartTime,
+        result: GameResult.abandon,
+        gameTime: _gameStopwatch.elapsed,
+        totalTime: _totalStopwatch.elapsed,
+      ));
+    }
     super.dispose();
   }
 
+  // ─── タイマー制御 ────────────────────────────────
+
+  void _pauseGameTimer() {
+    if (_gameStopwatch.isRunning) _gameStopwatch.stop();
+  }
+
+  void _resumeGameTimer() {
+    if (!_gameStopwatch.isRunning) _gameStopwatch.start();
+  }
+
+  void _resetInactivityTimer() {
+    _inactivityTimer?.cancel();
+    _inactivityStopwatch.reset();
+    _inactivityStopwatch.start();
+    _inactivityTimer = Timer(_inactivityTimeout, _onSleepDetected);
+  }
+
+  // ─── 寝落ち検知 ──────────────────────────────────
+
+  void _onSleepDetected() {
+    if (!mounted || _recordSaved) return;
+
+    _pauseGameTimer();
+    _totalStopwatch.stop();
+    _recordSaved = true;
+    _pendingSleepModal = true;
+
+    final sleepRaw = _totalStopwatch.elapsed - _inactivityTimeout;
+    _recordRepository.saveRecord(GameRecord(
+      startTime: _sessionStartTime,
+      result: GameResult.sleepOff,
+      gameTime: _gameStopwatch.elapsed,
+      totalTime: sleepRaw.isNegative ? Duration.zero : sleepRaw,
+    ));
+
+    if (!_isFullScreenAdShowing) {
+      _showSleepModal();
+    }
+    // 広告表示中の場合は広告終了後のコールバックで表示する
+  }
+
+  void _showSleepModal() {
+    if (!mounted) return;
+    final l10n = AppLocalizations.of(context)!;
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext dialogContext) {
+        return PopScope(
+          canPop: false,
+          onPopInvokedWithResult: (didPop, _) {
+            if (!didPop) _navigateToStart(dialogContext);
+          },
+          child: AlertDialog(
+            title: Text(l10n.sleepModalTitle),
+            content: Text(l10n.sleepModalMessage),
+            actions: [
+              TextButton(
+                onPressed: () => _navigateToStart(dialogContext),
+                child: Text(l10n.ok),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  void _navigateToStart(BuildContext dialogContext) {
+    Navigator.of(dialogContext).pop();
+    Navigator.of(context).popUntil((route) => route.isFirst);
+  }
+
+  // ─── ゲーム初期化 ────────────────────────────────
+
   void _initializeGame() {
-    _numbers = List<int>.generate(_gridSize * _gridSize, (index) => index + 1);
+    _numbers = List<int>.generate(_gridSize * _gridSize, (i) => i + 1);
     _numbers.shuffle(Random());
     _nextNumberToTap = 1;
     _correctTappedNumber = null;
@@ -47,16 +171,18 @@ class _GameScreenState extends State<GameScreen> {
     _stage1Cleared.clear();
   }
 
+  // ─── パネルタップ ────────────────────────────────
+
   void _onTapPanel(int tappedNumber) {
+    _resetInactivityTimer(); // 操作でリセット
+
     if (tappedNumber == _nextNumberToTap) {
       if (_gridSize == 4) {
-        // ステージ1: 正解済みパネルを緑のまま保持
         setState(() {
           _stage1Cleared.add(tappedNumber);
           _wrongTappedNumber = null;
         });
       } else {
-        // ステージ2以降: 短時間だけ緑にしてすぐ戻す
         setState(() {
           _correctTappedNumber = tappedNumber;
           _wrongTappedNumber = null;
@@ -72,7 +198,6 @@ class _GameScreenState extends State<GameScreen> {
         _nextNumberToTap++;
       }
     } else {
-      // 不正解: ステージ問わず赤を短時間表示してすぐ戻す
       setState(() {
         _wrongTappedNumber = tappedNumber;
         _correctTappedNumber = null;
@@ -84,123 +209,152 @@ class _GameScreenState extends State<GameScreen> {
 
     if (kDebugMode) {
       final l10n = AppLocalizations.of(context)!;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(l10n.debugTappedNumber(tappedNumber)),
-          duration: const Duration(milliseconds: 100),
-        ),
-      );
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(l10n.debugTappedNumber(tappedNumber)),
+        duration: const Duration(milliseconds: 100),
+      ));
     }
   }
 
+  // ─── ステージクリア ──────────────────────────────
+
   void _showStageClearDialog() {
+    _pauseGameTimer();
+    _resetInactivityTimer();
     final l10n = AppLocalizations.of(context)!;
+
     if (_gridSize >= 10) {
+      // 全ステージクリア → 記録保存してトップへ
+      _saveRecord(GameResult.clear);
       showDialog<void>(
         context: context,
         barrierDismissible: false,
-        builder: (BuildContext dialogContext) {
-          return AlertDialog(
-            title: Text(l10n.allStageClearTitle),
-            content: Text(l10n.allStageClearMessage),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(dialogContext).pop();
-                  Navigator.of(context).pop();
-                },
-                child: Text(l10n.ok),
-              ),
-            ],
-          );
-        },
+        builder: (dialogContext) => AlertDialog(
+          title: Text(l10n.allStageClearTitle),
+          content: Text(l10n.allStageClearMessage),
+          actions: [
+            TextButton(
+              onPressed: () {
+                _resetInactivityTimer();
+                Navigator.of(dialogContext).pop();
+                Navigator.of(context).pop();
+              },
+              child: Text(l10n.ok),
+            ),
+          ],
+        ),
       );
     } else {
       showDialog<void>(
         context: context,
         barrierDismissible: false,
-        builder: (BuildContext dialogContext) {
-          return AlertDialog(
-            title: Text(l10n.stageClearTitle),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(l10n.stageClearMessage),
-                if (_gridSize == 4) ...[
-                  const SizedBox(height: 12),
-                  Text(
-                    l10n.stage1ClearExtra,
-                    style: Theme.of(dialogContext).textTheme.bodyMedium,
-                  ),
-                ],
+        builder: (dialogContext) => AlertDialog(
+          title: Text(l10n.stageClearTitle),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(l10n.stageClearMessage),
+              if (_gridSize == 4) ...[
+                const SizedBox(height: 12),
+                Text(l10n.stage1ClearExtra,
+                    style: Theme.of(dialogContext).textTheme.bodyMedium),
               ],
-            ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(dialogContext).pop();
-                  _showAd();
-                },
-                child: Text(l10n.ok),
-              ),
             ],
-          );
-        },
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                _resetInactivityTimer();
+                Navigator.of(dialogContext).pop();
+                _showAd();
+              },
+              child: Text(l10n.ok),
+            ),
+          ],
+        ),
       );
     }
   }
 
-  /// 広告を優先度付きで表示する
+  void _saveRecord(GameResult result) {
+    if (_recordSaved) return;
+    _recordSaved = true;
+    _pauseGameTimer();
+    _totalStopwatch.stop();
+    _recordRepository.saveRecord(GameRecord(
+      startTime: _sessionStartTime,
+      result: result,
+      gameTime: _gameStopwatch.elapsed,
+      totalTime: _totalStopwatch.elapsed,
+    ));
+  }
+
+  // ─── 広告フロー ──────────────────────────────────
+
   void _showAd() {
     AdmobService.showAdWithPriority(
-      onCompleted: _showReadyGoDialog,
-      onRewardSkipped: _showRewardSkippedDialog,
-      onNoAd: _showAdFallbackCountdown,
+      onAdStarted: () => setState(() => _isFullScreenAdShowing = true),
+      onCompleted: () {
+        if (!mounted) return;
+        setState(() => _isFullScreenAdShowing = false);
+        if (_pendingSleepModal) { _showSleepModal(); return; }
+        _resetInactivityTimer();
+        _showReadyGoDialog();
+      },
+      onRewardSkipped: () {
+        if (!mounted) return;
+        setState(() => _isFullScreenAdShowing = false);
+        if (_pendingSleepModal) { _showSleepModal(); return; }
+        _resetInactivityTimer();
+        _showRewardSkippedDialog();
+      },
+      onNoAd: () {
+        if (!mounted) return;
+        if (_pendingSleepModal) { _showSleepModal(); return; }
+        _resetInactivityTimer();
+        _showAdFallbackCountdown();
+      },
     );
   }
 
-  /// リワード広告をスキップしたときのダイアログ
   void _showRewardSkippedDialog() {
     if (!mounted) return;
     final l10n = AppLocalizations.of(context)!;
     showDialog<void>(
       context: context,
       barrierDismissible: false,
-      builder: (BuildContext dialogContext) {
-        return AlertDialog(
-          title: Text(l10n.adSkippedTitle),
-          content: Text(l10n.adSkippedMessage),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(dialogContext).pop();
-                _showAd(); // 広告を再試行
-              },
-              child: Text(l10n.watchAdAgain),
-            ),
-            TextButton(
-              onPressed: () {
-                // スタート画面のルートまで全部ポップ
-                Navigator.of(dialogContext).pop();
-                Navigator.of(context).popUntil((route) => route.isFirst);
-              },
-              child: Text(l10n.backToStart),
-            ),
-          ],
-        );
-      },
+      builder: (dialogContext) => AlertDialog(
+        title: Text(l10n.adSkippedTitle),
+        content: Text(l10n.adSkippedMessage),
+        actions: [
+          TextButton(
+            onPressed: () {
+              _resetInactivityTimer();
+              Navigator.of(dialogContext).pop();
+              _showAd();
+            },
+            child: Text(l10n.watchAdAgain),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+              Navigator.of(context).popUntil((route) => route.isFirst);
+            },
+            child: Text(l10n.backToStart),
+          ),
+        ],
+      ),
     );
   }
 
-  /// フルスクリーン広告がない場合の30秒カウントダウンモーダル（バナー広告を試みる）
   void _showAdFallbackCountdown() {
     if (!mounted) return;
     _countdownSeconds = 30;
     showDialog<void>(
       context: context,
       barrierDismissible: false,
-      builder: (BuildContext dialogContext) {
+      builder: (dialogContext) {
         return StatefulBuilder(
           builder: (context, setDialogState) {
             final l10n = AppLocalizations.of(context)!;
@@ -209,7 +363,12 @@ class _GameScreenState extends State<GameScreen> {
                 if (_countdownSeconds == 0) {
                   _countdownTimer?.cancel();
                   Navigator.of(dialogContext).pop();
-                  _showReadyGoDialog();
+                  if (_pendingSleepModal) {
+                    _showSleepModal();
+                  } else {
+                    _resetInactivityTimer();
+                    _showReadyGoDialog();
+                  }
                 } else {
                   setDialogState(() => _countdownSeconds--);
                 }
@@ -244,25 +403,25 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void _showReadyGoDialog() {
+    if (!mounted) return;
     final l10n = AppLocalizations.of(context)!;
     showDialog<void>(
       context: context,
       barrierDismissible: false,
-      builder: (BuildContext dialogContext) {
-        return AlertDialog(
-          title: Text(l10n.nextStageTitle(_gridSize + 1, _gridSize + 1)),
-          content: Text(l10n.readyGo),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(dialogContext).pop();
-                _moveToNextStage();
-              },
-              child: Text(l10n.startStage),
-            ),
-          ],
-        );
-      },
+      builder: (dialogContext) => AlertDialog(
+        title: Text(l10n.nextStageTitle(_gridSize + 1, _gridSize + 1)),
+        content: Text(l10n.readyGo),
+        actions: [
+          TextButton(
+            onPressed: () {
+              _resetInactivityTimer();
+              Navigator.of(dialogContext).pop();
+              _moveToNextStage();
+            },
+            child: Text(l10n.startStage),
+          ),
+        ],
+      ),
     );
   }
 
@@ -272,25 +431,23 @@ class _GameScreenState extends State<GameScreen> {
       _gridSize++;
       _initializeGame();
     });
+    _resumeGameTimer();
   }
+
+  // ─── ビルド ──────────────────────────────────────
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final screenWidth = MediaQuery.of(context).size.width;
-    final horizontalPadding = 10.0 * 2;
-    final crossAxisSpacingTotal = 8.0 * (_gridSize - 1);
-    final panelWidth =
-        (screenWidth - horizontalPadding - crossAxisSpacingTotal) / _gridSize;
-
-    double fontSize = panelWidth * 0.4;
-    if (fontSize < 16.0) fontSize = 16.0;
-    if (fontSize > 48.0) fontSize = 48.0;
+    final panelWidth = (screenWidth - 20 - 8.0 * (_gridSize - 1)) / _gridSize;
+    final double fontSize = (panelWidth * 0.4).clamp(16.0, 48.0);
 
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, _) async {
         if (didPop) return;
+        _pauseGameTimer();
         final shouldPop = await showDialog<bool>(
           context: context,
           builder: (ctx) {
@@ -300,7 +457,10 @@ class _GameScreenState extends State<GameScreen> {
               content: Text(l10n.quitGameMessage),
               actions: [
                 TextButton(
-                  onPressed: () => Navigator.of(ctx).pop(false),
+                  onPressed: () {
+                    _resetInactivityTimer();
+                    Navigator.of(ctx).pop(false);
+                  },
                   child: Text(l10n.continueButton),
                 ),
                 TextButton(
@@ -312,17 +472,21 @@ class _GameScreenState extends State<GameScreen> {
           },
         );
         if (shouldPop == true && context.mounted) {
-          Navigator.of(context).pop();
+          Navigator.of(context).pop(); // dispose でabandon保存
+        } else {
+          _resumeGameTimer();
         }
       },
       child: Scaffold(
         body: SafeArea(
           child: Column(
             children: [
+              if (kDebugMode) _buildDebugOverlay(),
               Expanded(
                 child: Center(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0, vertical: 8.0),
                     child: GridView.builder(
                       shrinkWrap: true,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -335,13 +499,12 @@ class _GameScreenState extends State<GameScreen> {
                         final number = _numbers[index];
                         Color panelColor = Theme.of(context).cardColor;
                         if (_stage1Cleared.contains(number)) {
-                          panelColor = Colors.green; // ステージ1: 正解済みは緑のまま
+                          panelColor = Colors.green;
                         } else if (_correctTappedNumber == number) {
-                          panelColor = Colors.green; // ステージ2以降: 一瞬だけ緑
+                          panelColor = Colors.green;
                         } else if (_wrongTappedNumber == number) {
                           panelColor = Colors.red;
                         }
-
                         return GestureDetector(
                           onTap: () => _onTapPanel(number),
                           child: AnimatedContainer(
@@ -349,12 +512,12 @@ class _GameScreenState extends State<GameScreen> {
                             decoration: BoxDecoration(
                               color: panelColor,
                               borderRadius: BorderRadius.circular(8.0),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                   color: Color.fromRGBO(0, 0, 0, 0.2),
                                   spreadRadius: 1,
                                   blurRadius: 3,
-                                  offset: const Offset(0, 2),
+                                  offset: Offset(0, 2),
                                 ),
                               ],
                             ),
@@ -364,7 +527,10 @@ class _GameScreenState extends State<GameScreen> {
                               style: Theme.of(context)
                                   .textTheme
                                   .headlineSmall
-                                  ?.copyWith(color: Theme.of(context).primaryColor, fontSize: fontSize),
+                                  ?.copyWith(
+                                    color: Theme.of(context).primaryColor,
+                                    fontSize: fontSize,
+                                  ),
                             ),
                           ),
                         );
@@ -379,7 +545,10 @@ class _GameScreenState extends State<GameScreen> {
         ),
         floatingActionButton: kDebugMode
             ? FloatingActionButton.extended(
-                onPressed: _showStageClearDialog,
+                onPressed: () {
+                  _resetInactivityTimer();
+                  _showStageClearDialog();
+                },
                 label: Text(l10n.debugNextStage),
                 icon: const Icon(Icons.arrow_forward),
               )
@@ -388,7 +557,29 @@ class _GameScreenState extends State<GameScreen> {
       ),
     );
   }
+
+  Widget _buildDebugOverlay() {
+    String fmt(Duration d) {
+      final m = d.inMinutes.toString().padLeft(2, '0');
+      final s = (d.inSeconds % 60).toString().padLeft(2, '0');
+      return '$m:$s';
+    }
+
+    return Container(
+      width: double.infinity,
+      color: Colors.black87,
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      child: Text(
+        '[DEBUG]  ゲーム: ${fmt(_gameStopwatch.elapsed)}'
+        '  経過: ${fmt(_totalStopwatch.elapsed)}'
+        '  無操作: ${fmt(_inactivityStopwatch.elapsed)}',
+        style: const TextStyle(color: Colors.greenAccent, fontSize: 11),
+      ),
+    );
+  }
 }
+
+// ─── ウィジェット ─────────────────────────────────
 
 class _HowToPlayHint extends StatelessWidget {
   const _HowToPlayHint();
@@ -410,13 +601,19 @@ class _HowToPlayHint extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.info_outline, size: 16, color: Colors.deepPurpleAccent),
+              const Icon(Icons.info_outline,
+                  size: 16, color: Colors.deepPurpleAccent),
               const SizedBox(width: 6),
-              Text(l10n.howToPlayTitle, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 14)),
+              Text(l10n.howToPlayTitle,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(fontSize: 14)),
             ],
           ),
           const SizedBox(height: 8),
-          Text(l10n.howToPlayBody, style: Theme.of(context).textTheme.bodyMedium),
+          Text(l10n.howToPlayBody,
+              style: Theme.of(context).textTheme.bodyMedium),
         ],
       ),
     );

@@ -277,6 +277,30 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'次のステージからは、どの数字まで押せたかがわからなくなります。\n難しくなるので、寝やすくなるでしょう。\nステージ 10×10 が最後のステージです。\nクリアするまでに眠れますように。'**
   String get stage1ClearExtra;
+
+  /// 寝落ち検知モーダルのタイトル
+  ///
+  /// In ja, this message translates to:
+  /// **'寝落ちしましたね。'**
+  String get sleepModalTitle;
+
+  /// 寝落ち検知モーダルのメッセージ
+  ///
+  /// In ja, this message translates to:
+  /// **'おめでとうございます！\nやすらかな眠りを。'**
+  String get sleepModalMessage;
+
+  /// 記録がない場合の表示
+  ///
+  /// In ja, this message translates to:
+  /// **'記録はまだありません'**
+  String get recordNoHistory;
+
+  /// 途中離脱の記録ラベル
+  ///
+  /// In ja, this message translates to:
+  /// **'途中離脱'**
+  String get recordResultAbandon;
 }
 
 class _AppLocalizationsDelegate

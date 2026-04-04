@@ -107,4 +107,16 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get stage1ClearExtra =>
       '次のステージからは、どの数字まで押せたかがわからなくなります。\n難しくなるので、寝やすくなるでしょう。\nステージ 10×10 が最後のステージです。\nクリアするまでに眠れますように。';
+
+  @override
+  String get sleepModalTitle => '寝落ちしましたね。';
+
+  @override
+  String get sleepModalMessage => 'おめでとうございます！\nやすらかな眠りを。';
+
+  @override
+  String get recordNoHistory => '記録はまだありません';
+
+  @override
+  String get recordResultAbandon => '途中離脱';
 }
