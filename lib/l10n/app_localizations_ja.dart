@@ -103,4 +103,8 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get sleepCountdownMessage => '目を閉じて30秒待ちましょう。';
+
+  @override
+  String get stage1ClearExtra =>
+      '次のステージからは、どの数字まで押せたかがわからなくなります。\n難しくなるので、寝やすくなるでしょう。\nステージ 10×10 が最後のステージです。\nクリアするまでに眠れますように。';
 }

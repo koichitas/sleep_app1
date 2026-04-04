@@ -107,5 +107,8 @@
   "@backToStart": { "description": "スタート画面に戻るボタン" },
 
   "sleepCountdownMessage": "目を閉じて30秒待ちましょう。",
-  "@sleepCountdownMessage": { "description": "バナー/カウントダウンモーダルの上部メッセージ" }
+  "@sleepCountdownMessage": { "description": "バナー/カウントダウンモーダルの上部メッセージ" },
+
+  "stage1ClearExtra": "次のステージからは、どの数字まで押せたかがわからなくなります。\n難しくなるので、寝やすくなるでしょう。\nステージ 10×10 が最後のステージです。\nクリアするまでに眠れますように。",
+  "@stage1ClearExtra": { "description": "ステージ1クリア時のみ表示する追加メッセージ" }
 }

@@ -104,4 +104,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sleepCountdownMessage => 'Close your eyes and wait 30 seconds.';
+
+  @override
+  String get stage1ClearExtra =>
+      'From the next stage, you won\'t be able to tell which numbers you\'ve already tapped.\nIt gets harder — which means it\'s easier to fall asleep.\nStage 10×10 is the final stage.\nMay you fall asleep before you clear it.';
 }

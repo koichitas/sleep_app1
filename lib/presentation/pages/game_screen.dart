@@ -17,8 +17,9 @@ class _GameScreenState extends State<GameScreen> {
   late List<int> _numbers;
   int _nextNumberToTap = 1;
 
-  int? _correctTappedNumber; // 正解タップのフィードバック用
+  int? _correctTappedNumber; // 正解タップのフィードバック用（ステージ1以外）
   int? _wrongTappedNumber;   // 不正解タップのフィードバック用
+  final Set<int> _stage1Cleared = {}; // ステージ1の正解済み番号（緑のまま表示）
 
   int _countdownSeconds = 3;
   Timer? _countdownTimer;
@@ -43,17 +44,27 @@ class _GameScreenState extends State<GameScreen> {
     _nextNumberToTap = 1;
     _correctTappedNumber = null;
     _wrongTappedNumber = null;
+    _stage1Cleared.clear();
   }
 
   void _onTapPanel(int tappedNumber) {
     if (tappedNumber == _nextNumberToTap) {
-      setState(() {
-        _correctTappedNumber = tappedNumber;
-        _wrongTappedNumber = null;
-      });
-      Timer(const Duration(milliseconds: 200), () {
-        if (mounted) setState(() => _correctTappedNumber = null);
-      });
+      if (_gridSize == 4) {
+        // ステージ1: 正解済みパネルを緑のまま保持
+        setState(() {
+          _stage1Cleared.add(tappedNumber);
+          _wrongTappedNumber = null;
+        });
+      } else {
+        // ステージ2以降: 短時間だけ緑にしてすぐ戻す
+        setState(() {
+          _correctTappedNumber = tappedNumber;
+          _wrongTappedNumber = null;
+        });
+        Timer(const Duration(milliseconds: 200), () {
+          if (mounted) setState(() => _correctTappedNumber = null);
+        });
+      }
 
       if (_nextNumberToTap == _gridSize * _gridSize) {
         _showStageClearDialog();
@@ -61,6 +72,7 @@ class _GameScreenState extends State<GameScreen> {
         _nextNumberToTap++;
       }
     } else {
+      // 不正解: ステージ問わず赤を短時間表示してすぐ戻す
       setState(() {
         _wrongTappedNumber = tappedNumber;
         _correctTappedNumber = null;
@@ -110,7 +122,20 @@ class _GameScreenState extends State<GameScreen> {
         builder: (BuildContext dialogContext) {
           return AlertDialog(
             title: Text(l10n.stageClearTitle),
-            content: Text(l10n.stageClearMessage),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(l10n.stageClearMessage),
+                if (_gridSize == 4) ...[
+                  const SizedBox(height: 12),
+                  Text(
+                    l10n.stage1ClearExtra,
+                    style: Theme.of(dialogContext).textTheme.bodyMedium,
+                  ),
+                ],
+              ],
+            ),
             actions: [
               TextButton(
                 onPressed: () {
@@ -309,8 +334,10 @@ class _GameScreenState extends State<GameScreen> {
                       itemBuilder: (context, index) {
                         final number = _numbers[index];
                         Color panelColor = Theme.of(context).cardColor;
-                        if (_correctTappedNumber == number) {
-                          panelColor = Colors.green;
+                        if (_stage1Cleared.contains(number)) {
+                          panelColor = Colors.green; // ステージ1: 正解済みは緑のまま
+                        } else if (_correctTappedNumber == number) {
+                          panelColor = Colors.green; // ステージ2以降: 一瞬だけ緑
                         } else if (_wrongTappedNumber == number) {
                           panelColor = Colors.red;
                         }

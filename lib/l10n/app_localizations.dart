@@ -271,6 +271,12 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'目を閉じて30秒待ちましょう。'**
   String get sleepCountdownMessage;
+
+  /// ステージ1クリア時のみ表示する追加メッセージ
+  ///
+  /// In ja, this message translates to:
+  /// **'次のステージからは、どの数字まで押せたかがわからなくなります。\n難しくなるので、寝やすくなるでしょう。\nステージ 10×10 が最後のステージです。\nクリアするまでに眠れますように。'**
+  String get stage1ClearExtra;
 }
 
 class _AppLocalizationsDelegate

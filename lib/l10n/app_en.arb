@@ -31,5 +31,7 @@
   "watchAdAgain": "Watch ad again",
   "backToStart": "Back to start",
 
-  "sleepCountdownMessage": "Close your eyes and wait 30 seconds."
+  "sleepCountdownMessage": "Close your eyes and wait 30 seconds.",
+
+  "stage1ClearExtra": "From the next stage, you won't be able to tell which numbers you've already tapped.\nIt gets harder — which means it's easier to fall asleep.\nStage 10×10 is the final stage.\nMay you fall asleep before you clear it."
 }
