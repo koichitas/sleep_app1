@@ -301,6 +301,30 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'途中離脱'**
   String get recordResultAbandon;
+
+  /// 3回連続ミス時のダイアログタイトル
+  ///
+  /// In ja, this message translates to:
+  /// **'ヒントが必要ですか？'**
+  String get hintDialogTitle;
+
+  /// 3回連続ミス時のダイアログメッセージ
+  ///
+  /// In ja, this message translates to:
+  /// **'3回連続でミスしました。'**
+  String get hintDialogMessage;
+
+  /// ヒントなしで続けるボタン
+  ///
+  /// In ja, this message translates to:
+  /// **'そのまま続ける'**
+  String get continueWithoutHint;
+
+  /// 広告視聴でヒントを得るボタン
+  ///
+  /// In ja, this message translates to:
+  /// **'広告を見てヒントをもらう'**
+  String get watchAdForHint;
 }
 
 class _AppLocalizationsDelegate

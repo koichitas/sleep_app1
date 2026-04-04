@@ -121,4 +121,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get recordResultAbandon => 'Abandoned';
+
+  @override
+  String get hintDialogTitle => 'Need a hint?';
+
+  @override
+  String get hintDialogMessage => 'You missed 3 times in a row.';
+
+  @override
+  String get continueWithoutHint => 'Continue without hint';
+
+  @override
+  String get watchAdForHint => 'Watch ad for a hint';
 }

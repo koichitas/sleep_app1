@@ -122,5 +122,17 @@
   "@recordNoHistory": { "description": "記録がない場合の表示" },
 
   "recordResultAbandon": "途中離脱",
-  "@recordResultAbandon": { "description": "途中離脱の記録ラベル" }
+  "@recordResultAbandon": { "description": "途中離脱の記録ラベル" },
+
+  "hintDialogTitle": "ヒントが必要ですか？",
+  "@hintDialogTitle": { "description": "3回連続ミス時のダイアログタイトル" },
+
+  "hintDialogMessage": "3回連続でミスしました。",
+  "@hintDialogMessage": { "description": "3回連続ミス時のダイアログメッセージ" },
+
+  "continueWithoutHint": "そのまま続ける",
+  "@continueWithoutHint": { "description": "ヒントなしで続けるボタン" },
+
+  "watchAdForHint": "広告を見てヒントをもらう",
+  "@watchAdForHint": { "description": "広告視聴でヒントを得るボタン" }
 }

@@ -38,5 +38,10 @@
   "sleepModalTitle": "You fell asleep.",
   "sleepModalMessage": "Congratulations!\nHave a peaceful sleep.",
   "recordNoHistory": "No records yet",
-  "recordResultAbandon": "Abandoned"
+  "recordResultAbandon": "Abandoned",
+
+  "hintDialogTitle": "Need a hint?",
+  "hintDialogMessage": "You missed 3 times in a row.",
+  "continueWithoutHint": "Continue without hint",
+  "watchAdForHint": "Watch ad for a hint"
 }

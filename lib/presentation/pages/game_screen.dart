@@ -43,6 +43,10 @@ class _GameScreenState extends State<GameScreen> {
   bool _pendingSleepModal = false;
   bool _isFullScreenAdShowing = false;
 
+  // ヒントシステム（ステージ2以降）
+  int _consecutiveMisses = 0;
+  bool _isHintActive = false;
+
   static const Duration _inactivityTimeout =
       kDebugMode ? Duration(seconds: 30) : Duration(minutes: 10);
 
@@ -59,6 +63,7 @@ class _GameScreenState extends State<GameScreen> {
     _resetInactivityTimer();
     AdmobService.loadInterstitial();
     AdmobService.loadReward();
+    AdmobService.loadHintReward();
 
     if (kDebugMode) {
       // デバッグ表示を1秒ごとに更新
@@ -170,6 +175,8 @@ class _GameScreenState extends State<GameScreen> {
     _correctTappedNumber = null;
     _wrongTappedNumber = null;
     _stage1Cleared.clear();
+    _consecutiveMisses = 0;
+    _isHintActive = false;
   }
 
   // ─── パネルタップ ────────────────────────────────
@@ -178,6 +185,10 @@ class _GameScreenState extends State<GameScreen> {
     _resetInactivityTimer(); // 操作でリセット
 
     if (tappedNumber == _nextNumberToTap) {
+      // 正解 → ミスカウント・ヒントをリセット
+      _consecutiveMisses = 0;
+      setState(() => _isHintActive = false);
+
       if (_gridSize == 4) {
         setState(() {
           _stage1Cleared.add(tappedNumber);
@@ -199,6 +210,7 @@ class _GameScreenState extends State<GameScreen> {
         _nextNumberToTap++;
       }
     } else {
+      // 不正解
       setState(() {
         _wrongTappedNumber = tappedNumber;
         _correctTappedNumber = null;
@@ -206,6 +218,15 @@ class _GameScreenState extends State<GameScreen> {
       Timer(const Duration(milliseconds: 200), () {
         if (mounted) setState(() => _wrongTappedNumber = null);
       });
+
+      // ヒント表示中 or ステージ1はカウントしない
+      if (!_isHintActive && _gridSize > 4) {
+        _consecutiveMisses++;
+        if (_consecutiveMisses >= 3) {
+          _consecutiveMisses = 0;
+          _showHintDialog();
+        }
+      }
     }
 
     if (kDebugMode) {
@@ -409,6 +430,57 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
+  // ─── ヒントシステム ──────────────────────────────
+
+  void _showHintDialog() {
+    if (!mounted) return;
+    _pauseGameTimer();
+    _resetInactivityTimer();
+    final l10n = AppLocalizations.of(context)!;
+
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(l10n.hintDialogTitle),
+        content: Text(l10n.hintDialogMessage),
+        actions: [
+          TextButton(
+            onPressed: () {
+              _resetInactivityTimer();
+              Navigator.of(dialogContext).pop();
+              _resumeGameTimer();
+              // ミスカウントはすでに0にリセット済み、ヒントなしで続行
+            },
+            child: Text(l10n.continueWithoutHint),
+          ),
+          TextButton(
+            onPressed: () {
+              _resetInactivityTimer();
+              Navigator.of(dialogContext).pop();
+              AdmobService.showHintReward(
+                onEarned: () {
+                  // 広告視聴完了 → ヒント（緑枠）を表示
+                  if (mounted) {
+                    setState(() => _isHintActive = true);
+                  }
+                  _resumeGameTimer();
+                  _resetInactivityTimer();
+                },
+                onSkipped: () {
+                  // スキップ or 広告なし → ヒントなしで続行
+                  _resumeGameTimer();
+                  _resetInactivityTimer();
+                },
+              );
+            },
+            child: Text(l10n.watchAdForHint),
+          ),
+        ],
+      ),
+    );
+  }
+
   void _showReadyGoDialog() {
     if (!mounted) return;
     final l10n = AppLocalizations.of(context)!;
@@ -514,6 +586,9 @@ class _GameScreenState extends State<GameScreen> {
                         } else if (_wrongTappedNumber == number) {
                           panelColor = Colors.red;
                         }
+                        final isHintTarget =
+                            _isHintActive && number == _nextNumberToTap;
+
                         return GestureDetector(
                           onTap: () => _onTapPanel(number),
                           child: AnimatedContainer(
@@ -521,6 +596,10 @@ class _GameScreenState extends State<GameScreen> {
                             decoration: BoxDecoration(
                               color: panelColor,
                               borderRadius: BorderRadius.circular(8.0),
+                              border: isHintTarget
+                                  ? Border.all(
+                                      color: Colors.greenAccent, width: 3.0)
+                                  : null,
                               boxShadow: const [
                                 BoxShadow(
                                   color: Color.fromRGBO(0, 0, 0, 0.2),

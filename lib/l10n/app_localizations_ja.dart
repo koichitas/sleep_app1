@@ -119,4 +119,16 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get recordResultAbandon => '途中離脱';
+
+  @override
+  String get hintDialogTitle => 'ヒントが必要ですか？';
+
+  @override
+  String get hintDialogMessage => '3回連続でミスしました。';
+
+  @override
+  String get continueWithoutHint => 'そのまま続ける';
+
+  @override
+  String get watchAdForHint => '広告を見てヒントをもらう';
 }
