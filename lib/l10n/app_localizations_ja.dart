@@ -32,13 +32,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get allStageClearTitle => '全ステージクリア！';
 
   @override
-  String get allStageClearMessage => 'おめでとうございます！\nゆっくり休みましょう。';
+  String get allStageClearMessage => 'おめでとうございます！\nすこし休憩しましょう。\nゆっくり休みましょう。';
 
   @override
   String get stageClearTitle => 'ステージクリア！';
 
   @override
-  String get stageClearMessage => 'おめでとうございます！';
+  String get stageClearMessage => 'おめでとうございます！\nすこし休憩しましょう。';
 
   @override
   String get ok => 'OK';

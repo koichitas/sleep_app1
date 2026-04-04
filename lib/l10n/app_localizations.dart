@@ -143,7 +143,7 @@ abstract class AppLocalizations {
   /// 全ステージクリア時のメッセージ
   ///
   /// In ja, this message translates to:
-  /// **'おめでとうございます！\nゆっくり休みましょう。'**
+  /// **'おめでとうございます！\nすこし休憩しましょう。\nゆっくり休みましょう。'**
   String get allStageClearMessage;
 
   /// ステージクリア時のダイアログタイトル
@@ -155,7 +155,7 @@ abstract class AppLocalizations {
   /// ステージクリア時のメッセージ
   ///
   /// In ja, this message translates to:
-  /// **'おめでとうございます！'**
+  /// **'おめでとうございます！\nすこし休憩しましょう。'**
   String get stageClearMessage;
 
   /// OKボタン

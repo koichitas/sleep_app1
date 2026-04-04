@@ -27,13 +27,13 @@
   "allStageClearTitle": "全ステージクリア！",
   "@allStageClearTitle": { "description": "全ステージクリア時のダイアログタイトル" },
 
-  "allStageClearMessage": "おめでとうございます！\nゆっくり休みましょう。",
+  "allStageClearMessage": "おめでとうございます！\nすこし休憩しましょう。\nゆっくり休みましょう。",
   "@allStageClearMessage": { "description": "全ステージクリア時のメッセージ" },
 
   "stageClearTitle": "ステージクリア！",
   "@stageClearTitle": { "description": "ステージクリア時のダイアログタイトル" },
 
-  "stageClearMessage": "おめでとうございます！",
+  "stageClearMessage": "おめでとうございます！\nすこし休憩しましょう。",
   "@stageClearMessage": { "description": "ステージクリア時のメッセージ" },
 
   "ok": "OK",

@@ -32,13 +32,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get allStageClearTitle => 'All Stages Clear!';
 
   @override
-  String get allStageClearMessage => 'Congratulations!\nNow get some rest.';
+  String get allStageClearMessage =>
+      'Congratulations!\nTake a little rest.\nNow get some rest.';
 
   @override
   String get stageClearTitle => 'Stage Clear!';
 
   @override
-  String get stageClearMessage => 'Congratulations!';
+  String get stageClearMessage => 'Congratulations!\nTake a little rest.';
 
   @override
   String get ok => 'OK';
