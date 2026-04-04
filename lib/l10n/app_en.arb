@@ -29,5 +29,7 @@
   "adSkippedTitle": "Please watch the full ad",
   "adSkippedMessage": "You need to watch the ad until the end to proceed to the next stage.",
   "watchAdAgain": "Watch ad again",
-  "backToStart": "Back to start"
+  "backToStart": "Back to start",
+
+  "sleepCountdownMessage": "Close your eyes and wait 30 seconds."
 }

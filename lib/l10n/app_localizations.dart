@@ -265,6 +265,12 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'最初に戻る'**
   String get backToStart;
+
+  /// バナー/カウントダウンモーダルの上部メッセージ
+  ///
+  /// In ja, this message translates to:
+  /// **'目を閉じて30秒待ちましょう。'**
+  String get sleepCountdownMessage;
 }
 
 class _AppLocalizationsDelegate

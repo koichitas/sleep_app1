@@ -104,5 +104,8 @@
   "@watchAdAgain": { "description": "広告を再試行するボタン" },
 
   "backToStart": "最初に戻る",
-  "@backToStart": { "description": "スタート画面に戻るボタン" }
+  "@backToStart": { "description": "スタート画面に戻るボタン" },
+
+  "sleepCountdownMessage": "目を閉じて30秒待ちましょう。",
+  "@sleepCountdownMessage": { "description": "バナー/カウントダウンモーダルの上部メッセージ" }
 }

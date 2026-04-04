@@ -100,4 +100,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get backToStart => '最初に戻る';
+
+  @override
+  String get sleepCountdownMessage => '目を閉じて30秒待ちましょう。';
 }

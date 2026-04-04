@@ -168,10 +168,10 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
-  /// フルスクリーン広告がない場合の10秒カウントダウンモーダル（バナー広告を試みる）
+  /// フルスクリーン広告がない場合の30秒カウントダウンモーダル（バナー広告を試みる）
   void _showAdFallbackCountdown() {
     if (!mounted) return;
-    _countdownSeconds = 10;
+    _countdownSeconds = 30;
     showDialog<void>(
       context: context,
       barrierDismissible: false,
@@ -194,6 +194,14 @@ class _GameScreenState extends State<GameScreen> {
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  Text(
+                    l10n.sleepCountdownMessage,
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 16),
                   const AdmobBanner(),
                   const SizedBox(height: 16),
                   Text(

@@ -101,4 +101,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get backToStart => 'Back to start';
+
+  @override
+  String get sleepCountdownMessage => 'Close your eyes and wait 30 seconds.';
 }
