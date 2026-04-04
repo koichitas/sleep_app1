@@ -31,6 +31,9 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
   provider: ^6.1.2
   admob_kit:
     path: ../packages/admob_kit
@@ -46,6 +49,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  generate: true
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -87,4 +91,7 @@ flutter:
 # flutter_launcher_icons
 flutter_launcher_icons:
   android: true
+  ios: false
   image_path: "assets/app_icon.png"
+  adaptive_icon_background: "#0D1666"
+  adaptive_icon_foreground: "assets/app_icon.png"

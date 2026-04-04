@@ -1,0 +1,96 @@
+{
+  "@@locale": "ja",
+
+  "appTitle": "寝落ちチャレンジ",
+  "@appTitle": { "description": "アプリ名" },
+
+  "startScreenMessage": "今日もおつかれさまでした。\n良い眠りを。",
+  "@startScreenMessage": { "description": "スタート画面のあいさつメッセージ" },
+
+  "startButton": "スタート",
+  "@startButton": { "description": "ゲーム開始ボタン" },
+
+  "recentRecordsTitle": "直近の記録",
+  "@recentRecordsTitle": { "description": "前回記録のセクションタイトル" },
+
+  "recordCleared": "クリア ({time})",
+  "@recordCleared": {
+    "description": "クリア記録の表示",
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+
+  "recordSleepOff": "寝落ち",
+  "@recordSleepOff": { "description": "寝落ちした記録の表示" },
+
+  "allStageClearTitle": "全ステージクリア！",
+  "@allStageClearTitle": { "description": "全ステージクリア時のダイアログタイトル" },
+
+  "allStageClearMessage": "おめでとうございます！\nゆっくり休みましょう。",
+  "@allStageClearMessage": { "description": "全ステージクリア時のメッセージ" },
+
+  "stageClearTitle": "ステージクリア！",
+  "@stageClearTitle": { "description": "ステージクリア時のダイアログタイトル" },
+
+  "stageClearMessage": "おめでとうございます！",
+  "@stageClearMessage": { "description": "ステージクリア時のメッセージ" },
+
+  "ok": "OK",
+  "@ok": { "description": "OKボタン" },
+
+  "nextStagePreparingTitle": "次のステージの準備中...",
+  "@nextStagePreparingTitle": { "description": "カウントダウンダイアログのタイトル" },
+
+  "countdownMessage": "あと {seconds} 秒",
+  "@countdownMessage": {
+    "description": "カウントダウンの表示",
+    "placeholders": {
+      "seconds": { "type": "int" }
+    }
+  },
+
+  "nextStageTitle": "ステージ {rows} × {cols}",
+  "@nextStageTitle": {
+    "description": "次ステージのサイズ表示",
+    "placeholders": {
+      "rows": { "type": "int" },
+      "cols": { "type": "int" }
+    }
+  },
+
+  "readyGo": "準備完了！",
+  "@readyGo": { "description": "次のステージ開始の合図" },
+
+  "startStage": "スタート！",
+  "@startStage": { "description": "ステージ開始ボタン" },
+
+  "quitGameTitle": "ゲームを終了しますか？",
+  "@quitGameTitle": { "description": "戻るキー確認ダイアログのタイトル" },
+
+  "quitGameMessage": "ここで戻ると最初のステージからやり直しになります。",
+  "@quitGameMessage": { "description": "戻るキー確認ダイアログのメッセージ" },
+
+  "continueButton": "続ける",
+  "@continueButton": { "description": "ゲーム続行ボタン" },
+
+  "quitButton": "終了する",
+  "@quitButton": { "description": "ゲーム終了ボタン" },
+
+  "debugNextStage": "次のステージへ (Debug)",
+  "@debugNextStage": { "description": "デバッグ用ボタンラベル" },
+
+  "debugTappedNumber": "タップした数字: {number}",
+  "@debugTappedNumber": {
+    "description": "デバッグ用スナックバー",
+    "placeholders": {
+      "number": { "type": "int" }
+    }
+  },
+
+  "howToPlayTitle": "遊び方",
+  "@howToPlayTitle": { "description": "遊び方セクションのタイトル" },
+
+  "howToPlayBody": "1 から順番に数字をタップしてください。\n全部タップするとステージクリアです。\nステージが進むにつれてマスが増えていきます。\nクリア後の広告が流れる間に、そのまま眠りましょう。",
+  "@howToPlayBody": { "description": "遊び方の説明文" }
+}

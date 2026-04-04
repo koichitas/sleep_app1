@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sleep_app1/l10n/app_localizations.dart';
 import 'package:sleep_app1/presentation/pages/game_screen.dart';
 
 class StartScreen extends StatelessWidget {
@@ -6,6 +7,7 @@ class StartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -15,8 +17,7 @@ class StartScreen extends StatelessWidget {
           children: [
             // メッセージ
             Text(
-              '''今日もおつかれさまでした。
-良い眠りを。''',
+              l10n.startScreenMessage,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.bold,
@@ -28,7 +29,7 @@ class StartScreen extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute<void>(builder: (_) => GameScreen()),
+                  MaterialPageRoute<void>(builder: (_) => const GameScreen()),
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -39,7 +40,7 @@ class StartScreen extends StatelessWidget {
                 ),
               ),
               child: Text(
-                'スタート',
+                l10n.startButton,
                 style: Theme.of(context)
                     .textTheme
                     .headlineSmall
@@ -47,35 +48,55 @@ class StartScreen extends StatelessWidget {
               ),
             ),
 
-            // 前回クリア時間または寝落ち時間を表示 (プレースホルダー)
+            // 前回記録
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '前回記録:',
+                  l10n.recentRecordsTitle,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 8),
-                Text(
-                  '2026/02/07 23:45 - クリア時間: 5分20秒', // プレースホルダーデータ
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-                Text(
-                  '2026/02/06 01:10 - 寝落ち', // プレースホルダーデータ
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-                Text(
-                  '2026/02/05 22:15 - クリア時間: 6分05秒', // プレースホルダーデータ
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-                const SizedBox(height: 20),
-                Text(
-                  '（直近3回のプレイ記録が表示されます）',
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
+                _RecordRow(date: '2026/02/07 23:45', isCleared: true, detail: '5分20秒'),
+                _RecordRow(date: '2026/02/06 01:10', isCleared: false, detail: ''),
+                _RecordRow(date: '2026/02/05 22:15', isCleared: true, detail: '6分05秒'),
               ],
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _RecordRow extends StatelessWidget {
+  const _RecordRow({required this.date, required this.isCleared, required this.detail});
+  final String date;
+  final bool isCleared;
+  final String detail;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: Row(
+        children: [
+          Icon(
+            isCleared ? Icons.check_circle : Icons.bedtime,
+            size: 16,
+            color: isCleared ? Colors.greenAccent : Colors.deepPurpleAccent,
+          ),
+          const SizedBox(width: 8),
+          Text(date, style: Theme.of(context).textTheme.bodyMedium),
+          const SizedBox(width: 8),
+          Text(
+            isCleared ? l10n.recordCleared(detail) : l10n.recordSleepOff,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              color: isCleared ? Colors.greenAccent : Colors.deepPurpleAccent,
+            ),
+          ),
+        ],
       ),
     );
   }

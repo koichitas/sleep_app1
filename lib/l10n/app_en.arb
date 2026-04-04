@@ -1,0 +1,28 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "Sleep Challenge",
+  "startScreenMessage": "Good work today.\nHave a good sleep.",
+  "startButton": "Start",
+  "recentRecordsTitle": "Recent Records",
+  "recordCleared": "Cleared ({time})",
+  "recordSleepOff": "Fell asleep",
+  "allStageClearTitle": "All Stages Clear!",
+  "allStageClearMessage": "Congratulations!\nNow get some rest.",
+  "stageClearTitle": "Stage Clear!",
+  "stageClearMessage": "Congratulations!",
+  "ok": "OK",
+  "nextStagePreparingTitle": "Preparing next stage...",
+  "countdownMessage": "{seconds} seconds left",
+  "nextStageTitle": "Stage {rows} × {cols}",
+  "readyGo": "Ready!",
+  "startStage": "Start!",
+  "quitGameTitle": "Quit the game?",
+  "quitGameMessage": "Going back will restart from the first stage.",
+  "continueButton": "Continue",
+  "quitButton": "Quit",
+  "debugNextStage": "Next Stage (Debug)",
+  "debugTappedNumber": "Tapped: {number}",
+  "howToPlayTitle": "How to Play",
+  "howToPlayBody": "Tap the numbers in order from 1.\nClear the stage by tapping all numbers.\nThe grid grows as you advance.\nFall asleep during the ad after clearing!"
+}
