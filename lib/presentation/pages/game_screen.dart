@@ -1,9 +1,9 @@
+import 'dart:async';
+import 'dart:math';
 import 'package:admob_kit/admob_kit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sleep_app1/l10n/app_localizations.dart';
-import 'dart:math';
-import 'dart:async';
 
 class GameScreen extends StatefulWidget {
   const GameScreen({super.key});
@@ -114,9 +114,7 @@ class _GameScreenState extends State<GameScreen> {
               TextButton(
                 onPressed: () {
                   Navigator.of(dialogContext).pop();
-                  AdmobService.showInterstitialWithFallback(
-                    onDismissed: _startNextStageCountdown,
-                  );
+                  _showAd();
                 },
                 child: Text(l10n.ok),
               ),
@@ -127,14 +125,58 @@ class _GameScreenState extends State<GameScreen> {
     }
   }
 
-  void _startNextStageCountdown() {
-    _countdownSeconds = 3;
+  /// 広告を優先度付きで表示する
+  void _showAd() {
+    AdmobService.showAdWithPriority(
+      onCompleted: _showReadyGoDialog,
+      onRewardSkipped: _showRewardSkippedDialog,
+      onNoAd: _showAdFallbackCountdown,
+    );
+  }
+
+  /// リワード広告をスキップしたときのダイアログ
+  void _showRewardSkippedDialog() {
+    if (!mounted) return;
+    final l10n = AppLocalizations.of(context)!;
+    showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          title: Text(l10n.adSkippedTitle),
+          content: Text(l10n.adSkippedMessage),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(dialogContext).pop();
+                _showAd(); // 広告を再試行
+              },
+              child: Text(l10n.watchAdAgain),
+            ),
+            TextButton(
+              onPressed: () {
+                // スタート画面のルートまで全部ポップ
+                Navigator.of(dialogContext).pop();
+                Navigator.of(context).popUntil((route) => route.isFirst);
+              },
+              child: Text(l10n.backToStart),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  /// フルスクリーン広告がない場合の10秒カウントダウンモーダル（バナー広告を試みる）
+  void _showAdFallbackCountdown() {
+    if (!mounted) return;
+    _countdownSeconds = 10;
     showDialog<void>(
       context: context,
       barrierDismissible: false,
       builder: (BuildContext dialogContext) {
         return StatefulBuilder(
-          builder: (context, setState) {
+          builder: (context, setDialogState) {
             final l10n = AppLocalizations.of(context)!;
             if (_countdownTimer == null || !_countdownTimer!.isActive) {
               _countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -143,13 +185,23 @@ class _GameScreenState extends State<GameScreen> {
                   Navigator.of(dialogContext).pop();
                   _showReadyGoDialog();
                 } else {
-                  setState(() => _countdownSeconds--);
+                  setDialogState(() => _countdownSeconds--);
                 }
               });
             }
             return AlertDialog(
-              title: Text(l10n.nextStagePreparingTitle),
-              content: Text(l10n.countdownMessage(_countdownSeconds)),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const AdmobBanner(),
+                  const SizedBox(height: 16),
+                  Text(
+                    l10n.countdownMessage(_countdownSeconds),
+                    style: Theme.of(context).textTheme.headlineSmall,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
             );
           },
         );

@@ -92,5 +92,17 @@
   "@howToPlayTitle": { "description": "遊び方セクションのタイトル" },
 
   "howToPlayBody": "1 から順番に数字をタップしてください。\n全部タップするとステージクリアです。\nステージが進むにつれてマスが増えていきます。\nクリア後の広告が流れる間に、そのまま眠りましょう。",
-  "@howToPlayBody": { "description": "遊び方の説明文" }
+  "@howToPlayBody": { "description": "遊び方の説明文" },
+
+  "adSkippedTitle": "広告を最後まで見てください",
+  "@adSkippedTitle": { "description": "リワード広告スキップ時のダイアログタイトル" },
+
+  "adSkippedMessage": "次のステージに進むには、広告を最後まで見る必要があります。",
+  "@adSkippedMessage": { "description": "リワード広告スキップ時のメッセージ" },
+
+  "watchAdAgain": "広告をもう一度見る",
+  "@watchAdAgain": { "description": "広告を再試行するボタン" },
+
+  "backToStart": "最初に戻る",
+  "@backToStart": { "description": "スタート画面に戻るボタン" }
 }

@@ -88,4 +88,17 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get howToPlayBody =>
       'Tap the numbers in order from 1.\nClear the stage by tapping all numbers.\nThe grid grows as you advance.\nFall asleep during the ad after clearing!';
+
+  @override
+  String get adSkippedTitle => 'Please watch the full ad';
+
+  @override
+  String get adSkippedMessage =>
+      'You need to watch the ad until the end to proceed to the next stage.';
+
+  @override
+  String get watchAdAgain => 'Watch ad again';
+
+  @override
+  String get backToStart => 'Back to start';
 }

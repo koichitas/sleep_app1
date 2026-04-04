@@ -88,4 +88,16 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get howToPlayBody =>
       '1 から順番に数字をタップしてください。\n全部タップするとステージクリアです。\nステージが進むにつれてマスが増えていきます。\nクリア後の広告が流れる間に、そのまま眠りましょう。';
+
+  @override
+  String get adSkippedTitle => '広告を最後まで見てください';
+
+  @override
+  String get adSkippedMessage => '次のステージに進むには、広告を最後まで見る必要があります。';
+
+  @override
+  String get watchAdAgain => '広告をもう一度見る';
+
+  @override
+  String get backToStart => '最初に戻る';
 }

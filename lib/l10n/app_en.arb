@@ -24,5 +24,10 @@
   "debugNextStage": "Next Stage (Debug)",
   "debugTappedNumber": "Tapped: {number}",
   "howToPlayTitle": "How to Play",
-  "howToPlayBody": "Tap the numbers in order from 1.\nClear the stage by tapping all numbers.\nThe grid grows as you advance.\nFall asleep during the ad after clearing!"
+  "howToPlayBody": "Tap the numbers in order from 1.\nClear the stage by tapping all numbers.\nThe grid grows as you advance.\nFall asleep during the ad after clearing!",
+
+  "adSkippedTitle": "Please watch the full ad",
+  "adSkippedMessage": "You need to watch the ad until the end to proceed to the next stage.",
+  "watchAdAgain": "Watch ad again",
+  "backToStart": "Back to start"
 }

@@ -241,6 +241,30 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'1 から順番に数字をタップしてください。\n全部タップするとステージクリアです。\nステージが進むにつれてマスが増えていきます。\nクリア後の広告が流れる間に、そのまま眠りましょう。'**
   String get howToPlayBody;
+
+  /// リワード広告スキップ時のダイアログタイトル
+  ///
+  /// In ja, this message translates to:
+  /// **'広告を最後まで見てください'**
+  String get adSkippedTitle;
+
+  /// リワード広告スキップ時のメッセージ
+  ///
+  /// In ja, this message translates to:
+  /// **'次のステージに進むには、広告を最後まで見る必要があります。'**
+  String get adSkippedMessage;
+
+  /// 広告を再試行するボタン
+  ///
+  /// In ja, this message translates to:
+  /// **'広告をもう一度見る'**
+  String get watchAdAgain;
+
+  /// スタート画面に戻るボタン
+  ///
+  /// In ja, this message translates to:
+  /// **'最初に戻る'**
+  String get backToStart;
 }
 
 class _AppLocalizationsDelegate
