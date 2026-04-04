@@ -225,8 +225,6 @@ class _GameScreenState extends State<GameScreen> {
     final l10n = AppLocalizations.of(context)!;
 
     if (_gridSize >= 10) {
-      // 全ステージクリア → 記録保存してトップへ
-      _saveRecord(GameResult.clear);
       showDialog<void>(
         context: context,
         barrierDismissible: false,
@@ -235,10 +233,12 @@ class _GameScreenState extends State<GameScreen> {
           content: Text(l10n.allStageClearMessage),
           actions: [
             TextButton(
-              onPressed: () {
+              onPressed: () async {
                 _resetInactivityTimer();
+                final nav = Navigator.of(context);
                 Navigator.of(dialogContext).pop();
-                Navigator.of(context).pop();
+                await _saveRecord(GameResult.clear); // pop前に保存完了を待つ
+                nav.pop();
               },
               child: Text(l10n.ok),
             ),
@@ -278,12 +278,12 @@ class _GameScreenState extends State<GameScreen> {
     }
   }
 
-  void _saveRecord(GameResult result) {
+  Future<void> _saveRecord(GameResult result) async {
     if (_recordSaved) return;
     _recordSaved = true;
     _pauseGameTimer();
     _totalStopwatch.stop();
-    _recordRepository.saveRecord(GameRecord(
+    await _recordRepository.saveRecord(GameRecord(
       startTime: _sessionStartTime,
       result: result,
       gameTime: _gameStopwatch.elapsed,
@@ -338,9 +338,11 @@ class _GameScreenState extends State<GameScreen> {
             child: Text(l10n.watchAdAgain),
           ),
           TextButton(
-            onPressed: () {
+            onPressed: () async {
+              final nav = Navigator.of(context);
               Navigator.of(dialogContext).pop();
-              Navigator.of(context).popUntil((route) => route.isFirst);
+              await _saveRecord(GameResult.abandon); // pop前に保存完了を待つ
+              nav.popUntil((route) => route.isFirst);
             },
             child: Text(l10n.backToStart),
           ),
@@ -473,7 +475,9 @@ class _GameScreenState extends State<GameScreen> {
           },
         );
         if (shouldPop == true && context.mounted) {
-          Navigator.of(context).pop(); // dispose でabandon保存
+          final nav = Navigator.of(context);
+          await _saveRecord(GameResult.abandon); // pop前に保存完了を待つ
+          nav.pop();
         } else {
           _resumeGameTimer();
         }
