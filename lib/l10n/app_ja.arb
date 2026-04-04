@@ -4,7 +4,7 @@
   "appTitle": "寝落ちチャレンジ",
   "@appTitle": { "description": "アプリ名" },
 
-  "startScreenMessage": "今日もおつかれさまでした。\n良い眠りを。",
+  "startScreenMessage": "今日もおつかれさま\n良い眠りを",
   "@startScreenMessage": { "description": "スタート画面のあいさつメッセージ" },
 
   "startButton": "スタート",

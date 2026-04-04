@@ -107,7 +107,7 @@ abstract class AppLocalizations {
   /// スタート画面のあいさつメッセージ
   ///
   /// In ja, this message translates to:
-  /// **'今日もおつかれさまでした。\n良い眠りを。'**
+  /// **'今日もおつかれさま\n良い眠りを'**
   String get startScreenMessage;
 
   /// ゲーム開始ボタン

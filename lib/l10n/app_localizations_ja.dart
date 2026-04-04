@@ -12,7 +12,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get appTitle => '寝落ちチャレンジ';
 
   @override
-  String get startScreenMessage => '今日もおつかれさまでした。\n良い眠りを。';
+  String get startScreenMessage => '今日もおつかれさま\n良い眠りを';
 
   @override
   String get startButton => 'スタート';
