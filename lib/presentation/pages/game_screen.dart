@@ -28,6 +28,7 @@ class _GameScreenState extends State<GameScreen> {
     super.initState();
     _initializeGame();
     AdmobService.loadInterstitial(); // 広告を事前ロード
+    AdmobService.loadReward();       // リワード広告を事前ロード
   }
 
   @override
