@@ -43,7 +43,8 @@ class _GameScreenState extends State<GameScreen> {
   bool _pendingSleepModal = false;
   bool _isFullScreenAdShowing = false;
 
-  static const Duration _inactivityTimeout = Duration(minutes: 10);
+  static const Duration _inactivityTimeout =
+      kDebugMode ? Duration(seconds: 30) : Duration(minutes: 10);
 
   // ─── ライフサイクル ───────────────────────────────
 
