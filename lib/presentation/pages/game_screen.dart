@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:sleep_app1/domain/game_record.dart';
 import 'package:sleep_app1/domain/record_repository.dart';
 import 'package:sleep_app1/l10n/app_localizations.dart';
+import 'package:sleep_app1/services/analytics_service.dart';
 
 class GameScreen extends StatefulWidget {
   const GameScreen({super.key});
@@ -48,7 +49,7 @@ class _GameScreenState extends State<GameScreen> {
   bool _isHintActive = false;
 
   static const Duration _inactivityTimeout =
-      kDebugMode ? Duration(seconds: 30) : Duration(minutes: 10);
+      kDebugMode ? Duration(seconds: 60) : Duration(minutes: 10);
 
   // ─── ライフサイクル ───────────────────────────────
 
@@ -56,6 +57,7 @@ class _GameScreenState extends State<GameScreen> {
   void initState() {
     super.initState();
     _sessionStartTime = DateTime.now();
+    AnalyticsService.logGameStart();
     _initializeGame();
     _gameStopwatch.start();
     _totalStopwatch.start();
@@ -64,6 +66,7 @@ class _GameScreenState extends State<GameScreen> {
     AdmobService.loadInterstitial();
     AdmobService.loadReward();
     AdmobService.loadHintReward();
+    AdmobService.loadHintInterstitial();
 
     if (kDebugMode) {
       // デバッグ表示を1秒ごとに更新
@@ -119,6 +122,10 @@ class _GameScreenState extends State<GameScreen> {
     _totalStopwatch.stop();
     _recordSaved = true;
     _pendingSleepModal = true;
+    AnalyticsService.logSleepDetected(
+      gameSeconds: _gameStopwatch.elapsed.inSeconds,
+      totalSeconds: _totalStopwatch.elapsed.inSeconds,
+    );
 
     final sleepRaw = _totalStopwatch.elapsed - _inactivityTimeout;
     _recordRepository.saveRecord(GameRecord(
@@ -289,6 +296,7 @@ class _GameScreenState extends State<GameScreen> {
               onPressed: () {
                 _resetInactivityTimer();
                 Navigator.of(dialogContext).pop();
+                AnalyticsService.logStageClear(_gridSize);
                 if (_gridSize == 4) {
                   _showReadyGoDialog(); // ステージ1は広告なし
                 } else {
@@ -320,7 +328,10 @@ class _GameScreenState extends State<GameScreen> {
 
   void _showAd() {
     AdmobService.showAdWithPriority(
-      onAdStarted: () => setState(() => _isFullScreenAdShowing = true),
+      onAdStarted: () {
+        setState(() => _isFullScreenAdShowing = true);
+        AnalyticsService.logAdShown();
+      },
       onCompleted: () {
         if (!mounted) return;
         setState(() => _isFullScreenAdShowing = false);
@@ -331,6 +342,7 @@ class _GameScreenState extends State<GameScreen> {
       onRewardSkipped: () {
         if (!mounted) return;
         setState(() => _isFullScreenAdShowing = false);
+        AnalyticsService.logRewardSkipped();
         if (_pendingSleepModal) { _showSleepModal(); return; }
         _resetInactivityTimer();
         _showRewardSkippedDialog();
@@ -376,9 +388,11 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
-  void _showAdFallbackCountdown() {
+  void _showAdFallbackCountdown({VoidCallback? onComplete, String? bannerId}) {
     if (!mounted) return;
     _countdownSeconds = 30;
+    // カウントダウン中も寝落ち検知を遅延させるためフラグを立てる
+    setState(() => _isFullScreenAdShowing = true);
     showDialog<void>(
       context: context,
       barrierDismissible: false,
@@ -390,12 +404,14 @@ class _GameScreenState extends State<GameScreen> {
               _countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
                 if (_countdownSeconds == 0) {
                   _countdownTimer?.cancel();
+                  if (!mounted) return;
                   Navigator.of(dialogContext).pop();
+                  setState(() => _isFullScreenAdShowing = false);
                   if (_pendingSleepModal) {
                     _showSleepModal();
                   } else {
                     _resetInactivityTimer();
-                    _showReadyGoDialog();
+                    (onComplete ?? _showReadyGoDialog)();
                   }
                 } else {
                   setDialogState(() => _countdownSeconds--);
@@ -414,7 +430,7 @@ class _GameScreenState extends State<GameScreen> {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 16),
-                  const AdmobBanner(),
+                  AdmobBanner(adUnitId: bannerId),
                   const SizedBox(height: 16),
                   Text(
                     l10n.countdownMessage(_countdownSeconds),
@@ -432,10 +448,19 @@ class _GameScreenState extends State<GameScreen> {
 
   // ─── ヒントシステム ──────────────────────────────
 
+  void _grantHint() {
+    if (!mounted) return;
+    AnalyticsService.logHintGranted();
+    setState(() => _isHintActive = true);
+    _resumeGameTimer();
+    _resetInactivityTimer();
+  }
+
   void _showHintDialog() {
     if (!mounted) return;
     _pauseGameTimer();
     _resetInactivityTimer();
+    AnalyticsService.logHintRequested(_gridSize);
     final l10n = AppLocalizations.of(context)!;
 
     showDialog<void>(
@@ -458,19 +483,27 @@ class _GameScreenState extends State<GameScreen> {
             onPressed: () {
               _resetInactivityTimer();
               Navigator.of(dialogContext).pop();
-              AdmobService.showHintReward(
-                onEarned: () {
-                  // 広告視聴完了 → ヒント（緑枠）を表示
-                  if (mounted) {
-                    setState(() => _isHintActive = true);
-                  }
+              AdmobService.showHintAdWithPriority(
+                onAdStarted: () => setState(() => _isFullScreenAdShowing = true),
+                onHintEarned: () {
+                  if (!mounted) return;
+                  setState(() => _isFullScreenAdShowing = false);
+                  _grantHint();
+                },
+                onHintNotEarned: () {
+                  if (!mounted) return;
+                  setState(() => _isFullScreenAdShowing = false);
+                  // インタースティシャル視聴後はヒントなしで続行
                   _resumeGameTimer();
                   _resetInactivityTimer();
                 },
-                onSkipped: () {
-                  // スキップ or 広告なし → ヒントなしで続行
-                  _resumeGameTimer();
-                  _resetInactivityTimer();
+                onNoFullScreenAd: () {
+                  if (!mounted) return;
+                  // バナー+カウントダウン → 完了後ヒントを付与
+                  _showAdFallbackCountdown(
+                    onComplete: _grantHint,
+                    bannerId: AdmobService.hintBannerId,
+                  );
                 },
               );
             },
@@ -552,6 +585,7 @@ class _GameScreenState extends State<GameScreen> {
         );
         if (shouldPop == true && context.mounted) {
           final nav = Navigator.of(context);
+          await AnalyticsService.logGameAbandoned(_gridSize);
           await _saveRecord(GameResult.abandon); // pop前に保存完了を待つ
           nav.pop();
         } else {

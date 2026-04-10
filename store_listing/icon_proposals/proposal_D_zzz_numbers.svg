@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!--
+    Concept D: "Falling asleep while counting" — warm/cozy feel.
+    A sleepy moon face floats in the center.
+    "Z Z Z" rising up from it, but each Z is replaced by a numbered tile (1, 2, 3),
+    implying the act of counting numbers leads to sleep.
+    This is the most playful / story-telling concept.
+  -->
+  <defs>
+    <linearGradient id="bgD" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1535"/>
+      <stop offset="100%" style="stop-color:#0a0c22"/>
+    </linearGradient>
+    <linearGradient id="moonFace" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff9e6"/>
+      <stop offset="100%" style="stop-color:#ffe8a0"/>
+    </linearGradient>
+    <linearGradient id="tileBig" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3f51b5"/>
+      <stop offset="100%" style="stop-color:#283593"/>
+    </linearGradient>
+    <linearGradient id="tileMed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5c6bc0;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#3949ab;stop-opacity:0.9"/>
+    </linearGradient>
+    <linearGradient id="tileSmall" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7986cb;stop-opacity:0.7"/>
+      <stop offset="100%" style="stop-color:#5c6bc0;stop-opacity:0.7"/>
+    </linearGradient>
+    <filter id="moonGlowD">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="tileGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1024" height="1024" fill="url(#bgD)"/>
+
+  <!-- Stars -->
+  <circle cx="80"  cy="80"  r="3" fill="white" opacity="0.6"/>
+  <circle cx="200" cy="50"  r="2" fill="white" opacity="0.4"/>
+  <circle cx="940" cy="100" r="3" fill="white" opacity="0.6"/>
+  <circle cx="60"  cy="400" r="2" fill="white" opacity="0.4"/>
+  <circle cx="960" cy="600" r="3" fill="white" opacity="0.5"/>
+  <circle cx="100" cy="850" r="2" fill="white" opacity="0.4"/>
+  <circle cx="950" cy="880" r="3" fill="white" opacity="0.5"/>
+  <circle cx="400" cy="960" r="2" fill="white" opacity="0.3"/>
+  <!-- 4-pointed stars -->
+  <path d="M880 200 L883 211 L894 214 L883 217 L880 228 L877 217 L866 214 L877 211 Z" fill="white" opacity="0.8"/>
+  <path d="M120 650 L122 658 L130 660 L122 662 L120 670 L118 662 L110 660 L118 658 Z" fill="white" opacity="0.5"/>
+
+  <!-- Moon face (circle) with subtle glow -->
+  <circle cx="512" cy="620" r="220" fill="url(#moonFace)" filter="url(#moonGlowD)"/>
+  <!-- Moon face details: closed crescent eyes (sleeping) -->
+  <!-- Left eye (closed arc) -->
+  <path d="M420 580 Q440 560 460 580" stroke="#8a7040" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <!-- Right eye (closed arc) -->
+  <path d="M555 580 Q575 560 595 580" stroke="#8a7040" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <!-- Small smile -->
+  <path d="M460 660 Q512 700 560 660" stroke="#8a7040" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <!-- Rosy cheeks -->
+  <ellipse cx="412" cy="645" rx="28" ry="16" fill="#ffb74d" opacity="0.35"/>
+  <ellipse cx="610" cy="645" rx="28" ry="16" fill="#ffb74d" opacity="0.35"/>
+
+  <!-- Numbered tile "Z"s floating up from moon (right side, ascending, shrinking) -->
+  <!-- Tile 1 — largest, lowest, brightest -->
+  <rect x="660" y="420" width="170" height="140" rx="24" fill="url(#tileBig)" filter="url(#softShadow)"/>
+  <rect x="660" y="420" width="170" height="140" rx="24" fill="none" stroke="#7986cb" stroke-width="3"/>
+  <text x="745" y="503" font-family="Arial, sans-serif" font-size="100" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">1</text>
+
+  <!-- Tile 2 — medium, middle -->
+  <rect x="740" y="258" width="130" height="108" rx="20" fill="url(#tileMed)" filter="url(#softShadow)"/>
+  <rect x="740" y="258" width="130" height="108" rx="20" fill="none" stroke="#9fa8da" stroke-width="2.5"/>
+  <text x="805" y="323" font-family="Arial, sans-serif" font-size="76" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">2</text>
+
+  <!-- Tile 3 — small, highest, fading -->
+  <rect x="808" y="128" width="96" height="80" rx="16" fill="url(#tileSmall)" filter="url(#softShadow)"/>
+  <rect x="808" y="128" width="96" height="80" rx="16" fill="none" stroke="#c5cae9" stroke-width="2" opacity="0.7"/>
+  <text x="856" y="178" font-family="Arial, sans-serif" font-size="54" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" opacity="0.7">3</text>
+
+  <!-- Dotted trail connecting tiles (like bubbles rising) -->
+  <circle cx="745" cy="398" r="5" fill="#7986cb" opacity="0.5"/>
+  <circle cx="755" cy="374" r="4" fill="#7986cb" opacity="0.4"/>
+  <circle cx="768" cy="352" r="3" fill="#7986cb" opacity="0.3"/>
+  <circle cx="790" cy="328" r="3" fill="#7986cb" opacity="0.3"/>
+  <circle cx="808" cy="242" r="4" fill="#9fa8da" opacity="0.35"/>
+  <circle cx="822" cy="218" r="3" fill="#9fa8da" opacity="0.3"/>
+  <circle cx="836" cy="198" r="2" fill="#9fa8da" opacity="0.25"/>
+
+  <!-- Bottom of moon: small grid hint (3 tiny tiles peeking) -->
+  <rect x="368" y="810" width="88" height="68" rx="12" fill="#283593" opacity="0.7" filter="url(#softShadow)"/>
+  <text x="412" y="855" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" opacity="0.8">4</text>
+
+  <rect x="468" y="810" width="88" height="68" rx="12" fill="#283593" opacity="0.7" filter="url(#softShadow)"/>
+  <text x="512" y="855" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" opacity="0.8">5</text>
+
+  <rect x="568" y="810" width="88" height="68" rx="12" fill="#283593" opacity="0.7" filter="url(#softShadow)"/>
+  <text x="612" y="855" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" opacity="0.8">6</text>
+</svg>

@@ -47,3 +47,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Sensitive files — never commit
+keytool_info.md
+android/upload-keystore.jks
+
+# Windows NTFS metadata (Zone.Identifier alternate data streams)
+*:Zone.Identifier

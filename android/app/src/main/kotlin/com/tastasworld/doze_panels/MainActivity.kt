@@ -1,4 +1,4 @@
-package com.example.sleep_app1
+package com.tastasworld.doze_panels
 
 import io.flutter.embedding.android.FlutterActivity
 

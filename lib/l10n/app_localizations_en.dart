@@ -88,7 +88,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get howToPlayBody =>
-      'Tap the numbers in order from 1.\nClear the stage by tapping all numbers.\nThe grid grows as you advance.\nFall asleep during the ad after clearing!';
+      'Tap the numbers in order from 1.\nClear the stage by tapping all numbers.\nThe grid grows as you advance.\nFall asleep during the ad after clearing!\nIf there is no action for 10 minutes, you will be recorded as fallen asleep.';
 
   @override
   String get adSkippedTitle => 'Please watch the full ad';

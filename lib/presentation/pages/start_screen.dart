@@ -72,22 +72,25 @@ class _StartScreenState extends State<StartScreen> {
             ),
 
             // 直近の記録
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  l10n.recentRecordsTitle,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                const SizedBox(height: 8),
-                if (_records.isEmpty)
+            SizedBox(
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Text(
-                    l10n.recordNoHistory,
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  )
-                else
-                  ..._records.map((r) => _RecordRow(record: r)),
-              ],
+                    l10n.recentRecordsTitle,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const SizedBox(height: 8),
+                  if (_records.isEmpty)
+                    Text(
+                      l10n.recordNoHistory,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    )
+                  else
+                    ..._records.map((r) => _RecordRow(record: r)),
+                ],
+              ),
             ),
           ],
         ),

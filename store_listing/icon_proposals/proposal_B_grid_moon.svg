@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!--
+    Concept B: Number grid dominates the lower 2/3, moon rises above it.
+    Conveys "a number puzzle you play at night".
+  -->
+  <defs>
+    <linearGradient id="bgB" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e2a"/>
+      <stop offset="60%" style="stop-color:#0d1b4e"/>
+      <stop offset="100%" style="stop-color:#162060"/>
+    </linearGradient>
+    <linearGradient id="cellNormal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a3580"/>
+      <stop offset="100%" style="stop-color:#1e2860"/>
+    </linearGradient>
+    <linearGradient id="cellGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2e7d32"/>
+      <stop offset="100%" style="stop-color:#1b5e20"/>
+    </linearGradient>
+    <linearGradient id="moonGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff9e6"/>
+      <stop offset="100%" style="stop-color:#c8cfff"/>
+    </linearGradient>
+    <filter id="moonGlowB">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="gridShadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <mask id="moonMaskB">
+      <circle cx="512" cy="240" r="148" fill="white"/>
+      <circle cx="576" cy="208" r="122" fill="black"/>
+    </mask>
+    <!-- Moon glow halo -->
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" style="stop-color:#c8cfff;stop-opacity:0.0"/>
+      <stop offset="100%" style="stop-color:#8899ff;stop-opacity:0.18"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1024" height="1024" fill="url(#bgB)"/>
+
+  <!-- Moon halo -->
+  <circle cx="512" cy="240" r="210" fill="url(#halo)"/>
+
+  <!-- Stars -->
+  <circle cx="130" cy="130" r="3" fill="white" opacity="0.7"/>
+  <circle cx="280" cy="80" r="2" fill="white" opacity="0.5"/>
+  <circle cx="420" cy="100" r="3" fill="white" opacity="0.6"/>
+  <circle cx="750" cy="90" r="4" fill="white" opacity="0.8"/>
+  <circle cx="900" cy="160" r="2" fill="white" opacity="0.5"/>
+  <circle cx="80" cy="260" r="3" fill="white" opacity="0.5"/>
+  <circle cx="940" cy="300" r="3" fill="white" opacity="0.6"/>
+  <path d="M860 120 L864 132 L876 136 L864 140 L860 152 L856 140 L844 136 L856 132 Z" fill="white" opacity="0.8"/>
+  <path d="M170 200 L172 208 L180 210 L172 212 L170 220 L168 212 L160 210 L168 208 Z" fill="white" opacity="0.6"/>
+
+  <!-- Crescent Moon -->
+  <circle cx="512" cy="240" r="148" fill="url(#moonGrad)" mask="url(#moonMaskB)" filter="url(#moonGlowB)"/>
+
+  <!-- 4x4 Number Grid (center, lower portion) -->
+  <!-- Grid origin: x=148, y=450, cell size=184, gap=12 -->
+  <!-- Row 1: numbers 1-4 -->
+  <rect x="148" y="452" width="172" height="136" rx="22" fill="url(#cellGreen)" filter="url(#gridShadow)"/>
+  <text x="234" y="532" font-family="Arial, sans-serif" font-size="88" font-weight="900" fill="#81c784" text-anchor="middle" dominant-baseline="central">1</text>
+
+  <rect x="332" y="452" width="172" height="136" rx="22" fill="url(#cellGreen)" filter="url(#gridShadow)"/>
+  <text x="418" y="532" font-family="Arial, sans-serif" font-size="88" font-weight="900" fill="#81c784" text-anchor="middle" dominant-baseline="central">2</text>
+
+  <rect x="516" y="452" width="172" height="136" rx="22" fill="url(#cellNormal)" filter="url(#gridShadow)"/>
+  <text x="602" y="532" font-family="Arial, sans-serif" font-size="88" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">3</text>
+
+  <rect x="700" y="452" width="172" height="136" rx="22" fill="url(#cellNormal)" filter="url(#gridShadow)"/>
+  <text x="786" y="532" font-family="Arial, sans-serif" font-size="88" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">4</text>
+
+  <!-- Row 2: numbers 5-8 -->
+  <rect x="148" y="600" width="172" height="136" rx="22" fill="url(#cellNormal)" filter="url(#gridShadow)"/>
+  <text x="234" y="680" font-family="Arial, sans-serif" font-size="88" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">5</text>
+
+  <rect x="332" y="600" width="172" height="136" rx="22" fill="url(#cellNormal)" filter="url(#gridShadow)"/>
+  <text x="418" y="680" font-family="Arial, sans-serif" font-size="88" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">6</text>
+
+  <rect x="516" y="600" width="172" height="136" rx="22" fill="url(#cellNormal)" filter="url(#gridShadow)"/>
+  <text x="602" y="680" font-family="Arial, sans-serif" font-size="88" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">7</text>
+
+  <rect x="700" y="600" width="172" height="136" rx="22" fill="url(#cellNormal)" filter="url(#gridShadow)"/>
+  <text x="786" y="680" font-family="Arial, sans-serif" font-size="88" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">8</text>
+
+  <!-- Row 3: numbers 9-12 -->
+  <rect x="148" y="748" width="172" height="136" rx="22" fill="url(#cellNormal)" filter="url(#gridShadow)"/>
+  <text x="234" y="828" font-family="Arial, sans-serif" font-size="88" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">9</text>
+
+  <rect x="332" y="748" width="172" height="136" rx="22" fill="url(#cellNormal)" filter="url(#gridShadow)"/>
+  <text x="418" y="828" font-family="Arial, sans-serif" font-size="88" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">10</text>
+
+  <rect x="516" y="748" width="172" height="136" rx="22" fill="url(#cellNormal)" filter="url(#gridShadow)"/>
+  <text x="602" y="828" font-family="Arial, sans-serif" font-size="88" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">11</text>
+
+  <rect x="700" y="748" width="172" height="136" rx="22" fill="url(#cellNormal)" filter="url(#gridShadow)"/>
+  <text x="786" y="828" font-family="Arial, sans-serif" font-size="88" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">12</text>
+
+  <!-- Row 4: numbers 13-16 -->
+  <rect x="148" y="896" width="172" height="96" rx="22" fill="url(#cellNormal)" filter="url(#gridShadow)" opacity="0.6"/>
+  <text x="234" y="950" font-family="Arial, sans-serif" font-size="70" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" opacity="0.5">13</text>
+
+  <rect x="332" y="896" width="172" height="96" rx="22" fill="url(#cellNormal)" filter="url(#gridShadow)" opacity="0.6"/>
+  <text x="418" y="950" font-family="Arial, sans-serif" font-size="70" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" opacity="0.5">14</text>
+
+  <rect x="516" y="896" width="172" height="96" rx="22" fill="url(#cellNormal)" filter="url(#gridShadow)" opacity="0.6"/>
+  <text x="602" y="950" font-family="Arial, sans-serif" font-size="70" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" opacity="0.5">15</text>
+
+  <rect x="700" y="896" width="172" height="96" rx="22" fill="url(#cellNormal)" filter="url(#gridShadow)" opacity="0.6"/>
+  <text x="786" y="950" font-family="Arial, sans-serif" font-size="70" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central" opacity="0.5">16</text>
+</svg>

@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bgA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a237e"/>
+      <stop offset="100%" style="stop-color:#0a1045"/>
+    </linearGradient>
+    <linearGradient id="panelA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3f51b5;stop-opacity:0.95"/>
+      <stop offset="100%" style="stop-color:#283593;stop-opacity:0.95"/>
+    </linearGradient>
+    <linearGradient id="panelGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2e7d32;stop-opacity:0.95"/>
+      <stop offset="100%" style="stop-color:#1b5e20;stop-opacity:0.95"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="panelShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <mask id="moonMaskA">
+      <circle cx="512" cy="512" r="195" fill="white"/>
+      <circle cx="600" cy="468" r="162" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1024" height="1024" fill="url(#bgA)"/>
+
+  <!-- Subtle star field -->
+  <circle cx="310" cy="160" r="4" fill="white" opacity="0.6"/>
+  <circle cx="480" cy="120" r="3" fill="white" opacity="0.4"/>
+  <circle cx="700" cy="180" r="5" fill="white" opacity="0.7"/>
+  <circle cx="820" cy="280" r="3" fill="white" opacity="0.5"/>
+  <circle cx="160" cy="340" r="4" fill="white" opacity="0.5"/>
+  <circle cx="880" cy="450" r="3" fill="white" opacity="0.4"/>
+  <circle cx="140" cy="600" r="4" fill="white" opacity="0.5"/>
+  <circle cx="900" cy="680" r="3" fill="white" opacity="0.4"/>
+  <circle cx="300" cy="820" r="4" fill="white" opacity="0.5"/>
+  <circle cx="750" cy="860" r="3" fill="white" opacity="0.4"/>
+  <!-- 4-pointed star accents -->
+  <path d="M680 160 L685 175 L700 180 L685 185 L680 200 L675 185 L660 180 L675 175 Z" fill="white" opacity="0.7"/>
+  <path d="M200 500 L203 510 L213 513 L203 516 L200 526 L197 516 L187 513 L197 510 Z" fill="white" opacity="0.5"/>
+
+  <!-- Number panels (4 corners) -->
+  <!-- Top-left panel (normal) -->
+  <rect x="72" y="72" width="228" height="228" rx="36" fill="url(#panelA)" filter="url(#panelShadow)"/>
+  <rect x="72" y="72" width="228" height="228" rx="36" fill="none" stroke="#7986cb" stroke-width="3"/>
+  <text x="186" y="186" font-family="'Arial Rounded MT Bold', Arial, sans-serif" font-size="148" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">1</text>
+
+  <!-- Top-right panel (normal) -->
+  <rect x="724" y="72" width="228" height="228" rx="36" fill="url(#panelA)" filter="url(#panelShadow)"/>
+  <rect x="724" y="72" width="228" height="228" rx="36" fill="none" stroke="#7986cb" stroke-width="3"/>
+  <text x="838" y="186" font-family="'Arial Rounded MT Bold', Arial, sans-serif" font-size="148" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">2</text>
+
+  <!-- Bottom-left panel (correct = green glow) -->
+  <rect x="72" y="724" width="228" height="228" rx="36" fill="url(#panelGreen)" filter="url(#panelShadow)"/>
+  <rect x="72" y="724" width="228" height="228" rx="36" fill="none" stroke="#66bb6a" stroke-width="3"/>
+  <text x="186" y="838" font-family="'Arial Rounded MT Bold', Arial, sans-serif" font-size="148" font-weight="900" fill="#a5d6a7" text-anchor="middle" dominant-baseline="central">3</text>
+
+  <!-- Bottom-right panel (normal) -->
+  <rect x="724" y="724" width="228" height="228" rx="36" fill="url(#panelA)" filter="url(#panelShadow)"/>
+  <rect x="724" y="724" width="228" height="228" rx="36" fill="none" stroke="#7986cb" stroke-width="3"/>
+  <text x="838" y="838" font-family="'Arial Rounded MT Bold', Arial, sans-serif" font-size="148" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">4</text>
+
+  <!-- Crescent Moon (center) -->
+  <circle cx="512" cy="512" r="195" fill="#dde1ff" mask="url(#moonMaskA)" filter="url(#glow)"/>
+  <!-- Moon line detail -->
+  <circle cx="512" cy="512" r="195" fill="none" stroke="#b0beff" stroke-width="2" mask="url(#moonMaskA)" opacity="0.5"/>
+
+  <!-- Zzz — floating sleep letters rising from top-right of crescent -->
+  <!-- Z1: largest, closest to moon tip (~top of crescent) -->
+  <text x="620" y="340"
+    font-family="'Arial Rounded MT Bold', Arial, sans-serif"
+    font-size="96" font-weight="900"
+    fill="none" stroke="#b0beff" stroke-width="5"
+    text-anchor="middle" dominant-baseline="central"
+    transform="rotate(-12, 620, 340)"
+    opacity="0.90">Z</text>
+
+  <!-- Z2: medium, higher and to the right -->
+  <text x="700" y="240"
+    font-family="'Arial Rounded MT Bold', Arial, sans-serif"
+    font-size="68" font-weight="900"
+    fill="none" stroke="#b0beff" stroke-width="4"
+    text-anchor="middle" dominant-baseline="central"
+    transform="rotate(-12, 700, 240)"
+    opacity="0.65">Z</text>
+
+  <!-- Z3: smallest, highest, most faded -->
+  <text x="768" y="162"
+    font-family="'Arial Rounded MT Bold', Arial, sans-serif"
+    font-size="46" font-weight="900"
+    fill="none" stroke="#b0beff" stroke-width="3"
+    text-anchor="middle" dominant-baseline="central"
+    transform="rotate(-12, 768, 162)"
+    opacity="0.40">Z</text>
+</svg>
