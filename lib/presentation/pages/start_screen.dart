@@ -3,6 +3,7 @@ import 'package:sleep_app1/domain/game_record.dart';
 import 'package:sleep_app1/domain/record_repository.dart';
 import 'package:sleep_app1/l10n/app_localizations.dart';
 import 'package:sleep_app1/presentation/pages/game_screen.dart';
+import 'package:sleep_app1/presentation/utils/time_format.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
@@ -99,23 +100,6 @@ class _StartScreenState extends State<StartScreen> {
   }
 }
 
-// ─── ユーティリティ ──────────────────────────────
-
-String _formatDate(DateTime dt) {
-  final y = dt.year;
-  final mo = dt.month.toString().padLeft(2, '0');
-  final d = dt.day.toString().padLeft(2, '0');
-  final h = dt.hour.toString().padLeft(2, '0');
-  final mi = dt.minute.toString().padLeft(2, '0');
-  return '$y/$mo/$d $h:$mi';
-}
-
-String _formatDuration(Duration d) {
-  final m = d.inMinutes.toString().padLeft(2, '0');
-  final s = (d.inSeconds % 60).toString().padLeft(2, '0');
-  return '$m:$s';
-}
-
 // ─── 記録行ウィジェット ───────────────────────────
 
 class _RecordRow extends StatelessWidget {
@@ -130,7 +114,7 @@ class _RecordRow extends StatelessWidget {
       GameResult.clear => (
           Icons.check_circle,
           Colors.greenAccent,
-          l10n.recordCleared(_formatDuration(record.gameTime)),
+          l10n.recordCleared(formatDuration(record.gameTime)),
           record.gameTime,
         ),
       GameResult.sleepOff => (
@@ -153,14 +137,14 @@ class _RecordRow extends StatelessWidget {
         children: [
           Icon(icon, size: 16, color: color),
           const SizedBox(width: 8),
-          Text(_formatDate(record.startTime),
+          Text(formatDate(record.startTime),
               style: Theme.of(context).textTheme.bodyMedium),
           const SizedBox(width: 8),
           Expanded(
             child: Text(
               record.result == GameResult.clear
                   ? label
-                  : '$label (${_formatDuration(duration)})',
+                  : '$label (${formatDuration(duration)})',
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge

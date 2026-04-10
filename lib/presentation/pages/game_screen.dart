@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:sleep_app1/domain/game_record.dart';
 import 'package:sleep_app1/domain/record_repository.dart';
 import 'package:sleep_app1/l10n/app_localizations.dart';
+import 'package:sleep_app1/presentation/utils/time_format.dart';
 import 'package:sleep_app1/services/analytics_service.dart';
 
 class GameScreen extends StatefulWidget {
@@ -50,6 +51,7 @@ class _GameScreenState extends State<GameScreen> {
 
   static const Duration _inactivityTimeout =
       kDebugMode ? Duration(seconds: 60) : Duration(minutes: 10);
+  static const Duration _kFlashDuration = Duration(milliseconds: 200);
 
   // ─── ライフサイクル ───────────────────────────────
 
@@ -206,7 +208,7 @@ class _GameScreenState extends State<GameScreen> {
           _correctTappedNumber = tappedNumber;
           _wrongTappedNumber = null;
         });
-        Timer(const Duration(milliseconds: 200), () {
+        Timer(_kFlashDuration, () {
           if (mounted) setState(() => _correctTappedNumber = null);
         });
       }
@@ -222,7 +224,7 @@ class _GameScreenState extends State<GameScreen> {
         _wrongTappedNumber = tappedNumber;
         _correctTappedNumber = null;
       });
-      Timer(const Duration(milliseconds: 200), () {
+      Timer(_kFlashDuration, () {
         if (mounted) setState(() => _wrongTappedNumber = null);
       });
 
@@ -326,6 +328,14 @@ class _GameScreenState extends State<GameScreen> {
 
   // ─── 広告フロー ──────────────────────────────────
 
+  // 広告が閉じた後の共通処理：寝落ち pending なら sleep modal を優先、
+  // そうでなければ inactivity をリセットして [next] を呼ぶ。
+  void _afterAdDismissed(VoidCallback next) {
+    if (_pendingSleepModal) { _showSleepModal(); return; }
+    _resetInactivityTimer();
+    next();
+  }
+
   void _showAd() {
     AdmobService.showAdWithPriority(
       onAdStarted: () {
@@ -335,23 +345,17 @@ class _GameScreenState extends State<GameScreen> {
       onCompleted: () {
         if (!mounted) return;
         setState(() => _isFullScreenAdShowing = false);
-        if (_pendingSleepModal) { _showSleepModal(); return; }
-        _resetInactivityTimer();
-        _showReadyGoDialog();
+        _afterAdDismissed(_showReadyGoDialog);
       },
       onRewardSkipped: () {
         if (!mounted) return;
         setState(() => _isFullScreenAdShowing = false);
         AnalyticsService.logRewardSkipped();
-        if (_pendingSleepModal) { _showSleepModal(); return; }
-        _resetInactivityTimer();
-        _showRewardSkippedDialog();
+        _afterAdDismissed(_showRewardSkippedDialog);
       },
       onNoAd: () {
         if (!mounted) return;
-        if (_pendingSleepModal) { _showSleepModal(); return; }
-        _resetInactivityTimer();
-        _showAdFallbackCountdown();
+        _afterAdDismissed(_showAdFallbackCountdown);
       },
     );
   }
@@ -681,20 +685,14 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   Widget _buildDebugOverlay() {
-    String fmt(Duration d) {
-      final m = d.inMinutes.toString().padLeft(2, '0');
-      final s = (d.inSeconds % 60).toString().padLeft(2, '0');
-      return '$m:$s';
-    }
-
     return Container(
       width: double.infinity,
       color: Colors.black87,
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: Text(
-        '[DEBUG]  ゲーム: ${fmt(_gameStopwatch.elapsed)}'
-        '  経過: ${fmt(_totalStopwatch.elapsed)}'
-        '  無操作: ${fmt(_inactivityStopwatch.elapsed)}',
+        '[DEBUG]  ゲーム: ${formatDuration(_gameStopwatch.elapsed)}'
+        '  経過: ${formatDuration(_totalStopwatch.elapsed)}'
+        '  無操作: ${formatDuration(_inactivityStopwatch.elapsed)}',
         style: const TextStyle(color: Colors.greenAccent, fontSize: 11),
       ),
     );
