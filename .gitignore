@@ -51,6 +51,7 @@ app.*.map.json
 # Sensitive files — never commit
 keytool_info.md
 android/upload-keystore.jks
+android/app/google-services.json
 
 # Windows NTFS metadata (Zone.Identifier alternate data streams)
 *:Zone.Identifier
