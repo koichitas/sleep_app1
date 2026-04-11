@@ -1,0 +1,162 @@
+{
+  "_comment": "新言語追加手順: 既存エントリをコピー → locale キーを変更 → strings を翻訳 → node generate.js {locale}",
+
+  "ja": {
+    "font": "'Noto Sans CJK JP', sans-serif",
+    "strings": {
+      "APP_NAME_L1":    "寝落ち",
+      "APP_NAME_L2":    "チャレンジ",
+      "APP_NAME":       "寝落ちチャレンジ",
+      "APP_NAME_SUB":   "Sleep Challenge",
+
+      "FG_TAGLINE":     "数字をタップして自然に眠ろう",
+      "FG_BADGE1":      "脳トレ",
+      "FG_BADGE2":      "快眠サポート",
+
+      "S1_HEADLINE":    "眠れない夜に",
+      "S1_SUB1":        "数字をタップするだけで",
+      "S1_SUB2":        "自然に眠くなるアプリ",
+      "S1_BODY1":       "適度な脳の疲れが",
+      "S1_BODY2":       "自然な眠気をつくる",
+
+      "S2_HEADLINE":    "ルールはシンプル",
+      "S2_SUBHEADLINE": "1 から順番にタップするだけ",
+      "S2_LEGEND_OK":   "正解 → 緑に光る",
+      "S2_LEGEND_NG":   "不正解 → 赤に光る",
+      "S2_LEGEND_NEXT": "次にタップする数字",
+      "S2_BOTTOM1":     "数字がわかれば",
+      "S2_BOTTOM2":     "誰でも遊べる",
+      "S2_FOOTER":      "全年齢対象 · 広告あり（無料）",
+
+      "S3_HEADLINE":    "眠れる仕組み",
+      "S3_SUBHEADLINE": "脳を適度に使うと自然な眠気が来る",
+      "S3_STEP1_TITLE": "数字を探してタップ",
+      "S3_STEP1_SUB":   "1 → 2 → 3 … と順番に",
+      "S3_STEP2_TITLE": "脳が適度に疲れる",
+      "S3_STEP2_SUB":   "記憶・探索・集中 → 心地よい負荷",
+      "S3_STEP2_ICON":  "脳",
+      "S3_STEP3_TITLE": "ステージクリア → 休憩",
+      "S3_STEP3_SUB":   "広告が「何もしない時間」になる",
+      "S3_STEP4_TITLE": "自然な眠気",
+      "S3_STEP4_SUB":   "このサイクルを繰り返す設計",
+      "S3_BOTTOM1":     "「眠れた」が",
+      "S3_BOTTOM2":     "ゴールのアプリ",
+
+      "S4_TOP1":        "プレッシャーなし",
+      "S4_TOP2":        "失敗なし",
+      "S4_MAIN1":       "寝落ちしたら",
+      "S4_MAIN2":       "「成功」",
+      "S4_SUB1":        "10分操作しなかったら",
+      "S4_SUB2":        "寝落ち判定 ✓",
+      "S4_BADGE_C":     "毎晩同じルーティンで眠りにつこう",
+      "S4_BADGE_L":     "就寝前に最適",
+      "S4_BADGE_R":     "記録も残せる"
+    }
+  },
+
+  "en": {
+    "font": "Arial, sans-serif",
+    "strings": {
+      "APP_NAME_L1":    "Sleep",
+      "APP_NAME_L2":    "Challenge",
+      "APP_NAME":       "Sleep Challenge",
+      "APP_NAME_SUB":   "",
+
+      "FG_TAGLINE":     "Tap numbers and drift off naturally",
+      "FG_BADGE1":      "Brain Training",
+      "FG_BADGE2":      "Sleep Support",
+
+      "S1_HEADLINE":    "Can't sleep?",
+      "S1_SUB1":        "Just tap numbers in order",
+      "S1_SUB2":        "and drift off naturally",
+      "S1_BODY1":       "Light brain fatigue",
+      "S1_BODY2":       "brings natural sleepiness",
+
+      "S2_HEADLINE":    "Simple rules",
+      "S2_SUBHEADLINE": "Just tap 1, 2, 3... in order",
+      "S2_LEGEND_OK":   "Correct → glows green",
+      "S2_LEGEND_NG":   "Wrong → glows red",
+      "S2_LEGEND_NEXT": "Next number to tap",
+      "S2_BOTTOM1":     "Anyone can play —",
+      "S2_BOTTOM2":     "just know your numbers",
+      "S2_FOOTER":      "All ages · Free with ads",
+
+      "S3_HEADLINE":    "How it works",
+      "S3_SUBHEADLINE": "Light brain use creates natural drowsiness",
+      "S3_STEP1_TITLE": "Tap numbers in order",
+      "S3_STEP1_SUB":   "1 → 2 → 3 … focus and search",
+      "S3_STEP2_TITLE": "Your brain gets tired",
+      "S3_STEP2_SUB":   "Memory · Focus · Search → gentle fatigue",
+      "S3_STEP2_ICON":  "Brain",
+      "S3_STEP3_TITLE": "Stage clear → Break time",
+      "S3_STEP3_SUB":   "Ads become a \"do nothing\" rest",
+      "S3_STEP4_TITLE": "Natural sleepiness",
+      "S3_STEP4_SUB":   "This cycle repeats by design",
+      "S3_BOTTOM1":     "\"Fell asleep\"",
+      "S3_BOTTOM2":     "is the goal",
+
+      "S4_TOP1":        "No pressure",
+      "S4_TOP2":        "No failure",
+      "S4_MAIN1":       "Fall asleep =",
+      "S4_MAIN2":       "\"Success\"",
+      "S4_SUB1":        "10 min without tapping?",
+      "S4_SUB2":        "Sleep detected ✓",
+      "S4_BADGE_C":     "Same bedtime routine every night",
+      "S4_BADGE_L":     "Perfect at bedtime",
+      "S4_BADGE_R":     "Track your records"
+    }
+  },
+
+  "ko": {
+    "font": "'Noto Sans CJK KR', 'Noto Sans CJK JP', sans-serif",
+    "strings": {
+      "APP_NAME_L1":    "수면",
+      "APP_NAME_L2":    "챌린지",
+      "APP_NAME":       "수면 챌린지",
+      "APP_NAME_SUB":   "Sleep Challenge",
+
+      "FG_TAGLINE":     "숫자를 탭하며 자연스럽게 잠들어요",
+      "FG_BADGE1":      "두뇌 훈련",
+      "FG_BADGE2":      "수면 지원",
+
+      "S1_HEADLINE":    "잠 못 드는 밤에",
+      "S1_SUB1":        "숫자를 탭하는 것만으로",
+      "S1_SUB2":        "자연스럽게 졸려지는 앱",
+      "S1_BODY1":       "적당한 뇌 피로가",
+      "S1_BODY2":       "자연스러운 졸음을 만든다",
+
+      "S2_HEADLINE":    "룰은 간단해요",
+      "S2_SUBHEADLINE": "1부터 순서대로 탭하기만 하면 돼요",
+      "S2_LEGEND_OK":   "정답 → 초록색으로 빛남",
+      "S2_LEGEND_NG":   "오답 → 빨간색으로 빛남",
+      "S2_LEGEND_NEXT": "다음에 탭할 숫자",
+      "S2_BOTTOM1":     "숫자만 알면",
+      "S2_BOTTOM2":     "누구나 즐길 수 있어요",
+      "S2_FOOTER":      "전 연령 대상 · 광고 포함 (무료)",
+
+      "S3_HEADLINE":    "잠드는 원리",
+      "S3_SUBHEADLINE": "뇌를 적당히 쓰면 자연스러운 졸음이 온다",
+      "S3_STEP1_TITLE": "숫자를 찾아 탭",
+      "S3_STEP1_SUB":   "1 → 2 → 3 … 순서대로",
+      "S3_STEP2_TITLE": "뇌가 적당히 피곤해진다",
+      "S3_STEP2_SUB":   "기억 · 탐색 · 집중 → 기분 좋은 부하",
+      "S3_STEP2_ICON":  "뇌",
+      "S3_STEP3_TITLE": "스테이지 클리어 → 휴식",
+      "S3_STEP3_SUB":   "광고가 '아무것도 안 해도 되는 시간'이 됨",
+      "S3_STEP4_TITLE": "자연스러운 졸음",
+      "S3_STEP4_SUB":   "이 사이클을 반복하도록 설계",
+      "S3_BOTTOM1":     "'잠들었다'가",
+      "S3_BOTTOM2":     "목표인 앱",
+
+      "S4_TOP1":        "부담 없어요",
+      "S4_TOP2":        "실패 없어요",
+      "S4_MAIN1":       "잠들면",
+      "S4_MAIN2":       "「성공」",
+      "S4_SUB1":        "10분 동안 조작하지 않으면",
+      "S4_SUB2":        "수면 감지 ✓",
+      "S4_BADGE_C":     "매일 밤 같은 루틴으로 잠들어요",
+      "S4_BADGE_L":     "취침 전에 딱",
+      "S4_BADGE_R":     "기록도 남길 수 있어요"
+    }
+  }
+}

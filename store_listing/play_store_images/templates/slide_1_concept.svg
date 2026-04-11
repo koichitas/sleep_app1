@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <!-- Slide 1: Main concept — "眠れない夜に" -->
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#050818"/>
+      <stop offset="50%" style="stop-color:#0d1b4e"/>
+      <stop offset="100%" style="stop-color:#1a237e"/>
+    </linearGradient>
+    <linearGradient id="moonG1" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8eaf6"/>
+      <stop offset="100%" style="stop-color:#c5cae9"/>
+    </linearGradient>
+    <filter id="glow1">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <mask id="moon1">
+      <circle cx="540" cy="720" r="280" fill="white"/>
+      <circle cx="648" cy="664" r="232" fill="black"/>
+    </mask>
+    <radialGradient id="halo1" cx="50%" cy="50%" r="50%">
+      <stop offset="40%" style="stop-color:#7986cb;stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:#3f51b5;stop-opacity:0.15"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1920" fill="url(#bg1)"/>
+
+  <!-- Star field -->
+  <circle cx="80"  cy="100" r="3" fill="white" opacity="0.7"/>
+  <circle cx="200" cy="60"  r="2" fill="white" opacity="0.5"/>
+  <circle cx="350" cy="140" r="4" fill="white" opacity="0.6"/>
+  <circle cx="700" cy="80"  r="3" fill="white" opacity="0.6"/>
+  <circle cx="900" cy="150" r="2" fill="white" opacity="0.5"/>
+  <circle cx="980" cy="50"  r="3" fill="white" opacity="0.7"/>
+  <circle cx="60"  cy="300" r="2" fill="white" opacity="0.4"/>
+  <circle cx="1020" cy="350" r="3" fill="white" opacity="0.5"/>
+  <circle cx="150" cy="500" r="2" fill="white" opacity="0.4"/>
+  <circle cx="950" cy="480" r="2" fill="white" opacity="0.4"/>
+  <circle cx="100" cy="1300" r="2" fill="white" opacity="0.3"/>
+  <circle cx="980" cy="1200" r="2" fill="white" opacity="0.3"/>
+  <!-- 4-pointed stars -->
+  <path d="M820 120 L824 134 L838 138 L824 142 L820 156 L816 142 L802 138 L816 134 Z" fill="white" opacity="0.8"/>
+  <path d="M260 220 L263 230 L273 233 L263 236 L260 246 L257 236 L247 233 L257 230 Z" fill="white" opacity="0.6"/>
+  <path d="M920 600 L923 610 L933 613 L923 616 L920 626 L917 616 L907 613 L917 610 Z" fill="white" opacity="0.5"/>
+
+  <!-- Moon halo -->
+  <circle cx="540" cy="720" r="380" fill="url(#halo1)"/>
+
+  <!-- Crescent moon -->
+  <circle cx="540" cy="720" r="280" fill="url(#moonG1)" mask="url(#moon1)" filter="url(#glow1)"/>
+
+  <!-- Zzz -->
+  <text x="730" y="500" font-family="Arial, sans-serif" font-size="100" font-weight="900"
+        fill="none" stroke="#9fa8da" stroke-width="5"
+        transform="rotate(-15,730,500)" opacity="0.9">Z</text>
+  <text x="840" y="380" font-family="Arial, sans-serif" font-size="70" font-weight="900"
+        fill="none" stroke="#9fa8da" stroke-width="4"
+        transform="rotate(-15,840,380)" opacity="0.65">Z</text>
+  <text x="930" y="290" font-family="Arial, sans-serif" font-size="48" font-weight="900"
+        fill="none" stroke="#9fa8da" stroke-width="3"
+        transform="rotate(-15,930,290)" opacity="0.40">Z</text>
+
+  <!-- Top headline -->
+  <text x="540" y="200"
+        font-family="{{FONT}}"
+        font-size="88" font-weight="900" fill="white" text-anchor="middle">{{S1_HEADLINE}}</text>
+
+  <!-- Sub headline (below moon) -->
+  <text x="540" y="1100"
+        font-family="{{FONT}}"
+        font-size="54" font-weight="700" fill="#c5cae9" text-anchor="middle">{{S1_SUB1}}</text>
+  <text x="540" y="1175"
+        font-family="{{FONT}}"
+        font-size="54" font-weight="700" fill="#c5cae9" text-anchor="middle">{{S1_SUB2}}</text>
+
+  <!-- Divider accent -->
+  <line x1="380" y1="1220" x2="700" y2="1220" stroke="#5c6bc0" stroke-width="2" opacity="0.6"/>
+
+  <!-- Body text -->
+  <text x="540" y="1310"
+        font-family="{{FONT}}"
+        font-size="36" fill="#9fa8da" text-anchor="middle">{{S1_BODY1}}</text>
+  <text x="540" y="1365"
+        font-family="{{FONT}}"
+        font-size="36" fill="#9fa8da" text-anchor="middle">{{S1_BODY2}}</text>
+
+  <!-- App name at bottom -->
+  <text x="540" y="1780"
+        font-family="{{FONT}}"
+        font-size="40" font-weight="700" fill="#5c6bc0" text-anchor="middle">{{APP_NAME}}</text>
+
+  <!-- Bottom decoration dots -->
+  <circle cx="480" cy="1840" r="6" fill="#3f51b5" opacity="0.5"/>
+  <circle cx="510" cy="1840" r="8" fill="#5c6bc0" opacity="0.8"/>
+  <circle cx="540" cy="1840" r="10" fill="#7986cb"/>
+  <circle cx="570" cy="1840" r="8" fill="#5c6bc0" opacity="0.8"/>
+  <circle cx="600" cy="1840" r="6" fill="#3f51b5" opacity="0.5"/>
+</svg>

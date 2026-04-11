@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <!-- Slide 4: Positive message — 寝落ちが「成功」 -->
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#050818"/>
+      <stop offset="55%" style="stop-color:#0d1b4e"/>
+      <stop offset="100%" style="stop-color:#1a237e"/>
+    </linearGradient>
+    <linearGradient id="moonG4" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff9e6"/>
+      <stop offset="100%" style="stop-color:#ffe082"/>
+    </linearGradient>
+    <radialGradient id="halo4" cx="50%" cy="50%" r="50%">
+      <stop offset="30%" style="stop-color:#ffd54f;stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:#f9a825;stop-opacity:0.10"/>
+    </radialGradient>
+    <filter id="moonGlow4">
+      <feGaussianBlur stdDeviation="22" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="textGlow4">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow4">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <mask id="moon4">
+      <circle cx="540" cy="700" r="260" fill="white"/>
+      <circle cx="638" cy="648" r="216" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1920" fill="url(#bg4)"/>
+
+  <!-- Rich star field -->
+  <circle cx="60"  cy="60"  r="3" fill="white" opacity="0.7"/>
+  <circle cx="180" cy="40"  r="2" fill="white" opacity="0.5"/>
+  <circle cx="320" cy="100" r="4" fill="white" opacity="0.6"/>
+  <circle cx="500" cy="55"  r="2" fill="white" opacity="0.5"/>
+  <circle cx="700" cy="90"  r="3" fill="white" opacity="0.6"/>
+  <circle cx="860" cy="50"  r="2" fill="white" opacity="0.5"/>
+  <circle cx="990" cy="120" r="4" fill="white" opacity="0.7"/>
+  <circle cx="40"  cy="250" r="2" fill="white" opacity="0.4"/>
+  <circle cx="1050" cy="280" r="2" fill="white" opacity="0.4"/>
+  <circle cx="80"  cy="450" r="2" fill="white" opacity="0.3"/>
+  <circle cx="1020" cy="500" r="3" fill="white" opacity="0.4"/>
+  <circle cx="50"  cy="1100" r="2" fill="white" opacity="0.3"/>
+  <circle cx="1040" cy="1200" r="2" fill="white" opacity="0.3"/>
+  <!-- 4-pointed stars -->
+  <path d="M900 80 L904 94 L918 98 L904 102 L900 116 L896 102 L882 98 L896 94 Z" fill="white" opacity="0.9"/>
+  <path d="M160 180 L163 190 L173 193 L163 196 L160 206 L157 196 L147 193 L157 190 Z" fill="white" opacity="0.7"/>
+  <path d="M760 160 L763 170 L773 173 L763 176 L760 186 L757 176 L747 173 L757 170 Z" fill="white" opacity="0.6"/>
+  <path d="M400 300 L402 308 L410 310 L402 312 L400 320 L398 312 L390 310 L398 308 Z" fill="white" opacity="0.5"/>
+
+  <!-- Moon halo -->
+  <circle cx="540" cy="700" r="380" fill="url(#halo4)"/>
+
+  <!-- Warm crescent moon (slightly golden) -->
+  <circle cx="540" cy="700" r="260" fill="url(#moonG4)" mask="url(#moon4)" filter="url(#moonGlow4)"/>
+
+  <!-- Sleeping face on moon -->
+  <!-- Left eye closed arc -->
+  <path d="M448 668 Q468 648 488 668" stroke="#8a7040" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <!-- Right eye closed arc -->
+  <path d="M564 668 Q584 648 604 668" stroke="#8a7040" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <!-- Smile -->
+  <path d="M486 748 Q540 786 592 748" stroke="#8a7040" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <!-- Cheeks -->
+  <ellipse cx="434" cy="730" rx="30" ry="18" fill="#ffb74d" opacity="0.35"/>
+  <ellipse cx="640" cy="730" rx="30" ry="18" fill="#ffb74d" opacity="0.35"/>
+
+  <!-- Zzz (warm color matching moon) -->
+  <text x="740" y="500" font-family="Arial, sans-serif" font-size="108" font-weight="900"
+        fill="none" stroke="#ffe082" stroke-width="5"
+        transform="rotate(-15,740,500)" opacity="0.85" filter="url(#textGlow4)">Z</text>
+  <text x="860" y="380" font-family="Arial, sans-serif" font-size="76" font-weight="900"
+        fill="none" stroke="#ffd54f" stroke-width="4"
+        transform="rotate(-15,860,380)" opacity="0.60">Z</text>
+  <text x="960" y="290" font-family="Arial, sans-serif" font-size="52" font-weight="900"
+        fill="none" stroke="#ffd54f" stroke-width="3"
+        transform="rotate(-15,960,290)" opacity="0.38">Z</text>
+
+  <!-- Main message (top) -->
+  <text x="540" y="150"
+        font-family="{{FONT}}"
+        font-size="54" fill="#c5cae9" text-anchor="middle">{{S4_TOP1}}</text>
+  <text x="540" y="225"
+        font-family="{{FONT}}"
+        font-size="54" fill="#c5cae9" text-anchor="middle">{{S4_TOP2}}</text>
+
+  <!-- Main message (below moon) — big and bold -->
+  <text x="540" y="1090"
+        font-family="{{FONT}}"
+        font-size="100" font-weight="900" fill="white" text-anchor="middle"
+        filter="url(#textGlow4)">{{S4_MAIN1}}</text>
+  <text x="540" y="1210"
+        font-family="{{FONT}}"
+        font-size="120" font-weight="900" fill="#ffe082" text-anchor="middle"
+        filter="url(#textGlow4)">{{S4_MAIN2}}</text>
+
+  <!-- Divider -->
+  <line x1="200" y1="1270" x2="880" y2="1270" stroke="#5c6bc0" stroke-width="2" opacity="0.5"/>
+
+  <!-- Sub messages -->
+  <text x="540" y="1360"
+        font-family="{{FONT}}"
+        font-size="42" fill="#9fa8da" text-anchor="middle">{{S4_SUB1}}</text>
+  <text x="540" y="1418"
+        font-family="{{FONT}}"
+        font-size="42" fill="#9fa8da" text-anchor="middle">{{S4_SUB2}}</text>
+
+  <!-- Feature badges -->
+  <rect x="100" y="1500" width="840" height="64" rx="32" fill="#1a237e" opacity="0.9"/>
+  <text x="540" y="1542" font-family="{{FONT}}"
+        font-size="32" fill="#c5cae9" text-anchor="middle">{{S4_BADGE_C}}</text>
+
+  <rect x="160" y="1590" width="340" height="60" rx="30" fill="#283593" opacity="0.85"/>
+  <text x="330" y="1627" font-family="{{FONT}}"
+        font-size="28" fill="#9fa8da" text-anchor="middle">{{S4_BADGE_L}}</text>
+
+  <rect x="580" y="1590" width="340" height="60" rx="30" fill="#283593" opacity="0.85"/>
+  <text x="750" y="1627" font-family="{{FONT}}"
+        font-size="28" fill="#9fa8da" text-anchor="middle">{{S4_BADGE_R}}</text>
+
+  <!-- App name -->
+  <text x="540" y="1820"
+        font-family="{{FONT}}"
+        font-size="40" font-weight="700" fill="#5c6bc0" text-anchor="middle">{{APP_NAME}}</text>
+  <text x="540" y="1868"
+        font-family="{{FONT}}"
+        font-size="26" fill="#3f51b5" text-anchor="middle">{{APP_NAME_SUB}}</text>
+</svg>
