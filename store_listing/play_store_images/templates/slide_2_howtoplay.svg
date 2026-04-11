@@ -39,10 +39,10 @@
   <!-- Top headline -->
   <text x="540" y="160"
         font-family="{{FONT}}"
-        font-size="80" font-weight="900" fill="white" text-anchor="middle">{{S2_HEADLINE}}</text>
+        font-size="80" font-weight="900" fill="white" data-maxwidth="920" text-anchor="middle">{{S2_HEADLINE}}</text>
   <text x="540" y="240"
         font-family="{{FONT}}"
-        font-size="40" fill="#9fa8da" text-anchor="middle">{{S2_SUBHEADLINE}}</text>
+        font-size="40" fill="#9fa8da" data-maxwidth="920" text-anchor="middle">{{S2_SUBHEADLINE}}</text>
 
   <!-- Divider -->
   <line x1="200" y1="290" x2="880" y2="290" stroke="#3f51b5" stroke-width="1.5" opacity="0.5"/>
@@ -118,32 +118,32 @@
   <!-- Green = correct -->
   <rect x="132" y="1210" width="28" height="28" rx="5" fill="#2e7d32"/>
   <text x="174" y="1232" font-family="{{FONT}}"
-        font-size="30" fill="#a5d6a7">{{S2_LEGEND_OK}}</text>
+        font-size="30" fill="#a5d6a7" data-maxwidth="776">{{S2_LEGEND_OK}}</text>
 
   <!-- Red = wrong (border only) -->
   <rect x="132" y="1260" width="28" height="28" rx="5" fill="url(#panelN)" stroke="#ef5350" stroke-width="3"/>
   <text x="174" y="1282" font-family="{{FONT}}"
-        font-size="30" fill="#ef9a9a">{{S2_LEGEND_NG}}</text>
+        font-size="30" fill="#ef9a9a" data-maxwidth="776">{{S2_LEGEND_NG}}</text>
 
   <!-- Glowing border = next target -->
   <rect x="132" y="1310" width="28" height="28" rx="5" fill="none" stroke="#69f0ae" stroke-width="3"/>
   <text x="174" y="1332" font-family="{{FONT}}"
-        font-size="30" fill="#69f0ae">{{S2_LEGEND_NEXT}}</text>
+        font-size="30" fill="#69f0ae" data-maxwidth="776">{{S2_LEGEND_NEXT}}</text>
 
   <!-- Bottom message -->
   <text x="540" y="1540"
         font-family="{{FONT}}"
-        font-size="48" font-weight="900" fill="white" text-anchor="middle">{{S2_BOTTOM1}}</text>
+        font-size="48" font-weight="900" fill="white" data-maxwidth="920" text-anchor="middle">{{S2_BOTTOM1}}</text>
   <text x="540" y="1605"
         font-family="{{FONT}}"
-        font-size="48" font-weight="900" fill="white" text-anchor="middle">{{S2_BOTTOM2}}</text>
+        font-size="48" font-weight="900" fill="white" data-maxwidth="920" text-anchor="middle">{{S2_BOTTOM2}}</text>
 
   <text x="540" y="1690"
         font-family="{{FONT}}"
-        font-size="32" fill="#7986cb" text-anchor="middle">{{S2_FOOTER}}</text>
+        font-size="32" fill="#7986cb" data-maxwidth="920" text-anchor="middle">{{S2_FOOTER}}</text>
 
   <!-- App name -->
   <text x="540" y="1820"
         font-family="{{FONT}}"
-        font-size="36" font-weight="700" fill="#5c6bc0" text-anchor="middle">{{APP_NAME}}</text>
+        font-size="36" font-weight="700" fill="#5c6bc0" data-maxwidth="880" text-anchor="middle">{{APP_NAME}}</text>
 </svg>

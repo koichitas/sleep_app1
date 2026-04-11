@@ -35,6 +35,52 @@ function fill(template, keys) {
   return template.replace(/\{\{(\w+)\}\}/g, (_, k) => keys[k] ?? '');
 }
 
+/**
+ * 文字幅の簡易推定（フォントサイズ × 文字種ごとの係数）
+ * CJK全角: ~1.0x / ラテン等: ~0.60x
+ */
+function estimateTextWidth(text, fontSize) {
+  let width = 0;
+  for (const ch of text) {
+    const cp = ch.codePointAt(0);
+    const isCJK =
+      (cp >= 0x1100 && cp <= 0x11FF) ||  // Hangul Jamo
+      (cp >= 0x2E80 && cp <= 0x2FFF) ||  // CJK Radicals
+      (cp >= 0x3000 && cp <= 0x9FFF) ||  // CJK Unified + Symbols
+      (cp >= 0xA960 && cp <= 0xA97F) ||  // Hangul Jamo Extended-A
+      (cp >= 0xAC00 && cp <= 0xD7AF) ||  // Hangul Syllables
+      (cp >= 0xF900 && cp <= 0xFAFF) ||  // CJK Compatibility
+      (cp >= 0xFE30 && cp <= 0xFE4F);    // CJK Compatibility Forms
+    width += fontSize * (isCJK ? 1.0 : 0.60);
+  }
+  return width;
+}
+
+/**
+ * data-maxwidth="N" 属性を持つ <text> 要素を処理:
+ *   - 推定幅 > maxwidth のとき: textLength + lengthAdjust を追加（圧縮）
+ *   - 推定幅 <= maxwidth のとき: 自然なままにする（引き伸ばし防止）
+ * 処理後、data-maxwidth 属性は除去する（librsvg が認識しないため）
+ */
+function applyTextLength(svg) {
+  return svg.replace(
+    /<text([^>]*)\bdata-maxwidth="(\d+)"([^>]*)>([\s\S]*?)<\/text>/g,
+    (match, pre, maxWidthStr, post, content) => {
+      const maxWidth  = parseInt(maxWidthStr, 10);
+      const allAttrs  = pre + post;
+      const fsMatch   = allAttrs.match(/\bfont-size="(\d+)"/);
+      const fontSize  = fsMatch ? parseInt(fsMatch[1], 10) : 32;
+      const plainText = content.replace(/<[^>]*>/g, '').trim();
+      const estimated = estimateTextWidth(plainText, fontSize);
+      const cleanAttrs = allAttrs.replace(/\s*data-maxwidth="\d+"/, '');
+      if (estimated > maxWidth) {
+        return `<text${cleanAttrs} textLength="${maxWidth}" lengthAdjust="spacingAndGlyphs">${content}</text>`;
+      }
+      return `<text${cleanAttrs}>${content}</text>`;
+    }
+  );
+}
+
 function generate(locale) {
   const t = TRANS[locale];
   if (!t) {
@@ -52,9 +98,9 @@ function generate(locale) {
       continue;
     }
 
-    // プレースホルダー置換
+    // プレースホルダー置換 → textLength 自動調整
     const keys = { FONT: t.font, ...t.strings };
-    const svg  = fill(fs.readFileSync(tplPath, 'utf8'), keys);
+    const svg  = applyTextLength(fill(fs.readFileSync(tplPath, 'utf8'), keys));
 
     const svgOut = path.join(outDir, `${name}.svg`);
     const pngOut = path.join(outDir, `${name}.png`);

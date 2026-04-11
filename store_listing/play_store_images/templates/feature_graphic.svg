@@ -81,22 +81,22 @@
   <!-- App name -->
   <text x="790" y="170"
         font-family="'Arial Rounded MT Bold', Arial, sans-serif"
-        font-size="64" font-weight="900"
+        font-size="64" font-weight="900" data-maxwidth="400"
         fill="white" text-anchor="middle">{{APP_NAME_L1}}</text>
   <text x="790" y="248"
         font-family="'Arial Rounded MT Bold', Arial, sans-serif"
-        font-size="64" font-weight="900"
+        font-size="64" font-weight="900" data-maxwidth="400"
         fill="#9fa8da" text-anchor="middle">{{APP_NAME_L2}}</text>
 
   <!-- Tagline -->
   <text x="790" y="315"
         font-family="Arial, sans-serif" font-size="26" fill="#c5cae9"
-        text-anchor="middle">{{FG_TAGLINE}}</text>
+        data-maxwidth="430" text-anchor="middle">{{FG_TAGLINE}}</text>
 
   <!-- Feature tags -->
   <rect x="600" y="360" width="180" height="44" rx="22" fill="#283593" opacity="0.9"/>
-  <text x="690" y="388" font-family="Arial, sans-serif" font-size="20" fill="#9fa8da" text-anchor="middle">{{FG_BADGE1}}</text>
+  <text x="690" y="388" font-family="Arial, sans-serif" font-size="20" fill="#9fa8da" data-maxwidth="160" text-anchor="middle">{{FG_BADGE1}}</text>
 
   <rect x="800" y="360" width="180" height="44" rx="22" fill="#283593" opacity="0.9"/>
-  <text x="890" y="388" font-family="Arial, sans-serif" font-size="20" fill="#9fa8da" text-anchor="middle">{{FG_BADGE2}}</text>
+  <text x="890" y="388" font-family="Arial, sans-serif" font-size="20" fill="#9fa8da" data-maxwidth="160" text-anchor="middle">{{FG_BADGE2}}</text>
 </svg>

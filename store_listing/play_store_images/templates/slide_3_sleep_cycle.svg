@@ -35,10 +35,10 @@
   <!-- Top headline -->
   <text x="540" y="155"
         font-family="{{FONT}}"
-        font-size="76" font-weight="900" fill="white" text-anchor="middle">{{S3_HEADLINE}}</text>
+        font-size="76" font-weight="900" fill="white" data-maxwidth="920" text-anchor="middle">{{S3_HEADLINE}}</text>
   <text x="540" y="230"
         font-family="{{FONT}}"
-        font-size="36" fill="#9fa8da" text-anchor="middle">{{S3_SUBHEADLINE}}</text>
+        font-size="36" fill="#9fa8da" data-maxwidth="920" text-anchor="middle">{{S3_SUBHEADLINE}}</text>
   <line x1="160" y1="275" x2="920" y2="275" stroke="#3f51b5" stroke-width="1.5" opacity="0.5"/>
 
   <!-- Step 1 -->
@@ -49,9 +49,9 @@
   <text x="190" y="430" font-family="Arial, sans-serif" font-size="48" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">1</text>
   <!-- Text -->
   <text x="280" y="410" font-family="{{FONT}}"
-        font-size="42" font-weight="700" fill="white">{{S3_STEP1_TITLE}}</text>
+        font-size="42" font-weight="700" fill="white" data-maxwidth="580">{{S3_STEP1_TITLE}}</text>
   <text x="280" y="465" font-family="{{FONT}}"
-        font-size="30" fill="#9fa8da">{{S3_STEP1_SUB}}</text>
+        font-size="30" fill="#9fa8da" data-maxwidth="660">{{S3_STEP1_SUB}}</text>
   <!-- Icon: mini grid (替代🔢) -->
   <rect x="862" y="402" width="28" height="28" rx="5" fill="#5c6bc0"/>
   <rect x="896" y="402" width="28" height="28" rx="5" fill="#5c6bc0"/>
@@ -68,9 +68,9 @@
   <circle cx="190" cy="750" r="52" fill="#3f51b5"/>
   <text x="190" y="750" font-family="Arial, sans-serif" font-size="48" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">2</text>
   <text x="280" y="730" font-family="{{FONT}}"
-        font-size="42" font-weight="700" fill="white">{{S3_STEP2_TITLE}}</text>
+        font-size="42" font-weight="700" fill="white" data-maxwidth="580">{{S3_STEP2_TITLE}}</text>
   <text x="280" y="785" font-family="{{FONT}}"
-        font-size="30" fill="#9fa8da">{{S3_STEP2_SUB}}</text>
+        font-size="30" fill="#9fa8da" data-maxwidth="580">{{S3_STEP2_SUB}}</text>
   <!-- Brain icon (SVG, language-independent) centered at (900,750) -->
   <g transform="translate(900,750)" fill="none" stroke="#7986cb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
     <!-- Left hemisphere outline -->
@@ -97,9 +97,9 @@
   <circle cx="190" cy="1070" r="52" fill="#3f51b5"/>
   <text x="190" y="1070" font-family="Arial, sans-serif" font-size="48" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">3</text>
   <text x="280" y="1050" font-family="{{FONT}}"
-        font-size="42" font-weight="700" fill="white">{{S3_STEP3_TITLE}}</text>
+        font-size="42" font-weight="700" fill="white" data-maxwidth="580">{{S3_STEP3_TITLE}}</text>
   <text x="280" y="1105" font-family="{{FONT}}"
-        font-size="30" fill="#9fa8da">{{S3_STEP3_SUB}}</text>
+        font-size="30" fill="#9fa8da" data-maxwidth="660">{{S3_STEP3_SUB}}</text>
   <!-- Icon: pause bars (替代⏸️) -->
   <rect x="868" y="1046" width="22" height="64" rx="5" fill="#7986cb"/>
   <rect x="902" y="1046" width="22" height="64" rx="5" fill="#7986cb"/>
@@ -115,9 +115,9 @@
   <circle cx="186" cy="1396" r="58" fill="#5c6bc0"/>
   <text x="186" y="1400" font-family="Arial, sans-serif" font-size="42" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">Zzz</text>
   <text x="290" y="1372" font-family="{{FONT}}"
-        font-size="46" font-weight="900" fill="white">{{S3_STEP4_TITLE}}</text>
+        font-size="46" font-weight="900" fill="white" data-maxwidth="590">{{S3_STEP4_TITLE}}</text>
   <text x="290" y="1432" font-family="{{FONT}}"
-        font-size="32" fill="#c5cae9">{{S3_STEP4_SUB}}</text>
+        font-size="32" fill="#c5cae9" data-maxwidth="620">{{S3_STEP4_SUB}}</text>
   <!-- Icon: crescent moon SVG (替代🌙) -->
   <defs>
     <mask id="moonIcon">
@@ -130,13 +130,13 @@
   <!-- Bottom message -->
   <text x="540" y="1620"
         font-family="{{FONT}}"
-        font-size="44" font-weight="900" fill="white" text-anchor="middle">{{S3_BOTTOM1}}</text>
+        font-size="44" font-weight="900" fill="white" data-maxwidth="920" text-anchor="middle">{{S3_BOTTOM1}}</text>
   <text x="540" y="1682"
         font-family="{{FONT}}"
-        font-size="44" font-weight="900" fill="#9fa8da" text-anchor="middle">{{S3_BOTTOM2}}</text>
+        font-size="44" font-weight="900" fill="#9fa8da" data-maxwidth="920" text-anchor="middle">{{S3_BOTTOM2}}</text>
 
   <!-- App name -->
   <text x="540" y="1820"
         font-family="{{FONT}}"
-        font-size="36" font-weight="700" fill="#5c6bc0" text-anchor="middle">{{APP_NAME}}</text>
+        font-size="36" font-weight="700" fill="#5c6bc0" data-maxwidth="880" text-anchor="middle">{{APP_NAME}}</text>
 </svg>

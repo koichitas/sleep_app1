@@ -85,19 +85,19 @@
   <!-- Main message (top) -->
   <text x="540" y="150"
         font-family="{{FONT}}"
-        font-size="54" fill="#c5cae9" text-anchor="middle">{{S4_TOP1}}</text>
+        font-size="54" fill="#c5cae9" data-maxwidth="920" text-anchor="middle">{{S4_TOP1}}</text>
   <text x="540" y="225"
         font-family="{{FONT}}"
-        font-size="54" fill="#c5cae9" text-anchor="middle">{{S4_TOP2}}</text>
+        font-size="54" fill="#c5cae9" data-maxwidth="920" text-anchor="middle">{{S4_TOP2}}</text>
 
   <!-- Main message (below moon) — big and bold -->
   <text x="540" y="1090"
         font-family="{{FONT}}"
-        font-size="100" font-weight="900" fill="white" text-anchor="middle"
+        font-size="100" font-weight="900" fill="white" data-maxwidth="920" text-anchor="middle"
         filter="url(#textGlow4)">{{S4_MAIN1}}</text>
   <text x="540" y="1210"
         font-family="{{FONT}}"
-        font-size="120" font-weight="900" fill="#ffe082" text-anchor="middle"
+        font-size="120" font-weight="900" fill="#ffe082" data-maxwidth="920" text-anchor="middle"
         filter="url(#textGlow4)">{{S4_MAIN2}}</text>
 
   <!-- Divider -->
@@ -106,29 +106,29 @@
   <!-- Sub messages -->
   <text x="540" y="1360"
         font-family="{{FONT}}"
-        font-size="42" fill="#9fa8da" text-anchor="middle">{{S4_SUB1}}</text>
+        font-size="42" fill="#9fa8da" data-maxwidth="920" text-anchor="middle">{{S4_SUB1}}</text>
   <text x="540" y="1418"
         font-family="{{FONT}}"
-        font-size="42" fill="#9fa8da" text-anchor="middle">{{S4_SUB2}}</text>
+        font-size="42" fill="#9fa8da" data-maxwidth="920" text-anchor="middle">{{S4_SUB2}}</text>
 
   <!-- Feature badges -->
   <rect x="100" y="1500" width="840" height="64" rx="32" fill="#1a237e" opacity="0.9"/>
   <text x="540" y="1542" font-family="{{FONT}}"
-        font-size="32" fill="#c5cae9" text-anchor="middle">{{S4_BADGE_C}}</text>
+        font-size="32" fill="#c5cae9" data-maxwidth="800" text-anchor="middle">{{S4_BADGE_C}}</text>
 
   <rect x="160" y="1590" width="340" height="60" rx="30" fill="#283593" opacity="0.85"/>
   <text x="330" y="1627" font-family="{{FONT}}"
-        font-size="28" fill="#9fa8da" text-anchor="middle">{{S4_BADGE_L}}</text>
+        font-size="28" fill="#9fa8da" data-maxwidth="300" text-anchor="middle">{{S4_BADGE_L}}</text>
 
   <rect x="580" y="1590" width="340" height="60" rx="30" fill="#283593" opacity="0.85"/>
   <text x="750" y="1627" font-family="{{FONT}}"
-        font-size="28" fill="#9fa8da" text-anchor="middle">{{S4_BADGE_R}}</text>
+        font-size="28" fill="#9fa8da" data-maxwidth="300" text-anchor="middle">{{S4_BADGE_R}}</text>
 
   <!-- App name -->
   <text x="540" y="1820"
         font-family="{{FONT}}"
-        font-size="40" font-weight="700" fill="#5c6bc0" text-anchor="middle">{{APP_NAME}}</text>
+        font-size="40" font-weight="700" fill="#5c6bc0" data-maxwidth="880" text-anchor="middle">{{APP_NAME}}</text>
   <text x="540" y="1868"
         font-family="{{FONT}}"
-        font-size="26" fill="#3f51b5" text-anchor="middle">{{APP_NAME_SUB}}</text>
+        font-size="26" fill="#3f51b5" data-maxwidth="880" text-anchor="middle">{{APP_NAME_SUB}}</text>
 </svg>
