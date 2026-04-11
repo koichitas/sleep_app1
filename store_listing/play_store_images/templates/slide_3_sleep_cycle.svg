@@ -71,8 +71,21 @@
         font-size="42" font-weight="700" fill="white">{{S3_STEP2_TITLE}}</text>
   <text x="280" y="785" font-family="{{FONT}}"
         font-size="30" fill="#9fa8da">{{S3_STEP2_SUB}}</text>
-  <!-- Icon: 脳 kanji (替代🧠) -->
-  <text x="900" y="768" font-family="'Noto Sans CJK JP', sans-serif" font-size="58" font-weight="700" fill="#7986cb" text-anchor="middle" dominant-baseline="central">{{S3_STEP2_ICON}}</text>
+  <!-- Brain icon (SVG, language-independent) centered at (900,750) -->
+  <g transform="translate(900,750)" fill="none" stroke="#7986cb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left hemisphere outline -->
+    <path d="M0,-26 C-6,-30 -18,-28 -22,-20 C-28,-18 -30,-10 -28,-2 C-30,4 -26,14 -18,16 C-16,22 -8,24 -2,20"/>
+    <!-- Right hemisphere outline -->
+    <path d="M0,-26 C6,-30 18,-28 22,-20 C28,-18 30,-10 28,-2 C30,4 26,14 18,16 C16,22 8,24 2,20"/>
+    <!-- Center groove -->
+    <line x1="0" y1="-26" x2="0" y2="20"/>
+    <!-- Wrinkle lines left (gyri) -->
+    <path d="M-22,-8 C-16,-14 -10,-10 -12,-4" stroke-width="2.5"/>
+    <path d="M-22,6 C-16,2 -12,8 -16,14" stroke-width="2.5"/>
+    <!-- Wrinkle lines right -->
+    <path d="M22,-8 C16,-14 10,-10 12,-4" stroke-width="2.5"/>
+    <path d="M22,6 C16,2 12,8 16,14" stroke-width="2.5"/>
+  </g>
 
   <!-- Arrow 2 -->
   <polygon points="540,880 500,850 580,850" fill="url(#arrowGrad)" opacity="0.9"/>
