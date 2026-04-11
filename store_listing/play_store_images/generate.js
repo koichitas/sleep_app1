@@ -58,23 +58,32 @@ function estimateTextWidth(text, fontSize) {
 
 /**
  * data-maxwidth="N" 属性を持つ <text> 要素を処理:
- *   - 推定幅 > maxwidth のとき: textLength + lengthAdjust を追加（圧縮）
- *   - 推定幅 <= maxwidth のとき: 自然なままにする（引き伸ばし防止）
+ *   - 推定幅 > maxwidth のとき: font-size を縮小してはみ出しを防ぐ
+ *   - 推定幅 <= maxwidth のとき: 変更なし
+ *   - 最小フォントサイズ: 元の 45% まで（それ以下は翻訳を短縮すべき）
  * 処理後、data-maxwidth 属性は除去する（librsvg が認識しないため）
+ *
+ * Note: librsvg は textLength 属性を無視するため font-size 縮小で対応。
  */
 function applyTextLength(svg) {
   return svg.replace(
     /<text([^>]*)\bdata-maxwidth="(\d+)"([^>]*)>([\s\S]*?)<\/text>/g,
     (match, pre, maxWidthStr, post, content) => {
-      const maxWidth  = parseInt(maxWidthStr, 10);
-      const allAttrs  = pre + post;
-      const fsMatch   = allAttrs.match(/\bfont-size="(\d+)"/);
-      const fontSize  = fsMatch ? parseInt(fsMatch[1], 10) : 32;
-      const plainText = content.replace(/<[^>]*>/g, '').trim();
-      const estimated = estimateTextWidth(plainText, fontSize);
+      const maxWidth   = parseInt(maxWidthStr, 10);
+      const allAttrs   = pre + post;
+      const fsMatch    = allAttrs.match(/\bfont-size="(\d+)"/);
       const cleanAttrs = allAttrs.replace(/\s*data-maxwidth="\d+"/, '');
+      if (!fsMatch) return `<text${cleanAttrs}>${content}</text>`;
+
+      const fontSize   = parseInt(fsMatch[1], 10);
+      const plainText  = content.replace(/<[^>]*>/g, '').trim();
+      const estimated  = estimateTextWidth(plainText, fontSize);
+
       if (estimated > maxWidth) {
-        return `<text${cleanAttrs} textLength="${maxWidth}" lengthAdjust="spacingAndGlyphs">${content}</text>`;
+        const scale      = maxWidth / estimated;
+        const newSize    = Math.max(Math.floor(fontSize * scale), Math.floor(fontSize * 0.45));
+        const updatedAttrs = cleanAttrs.replace(/\bfont-size="\d+"/, `font-size="${newSize}"`);
+        return `<text${updatedAttrs}>${content}</text>`;
       }
       return `<text${cleanAttrs}>${content}</text>`;
     }

@@ -107,6 +107,112 @@
     }
   },
 
+  "de": {
+    "font": "Arial, sans-serif",
+    "strings": {
+      "APP_NAME_L1":    "Schlaf",
+      "APP_NAME_L2":    "Challenge",
+      "APP_NAME":       "Schlaf-Challenge",
+      "APP_NAME_SUB":   "Sleep Challenge",
+
+      "FG_TAGLINE":     "Zahlen tippen und natürlich einschlafen",
+      "FG_BADGE1":      "Gehirn-Training",
+      "FG_BADGE2":      "Schlaf-Unterstützung",
+
+      "S1_HEADLINE":    "Kannst du nicht schlafen?",
+      "S1_SUB1":        "Tippe einfach Zahlen der Reihe nach",
+      "S1_SUB2":        "und schlafe ganz natürlich ein",
+      "S1_BODY1":       "Leichte geistige Erschöpfung",
+      "S1_BODY2":       "erzeugt natürliche Schläfrigkeit",
+
+      "S2_HEADLINE":    "Einfache Regeln",
+      "S2_SUBHEADLINE": "Tippe 1, 2, 3 ... einfach der Reihe nach",
+      "S2_LEGEND_OK":   "Richtig → leuchtet grün",
+      "S2_LEGEND_NG":   "Falsch → leuchtet rot",
+      "S2_LEGEND_NEXT": "Nächste zu tippende Zahl",
+      "S2_BOTTOM1":     "Jeder kann spielen —",
+      "S2_BOTTOM2":     "du brauchst nur Zahlen zu kennen",
+      "S2_FOOTER":      "Alle Altersgruppen · Kostenlos mit Werbung",
+
+      "S3_HEADLINE":    "So funktioniert es",
+      "S3_SUBHEADLINE": "Leichte Gehirnaktivität erzeugt natürliche Schläfrigkeit",
+      "S3_STEP1_TITLE": "Zahlen der Reihe nach tippen",
+      "S3_STEP1_SUB":   "1 → 2 → 3 … konzentrieren und suchen",
+      "S3_STEP2_TITLE": "Das Gehirn ermüdet",
+      "S3_STEP2_SUB":   "Gedächtnis · Fokus · Suche → sanfte Erschöpfung",
+      "S3_STEP2_ICON":  "Gehirn",
+      "S3_STEP3_TITLE": "Level geschafft → Pause",
+      "S3_STEP3_SUB":   "Werbung wird zur Ruhepause",
+      "S3_STEP4_TITLE": "Natürliche Schläfrigkeit",
+      "S3_STEP4_SUB":   "Dieser Zyklus wiederholt sich absichtlich",
+      "S3_BOTTOM1":     "»Eingeschlafen«",
+      "S3_BOTTOM2":     "ist das Ziel",
+
+      "S4_TOP1":        "Kein Druck",
+      "S4_TOP2":        "Kein Versagen",
+      "S4_MAIN1":       "Einschlafen =",
+      "S4_MAIN2":       "»Erfolg«",
+      "S4_SUB1":        "10 Min. ohne Tippen?",
+      "S4_SUB2":        "Schlaf erkannt ✓",
+      "S4_BADGE_C":     "Jeden Abend die gleiche Schlafroutine",
+      "S4_BADGE_L":     "Perfekt vor dem Schlafengehen",
+      "S4_BADGE_R":     "Führe deine Aufzeichnungen"
+    }
+  },
+
+  "ar": {
+    "font": "'Noto Sans Arabic', 'Noto Sans', sans-serif",
+    "strings": {
+      "APP_NAME_L1":    "تحدي",
+      "APP_NAME_L2":    "النوم",
+      "APP_NAME":       "تحدي النوم",
+      "APP_NAME_SUB":   "Sleep Challenge",
+
+      "FG_TAGLINE":     "اضغط الأرقام وانجرف في النوم بشكل طبيعي",
+      "FG_BADGE1":      "تدريب الدماغ",
+      "FG_BADGE2":      "دعم النوم",
+
+      "S1_HEADLINE":    "لا تستطيع النوم؟",
+      "S1_SUB1":        "فقط اضغط الأرقام بالترتيب",
+      "S1_SUB2":        "وانجرف في النوم بشكل طبيعي",
+      "S1_BODY1":       "إرهاق دماغي خفيف",
+      "S1_BODY2":       "يجلب النعاس الطبيعي",
+
+      "S2_HEADLINE":    "قواعد بسيطة",
+      "S2_SUBHEADLINE": "فقط اضغط 1، 2، 3... بالترتيب",
+      "S2_LEGEND_OK":   "صحيح → يضيء باللون الأخضر",
+      "S2_LEGEND_NG":   "خطأ → يضيء باللون الأحمر",
+      "S2_LEGEND_NEXT": "الرقم التالي للضغط",
+      "S2_BOTTOM1":     "يمكن للجميع اللعب —",
+      "S2_BOTTOM2":     "فقط اعرف أرقامك",
+      "S2_FOOTER":      "جميع الأعمار · مجاني مع إعلانات",
+
+      "S3_HEADLINE":    "كيف يعمل",
+      "S3_SUBHEADLINE": "استخدام الدماغ الخفيف يخلق النعاس الطبيعي",
+      "S3_STEP1_TITLE": "اضغط الأرقام بالترتيب",
+      "S3_STEP1_SUB":   "1 → 2 → 3 … ركّز وابحث",
+      "S3_STEP2_TITLE": "يتعب دماغك",
+      "S3_STEP2_SUB":   "ذاكرة · تركيز · بحث → إرهاق لطيف",
+      "S3_STEP2_ICON":  "دماغ",
+      "S3_STEP3_TITLE": "إنهاء المرحلة → استراحة",
+      "S3_STEP3_SUB":   "الإعلانات تصبح وقت راحة",
+      "S3_STEP4_TITLE": "نعاس طبيعي",
+      "S3_STEP4_SUB":   "هذه الدورة تتكرر بتصميم",
+      "S3_BOTTOM1":     "«نمت»",
+      "S3_BOTTOM2":     "هو الهدف",
+
+      "S4_TOP1":        "لا ضغط",
+      "S4_TOP2":        "لا فشل",
+      "S4_MAIN1":       "النوم =",
+      "S4_MAIN2":       "«نجاح»",
+      "S4_SUB1":        "١٠ دقائق بدون ضغط؟",
+      "S4_SUB2":        "تم اكتشاف النوم ✓",
+      "S4_BADGE_C":     "نفس روتين النوم كل ليلة",
+      "S4_BADGE_L":     "مثالي قبل النوم",
+      "S4_BADGE_R":     "تتبع سجلاتك"
+    }
+  },
+
   "ko": {
     "font": "'Noto Sans CJK KR', 'Noto Sans CJK JP', sans-serif",
     "strings": {
