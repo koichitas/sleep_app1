@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <!-- Slide 3: Sleep mechanism — 脳が疲れる → 眠くなる -->
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#050818"/>
+      <stop offset="100%" style="stop-color:#0d1b4e"/>
+    </linearGradient>
+    <linearGradient id="stepBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a237e"/>
+      <stop offset="100%" style="stop-color:#0d1445"/>
+    </linearGradient>
+    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5c6bc0"/>
+      <stop offset="100%" style="stop-color:#3f51b5"/>
+    </linearGradient>
+    <filter id="glow3">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow3">
+      <feDropShadow dx="0" dy="6" stdDeviation="14" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1920" fill="url(#bg3)"/>
+
+  <!-- Stars -->
+  <circle cx="80"  cy="70"  r="2" fill="white" opacity="0.5"/>
+  <circle cx="950" cy="100" r="3" fill="white" opacity="0.6"/>
+  <circle cx="40"  cy="500" r="2" fill="white" opacity="0.3"/>
+  <circle cx="1050" cy="600" r="2" fill="white" opacity="0.3"/>
+  <path d="M870 60 L873 70 L883 73 L873 76 L870 86 L867 76 L857 73 L867 70 Z" fill="white" opacity="0.7"/>
+
+  <!-- Top headline -->
+  <text x="540" y="155"
+        font-family="'Noto Sans CJK JP', 'Noto Sans JP', sans-serif"
+        font-size="76" font-weight="900" fill="white" text-anchor="middle">眠れる仕組み</text>
+  <text x="540" y="230"
+        font-family="'Noto Sans CJK JP', 'Noto Sans JP', sans-serif"
+        font-size="36" fill="#9fa8da" text-anchor="middle">脳を適度に使うと自然な眠気が来る</text>
+  <line x1="160" y1="275" x2="920" y2="275" stroke="#3f51b5" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Step 1 -->
+  <rect x="100" y="330" width="880" height="200" rx="28" fill="url(#stepBg)" filter="url(#shadow3)"/>
+  <rect x="100" y="330" width="880" height="200" rx="28" fill="none" stroke="#3f51b5" stroke-width="2"/>
+  <!-- Number circle -->
+  <circle cx="190" cy="430" r="52" fill="#3f51b5"/>
+  <text x="190" y="430" font-family="Arial, sans-serif" font-size="48" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">1</text>
+  <!-- Text -->
+  <text x="280" y="410" font-family="'Noto Sans CJK JP', 'Noto Sans JP', sans-serif"
+        font-size="42" font-weight="700" fill="white">数字を探してタップ</text>
+  <text x="280" y="465" font-family="'Noto Sans CJK JP', 'Noto Sans JP', sans-serif"
+        font-size="30" fill="#9fa8da">1 → 2 → 3 … と順番に</text>
+  <!-- Icon: mini grid (替代🔢) -->
+  <rect x="862" y="402" width="28" height="28" rx="5" fill="#5c6bc0"/>
+  <rect x="896" y="402" width="28" height="28" rx="5" fill="#5c6bc0"/>
+  <rect x="862" y="436" width="28" height="28" rx="5" fill="#7986cb"/>
+  <rect x="896" y="436" width="28" height="28" rx="5" fill="#7986cb"/>
+
+  <!-- Arrow 1 -->
+  <polygon points="540,560 500,530 580,530" fill="url(#arrowGrad)" opacity="0.9"/>
+  <rect x="526" y="560" width="28" height="60" fill="url(#arrowGrad)" opacity="0.9"/>
+
+  <!-- Step 2 -->
+  <rect x="100" y="650" width="880" height="200" rx="28" fill="url(#stepBg)" filter="url(#shadow3)"/>
+  <rect x="100" y="650" width="880" height="200" rx="28" fill="none" stroke="#3f51b5" stroke-width="2"/>
+  <circle cx="190" cy="750" r="52" fill="#3f51b5"/>
+  <text x="190" y="750" font-family="Arial, sans-serif" font-size="48" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">2</text>
+  <text x="280" y="730" font-family="'Noto Sans CJK JP', 'Noto Sans JP', sans-serif"
+        font-size="42" font-weight="700" fill="white">脳が適度に疲れる</text>
+  <text x="280" y="785" font-family="'Noto Sans CJK JP', 'Noto Sans JP', sans-serif"
+        font-size="30" fill="#9fa8da">記憶・探索・集中 → 心地よい負荷</text>
+  <!-- Icon: 脳 kanji (替代🧠) -->
+  <text x="900" y="768" font-family="'Noto Sans CJK JP', sans-serif" font-size="58" font-weight="700" fill="#7986cb" text-anchor="middle" dominant-baseline="central">脳</text>
+
+  <!-- Arrow 2 -->
+  <polygon points="540,880 500,850 580,850" fill="url(#arrowGrad)" opacity="0.9"/>
+  <rect x="526" y="880" width="28" height="60" fill="url(#arrowGrad)" opacity="0.9"/>
+
+  <!-- Step 3: Ad break -->
+  <rect x="100" y="970" width="880" height="200" rx="28" fill="url(#stepBg)" filter="url(#shadow3)"/>
+  <rect x="100" y="970" width="880" height="200" rx="28" fill="none" stroke="#3f51b5" stroke-width="2"/>
+  <circle cx="190" cy="1070" r="52" fill="#3f51b5"/>
+  <text x="190" y="1070" font-family="Arial, sans-serif" font-size="48" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">3</text>
+  <text x="280" y="1050" font-family="'Noto Sans CJK JP', 'Noto Sans JP', sans-serif"
+        font-size="42" font-weight="700" fill="white">ステージクリア → 休憩</text>
+  <text x="280" y="1105" font-family="'Noto Sans CJK JP', 'Noto Sans JP', sans-serif"
+        font-size="30" fill="#9fa8da">広告が「何もしない時間」になる</text>
+  <!-- Icon: pause bars (替代⏸️) -->
+  <rect x="868" y="1046" width="22" height="64" rx="5" fill="#7986cb"/>
+  <rect x="902" y="1046" width="22" height="64" rx="5" fill="#7986cb"/>
+
+  <!-- Arrow 3 -->
+  <polygon points="540,1200 500,1170 580,1170" fill="url(#arrowGrad)" opacity="0.9"/>
+  <rect x="526" y="1200" width="28" height="60" fill="url(#arrowGrad)" opacity="0.9"/>
+
+  <!-- Step 4: Sleep (highlighted) -->
+  <rect x="80" y="1288" width="920" height="216" rx="28" fill="#1a237e" filter="url(#shadow3)"/>
+  <rect x="80" y="1288" width="920" height="216" rx="28" fill="none" stroke="#7986cb" stroke-width="3" filter="url(#glow3)"/>
+  <!-- Icon: Zzz in circle (替代😴) -->
+  <circle cx="186" cy="1396" r="58" fill="#5c6bc0"/>
+  <text x="186" y="1400" font-family="Arial, sans-serif" font-size="42" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">Zzz</text>
+  <text x="290" y="1372" font-family="'Noto Sans CJK JP', 'Noto Sans JP', sans-serif"
+        font-size="46" font-weight="900" fill="white">自然な眠気</text>
+  <text x="290" y="1432" font-family="'Noto Sans CJK JP', 'Noto Sans JP', sans-serif"
+        font-size="32" fill="#c5cae9">このサイクルを繰り返す設計</text>
+  <!-- Icon: crescent moon SVG (替代🌙) -->
+  <defs>
+    <mask id="moonIcon">
+      <circle cx="930" cy="1400" r="38" fill="white"/>
+      <circle cx="952" cy="1388" r="32" fill="black"/>
+    </mask>
+  </defs>
+  <circle cx="930" cy="1400" r="38" fill="#c5cae9" mask="url(#moonIcon)"/>
+
+  <!-- Bottom message -->
+  <text x="540" y="1620"
+        font-family="'Noto Sans CJK JP', 'Noto Sans JP', sans-serif"
+        font-size="44" font-weight="900" fill="white" text-anchor="middle">「眠れた」が</text>
+  <text x="540" y="1682"
+        font-family="'Noto Sans CJK JP', 'Noto Sans JP', sans-serif"
+        font-size="44" font-weight="900" fill="#9fa8da" text-anchor="middle">ゴールのアプリ</text>
+
+  <!-- App name -->
+  <text x="540" y="1820"
+        font-family="'Noto Sans CJK JP', 'Noto Sans JP', sans-serif"
+        font-size="36" font-weight="700" fill="#5c6bc0" text-anchor="middle">寝落ちチャレンジ</text>
+</svg>
