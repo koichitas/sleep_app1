@@ -1,4 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!--
+    Adaptive icon layout notes:
+    - Full canvas: 1024×1024px (represents 108dp)
+    - Circle mask radius: ~341px from center (512,512) [= 36dp @ 108dp canvas]
+    - Panels centered at 219px from image center (45° diagonals)
+    - Panel size 160×160px → outer corners at 332px from center → inside circle ✓
+    - Panel numbers at 219px from center → outside moon (r=200) → visible ✓
+    - Moon covers inner corners of panels (cosmetic layering effect)
+  -->
   <defs>
     <linearGradient id="bgA" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1a237e"/>
@@ -20,80 +29,89 @@
       <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.4"/>
     </filter>
     <mask id="moonMaskA">
-      <circle cx="512" cy="512" r="195" fill="white"/>
-      <circle cx="600" cy="468" r="162" fill="black"/>
+      <circle cx="512" cy="512" r="200" fill="white"/>
+      <circle cx="602" cy="467" r="166" fill="black"/>
     </mask>
   </defs>
 
   <!-- Background -->
   <rect width="1024" height="1024" fill="url(#bgA)"/>
 
-  <!-- Subtle star field -->
-  <circle cx="310" cy="160" r="4" fill="white" opacity="0.6"/>
-  <circle cx="480" cy="120" r="3" fill="white" opacity="0.4"/>
-  <circle cx="700" cy="180" r="5" fill="white" opacity="0.7"/>
-  <circle cx="820" cy="280" r="3" fill="white" opacity="0.5"/>
-  <circle cx="160" cy="340" r="4" fill="white" opacity="0.5"/>
-  <circle cx="880" cy="450" r="3" fill="white" opacity="0.4"/>
-  <circle cx="140" cy="600" r="4" fill="white" opacity="0.5"/>
-  <circle cx="900" cy="680" r="3" fill="white" opacity="0.4"/>
-  <circle cx="300" cy="820" r="4" fill="white" opacity="0.5"/>
-  <circle cx="750" cy="860" r="3" fill="white" opacity="0.4"/>
-  <!-- 4-pointed star accents -->
-  <path d="M680 160 L685 175 L700 180 L685 185 L680 200 L675 185 L660 180 L675 175 Z" fill="white" opacity="0.7"/>
-  <path d="M200 500 L203 510 L213 513 L203 516 L200 526 L197 516 L187 513 L197 510 Z" fill="white" opacity="0.5"/>
+  <!-- Star field (inside circle-safe zone) -->
+  <circle cx="440" cy="200" r="3" fill="white" opacity="0.5"/>
+  <circle cx="600" cy="180" r="2" fill="white" opacity="0.4"/>
+  <circle cx="750" cy="280" r="3" fill="white" opacity="0.5"/>
+  <circle cx="200" cy="400" r="2" fill="white" opacity="0.4"/>
+  <circle cx="820" cy="420" r="2" fill="white" opacity="0.4"/>
+  <circle cx="200" cy="630" r="2" fill="white" opacity="0.4"/>
+  <circle cx="820" cy="660" r="3" fill="white" opacity="0.4"/>
+  <circle cx="440" cy="830" r="2" fill="white" opacity="0.4"/>
+  <circle cx="600" cy="840" r="3" fill="white" opacity="0.5"/>
+  <!-- 4-pointed star -->
+  <path d="M750 220 L754 233 L767 237 L754 241 L750 254 L746 241 L733 237 L746 233 Z" fill="white" opacity="0.6"/>
 
-  <!-- Number panels (4 corners) -->
-  <!-- Top-left panel (normal) -->
-  <rect x="72" y="72" width="228" height="228" rx="36" fill="url(#panelA)" filter="url(#panelShadow)"/>
-  <rect x="72" y="72" width="228" height="228" rx="36" fill="none" stroke="#7986cb" stroke-width="3"/>
-  <text x="186" y="186" font-family="'Arial Rounded MT Bold', Arial, sans-serif" font-size="148" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">1</text>
+  <!-- Number panels: centered 219px from (512,512) at 45° diagonals -->
+  <!-- Panel size 160×160px, rx=28 -->
+  <!-- Outer corners at 332px from center → within 341px circle mask ✓ -->
 
-  <!-- Top-right panel (normal) -->
-  <rect x="724" y="72" width="228" height="228" rx="36" fill="url(#panelA)" filter="url(#panelShadow)"/>
-  <rect x="724" y="72" width="228" height="228" rx="36" fill="none" stroke="#7986cb" stroke-width="3"/>
-  <text x="838" y="186" font-family="'Arial Rounded MT Bold', Arial, sans-serif" font-size="148" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">2</text>
+  <!-- Top-left panel (1 — normal blue) -->
+  <rect x="277" y="277" width="160" height="160" rx="28" fill="url(#panelA)" filter="url(#panelShadow)"/>
+  <rect x="277" y="277" width="160" height="160" rx="28" fill="none" stroke="#7986cb" stroke-width="3"/>
+  <text x="357" y="357"
+        font-family="'Arial Rounded MT Bold', Arial, sans-serif"
+        font-size="104" font-weight="900" fill="white"
+        text-anchor="middle" dominant-baseline="central">1</text>
 
-  <!-- Bottom-left panel (correct = green glow) -->
-  <rect x="72" y="724" width="228" height="228" rx="36" fill="url(#panelGreen)" filter="url(#panelShadow)"/>
-  <rect x="72" y="724" width="228" height="228" rx="36" fill="none" stroke="#66bb6a" stroke-width="3"/>
-  <text x="186" y="838" font-family="'Arial Rounded MT Bold', Arial, sans-serif" font-size="148" font-weight="900" fill="#a5d6a7" text-anchor="middle" dominant-baseline="central">3</text>
+  <!-- Top-right panel (2 — normal blue) -->
+  <rect x="587" y="277" width="160" height="160" rx="28" fill="url(#panelA)" filter="url(#panelShadow)"/>
+  <rect x="587" y="277" width="160" height="160" rx="28" fill="none" stroke="#7986cb" stroke-width="3"/>
+  <text x="667" y="357"
+        font-family="'Arial Rounded MT Bold', Arial, sans-serif"
+        font-size="104" font-weight="900" fill="white"
+        text-anchor="middle" dominant-baseline="central">2</text>
 
-  <!-- Bottom-right panel (normal) -->
-  <rect x="724" y="724" width="228" height="228" rx="36" fill="url(#panelA)" filter="url(#panelShadow)"/>
-  <rect x="724" y="724" width="228" height="228" rx="36" fill="none" stroke="#7986cb" stroke-width="3"/>
-  <text x="838" y="838" font-family="'Arial Rounded MT Bold', Arial, sans-serif" font-size="148" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="central">4</text>
+  <!-- Bottom-left panel (3 — green = correct) -->
+  <rect x="277" y="587" width="160" height="160" rx="28" fill="url(#panelGreen)" filter="url(#panelShadow)"/>
+  <rect x="277" y="587" width="160" height="160" rx="28" fill="none" stroke="#66bb6a" stroke-width="3"/>
+  <text x="357" y="667"
+        font-family="'Arial Rounded MT Bold', Arial, sans-serif"
+        font-size="104" font-weight="900" fill="#a5d6a7"
+        text-anchor="middle" dominant-baseline="central">3</text>
 
-  <!-- Crescent Moon (center) -->
-  <circle cx="512" cy="512" r="195" fill="#dde1ff" mask="url(#moonMaskA)" filter="url(#glow)"/>
-  <!-- Moon line detail -->
-  <circle cx="512" cy="512" r="195" fill="none" stroke="#b0beff" stroke-width="2" mask="url(#moonMaskA)" opacity="0.5"/>
+  <!-- Bottom-right panel (4 — normal blue) -->
+  <rect x="587" y="587" width="160" height="160" rx="28" fill="url(#panelA)" filter="url(#panelShadow)"/>
+  <rect x="587" y="587" width="160" height="160" rx="28" fill="none" stroke="#7986cb" stroke-width="3"/>
+  <text x="667" y="667"
+        font-family="'Arial Rounded MT Bold', Arial, sans-serif"
+        font-size="104" font-weight="900" fill="white"
+        text-anchor="middle" dominant-baseline="central">4</text>
 
-  <!-- Zzz — floating sleep letters rising from top-right of crescent -->
-  <!-- Z1: largest, closest to moon tip (~top of crescent) -->
-  <text x="620" y="340"
-    font-family="'Arial Rounded MT Bold', Arial, sans-serif"
-    font-size="96" font-weight="900"
-    fill="none" stroke="#b0beff" stroke-width="5"
-    text-anchor="middle" dominant-baseline="central"
-    transform="rotate(-12, 620, 340)"
-    opacity="0.90">Z</text>
+  <!-- Crescent Moon (drawn on top of panels — covers inner panel corners) -->
+  <circle cx="512" cy="512" r="200" fill="#dde1ff" mask="url(#moonMaskA)" filter="url(#glow)"/>
+  <circle cx="512" cy="512" r="200" fill="none" stroke="#b0beff" stroke-width="2" mask="url(#moonMaskA)" opacity="0.5"/>
 
-  <!-- Z2: medium, higher and to the right -->
-  <text x="700" y="240"
-    font-family="'Arial Rounded MT Bold', Arial, sans-serif"
-    font-size="68" font-weight="900"
-    fill="none" stroke="#b0beff" stroke-width="4"
-    text-anchor="middle" dominant-baseline="central"
-    transform="rotate(-12, 700, 240)"
-    opacity="0.65">Z</text>
+  <!-- Zzz — floating from crescent tip (~686,314) upward-right -->
+  <text x="706" y="278"
+        font-family="'Arial Rounded MT Bold', Arial, sans-serif"
+        font-size="90" font-weight="900"
+        fill="none" stroke="#b0beff" stroke-width="5"
+        text-anchor="middle" dominant-baseline="central"
+        transform="rotate(-12, 706, 278)"
+        opacity="0.90">Z</text>
 
-  <!-- Z3: smallest, highest, most faded -->
-  <text x="768" y="162"
-    font-family="'Arial Rounded MT Bold', Arial, sans-serif"
-    font-size="46" font-weight="900"
-    fill="none" stroke="#b0beff" stroke-width="3"
-    text-anchor="middle" dominant-baseline="central"
-    transform="rotate(-12, 768, 162)"
-    opacity="0.40">Z</text>
+  <text x="780" y="190"
+        font-family="'Arial Rounded MT Bold', Arial, sans-serif"
+        font-size="64" font-weight="900"
+        fill="none" stroke="#b0beff" stroke-width="4"
+        text-anchor="middle" dominant-baseline="central"
+        transform="rotate(-12, 780, 190)"
+        opacity="0.65">Z</text>
+
+  <text x="840" y="122"
+        font-family="'Arial Rounded MT Bold', Arial, sans-serif"
+        font-size="44" font-weight="900"
+        fill="none" stroke="#b0beff" stroke-width="3"
+        text-anchor="middle" dominant-baseline="central"
+        transform="rotate(-12, 840, 122)"
+        opacity="0.40">Z</text>
 </svg>
