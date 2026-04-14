@@ -5,7 +5,7 @@
 ## Titlul aplicației (max. 30 caractere)
 
 ```
-Doze Panels: Joc de somn cu cifre
+Doze Panels: Joc de somn
 ```
 
 ---

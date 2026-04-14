@@ -23,7 +23,7 @@ Zahlenspiel zum Einschlafen
 ## Kurzbeschreibung (max. 80 Zeichen)
 
 ```
-Tippe Zahlen der Reihe nach. Dein Gehirn ermüdet — und du schläfst natürlich ein.
+Tippe Zahlen in Folge. Dein Gehirn ermüdet — und du schläfst ein.
 ```
 
 ---

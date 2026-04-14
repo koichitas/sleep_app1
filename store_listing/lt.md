@@ -5,7 +5,7 @@
 ## Programėlės pavadinimas (maks. 30 simbolių)
 
 ```
-Doze Panels: Miego skaičių žaidimas
+Doze Panels: Miego skaičiai
 ```
 
 ---

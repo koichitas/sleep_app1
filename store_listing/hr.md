@@ -5,7 +5,7 @@
 ## Naziv aplikacije (maks. 30 znakova)
 
 ```
-Doze Panels: Igra brojeva za san
+Doze Panels: Igra za san
 ```
 
 ---

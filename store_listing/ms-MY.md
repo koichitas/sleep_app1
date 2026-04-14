@@ -13,7 +13,7 @@ Doze Panels: Permainan Tidur
 ## Penerangan ringkas (maks. 80 aksara)
 
 ```
-Teka-teki nombor yang meletihkan minda dan membantu anda tidur secara semula jadi.
+Teka-teki nombor yang meletihkan minda dan membantu anda tidur.
 ```
 
 ---

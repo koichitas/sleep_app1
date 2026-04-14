@@ -5,7 +5,7 @@
 ## Jina la programu (hadi herufi 30)
 
 ```
-Doze Panels: Mchezo wa Nambari za Usingizi
+Doze Panels: Mchezo wa Nambari
 ```
 
 ---

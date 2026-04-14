@@ -5,7 +5,7 @@
 ## Lietotnes nosaukums (maks. 30 rakstzīmes)
 
 ```
-Doze Panels: Miega skaitļu spēle
+Doze Panels: Miega skaitļi
 ```
 
 ---

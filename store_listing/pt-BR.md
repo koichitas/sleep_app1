@@ -23,7 +23,7 @@ Jogo de Números para Dormir
 ## Descrição curta (máx. 80 caracteres)
 
 ```
-Toque nos números em ordem e deixe o cérebro cansar naturalmente até você dormir.
+Toque nos números em ordem. O cérebro cansa e você dorme naturalmente.
 ```
 
 ---

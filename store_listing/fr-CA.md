@@ -15,7 +15,7 @@ Doze Panels: Jeu de sommeil
 ## Description courte (max. 80 caractères)
 
 ```
-Le casse-tête de chiffres qui fatigue l'esprit et aide à s'endormir naturellement.
+Le casse-tête de chiffres qui fatigue l'esprit pour s'endormir.
 ```
 
 ---

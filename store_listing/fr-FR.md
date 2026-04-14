@@ -23,7 +23,7 @@ Jeu de Chiffres pour Dormir
 ## Description courte (max. 80 caractères)
 
 ```
-Touche les chiffres dans l'ordre. Ton cerveau se fatigue — et tu t'endors naturellement.
+Touche les chiffres dans l'ordre. Ton cerveau se fatigue et tu t'endors.
 ```
 
 ---

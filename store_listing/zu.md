@@ -5,7 +5,7 @@
 ## Igama lohlelo lokusebenza (okungeziwe 30 izinhlamvu)
 
 ```
-Doze Panels: Umdlalo Wamanani Wokulala
+Doze Panels: Umdlalo Wokulala
 ```
 
 ---

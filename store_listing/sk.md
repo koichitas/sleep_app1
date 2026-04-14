@@ -5,7 +5,7 @@
 ## Názov aplikácie (max. 30 znakov)
 
 ```
-Doze Panels: Hra čísel pre spánok
+Doze Panels: Hra čísel
 ```
 
 ---

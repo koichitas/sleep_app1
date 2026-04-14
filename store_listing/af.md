@@ -13,7 +13,7 @@ Doze Panels: Slaapgetallespel
 ## Kort beskrywing (maks. 80 karakters)
 
 ```
-Die getallegaaier wat die verstand moeg maak en help om natuurlik aan die slaap te raak.
+Die getallegaaier wat die verstand moeg maak en jou laat slaap.
 ```
 
 ---

@@ -5,7 +5,7 @@
 ## Ime aplikacije (maks. 30 znakov)
 
 ```
-Doze Panels: Igra številk za spanec
+Doze Panels: Igra številk
 ```
 
 ---

@@ -5,7 +5,7 @@
 ## Nome da aplicación (máx. 30 caracteres)
 
 ```
-Doze Panels: Xogo de Números para Durmir
+Doze Panels: Xogo de Números
 ```
 
 ---

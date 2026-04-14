@@ -5,7 +5,7 @@
 ## Název aplikace (max. 30 znaků)
 
 ```
-Doze Panels: Spánková hra čísel
+Doze Panels: Spánková hra
 ```
 
 ---
