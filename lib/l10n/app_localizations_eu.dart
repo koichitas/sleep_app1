@@ -134,4 +134,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Ikusi iragarkia laguntza lortzeko';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

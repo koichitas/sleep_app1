@@ -37,5 +37,6 @@
   "hintDialogTitle": "Vajag padomu?",
   "hintDialogMessage": "Tu trīs reizes pēc kārtas pieskarei nepareizam.",
   "continueWithoutHint": "Turpināt bez padoma",
-  "watchAdForHint": "Skatīties reklāmu padomam"
+  "watchAdForHint": "Skatīties reklāmu padomam",
+  "privacySettings": "Privacy Settings"
 }

@@ -43,5 +43,7 @@
   "hintDialogTitle": "Need a hint?",
   "hintDialogMessage": "You missed 3 times in a row.",
   "continueWithoutHint": "Continue without hint",
-  "watchAdForHint": "Watch ad for a hint"
+  "watchAdForHint": "Watch ad for a hint",
+
+  "privacySettings": "Privacy Settings"
 }

@@ -1,6 +1,5 @@
 {
   "@@locale": "ar",
-
   "appTitle": "تحدي النوم",
   "startScreenMessage": "عمل رائع اليوم\nنم جيداً",
   "startButton": "ابدأ",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "هل تحتاج لتلميح؟",
   "hintDialogMessage": "أخطأت 3 مرات متتالية.",
   "continueWithoutHint": "الاستمرار بدون تلميح",
-  "watchAdForHint": "مشاهدة إعلان للحصول على تلميح"
+  "watchAdForHint": "مشاهدة إعلان للحصول على تلميح",
+  "privacySettings": "إعدادات الخصوصية"
 }

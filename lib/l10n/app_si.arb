@@ -37,5 +37,6 @@
   "hintDialogTitle": "ඉඟියක් අවශ්‍යද?",
   "hintDialogMessage": "ඔබ ප්‍රතිවාදී 3 වරක් ක්‍රියා කළා.",
   "continueWithoutHint": "ඉඟියකින් තොරව ඉදිරියට",
-  "watchAdForHint": "ඉඟිය සඳහා දැන්වීම බලන්න"
+  "watchAdForHint": "ඉඟිය සඳහා දැන්වීම බලන්න",
+  "privacySettings": "Privacy Settings"
 }

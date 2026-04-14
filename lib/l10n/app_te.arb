@@ -37,5 +37,6 @@
   "hintDialogTitle": "సూచన కావాలా?",
   "hintDialogMessage": "వరుసగా 3 సార్లు తప్పు చేశారు.",
   "continueWithoutHint": "సూచన లేకుండా కొనసాగించు",
-  "watchAdForHint": "సూచన కోసం యాడ్ చూడు"
+  "watchAdForHint": "సూచన కోసం యాడ్ చూడు",
+  "privacySettings": "Privacy Settings"
 }

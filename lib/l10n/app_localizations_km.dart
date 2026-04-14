@@ -133,4 +133,7 @@ class AppLocalizationsKm extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'មើលការផ្សាយដើម្បីទទួលជំនួយ';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

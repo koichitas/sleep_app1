@@ -1,6 +1,5 @@
 {
   "@@locale": "fr",
-
   "appTitle": "Défi Sommeil",
   "startScreenMessage": "Bonne journée\nDors bien",
   "startButton": "Commencer",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "Besoin d'un indice ?",
   "hintDialogMessage": "Tu as fait 3 erreurs consécutives.",
   "continueWithoutHint": "Continuer sans indice",
-  "watchAdForHint": "Regarder une pub pour un indice"
+  "watchAdForHint": "Regarder une pub pour un indice",
+  "privacySettings": "Paramètres de confidentialité"
 }

@@ -37,5 +37,6 @@
   "hintDialogTitle": "Þarftu vísbendingu?",
   "hintDialogMessage": "Þú þjappaðir rangt 3 sinnum í röð.",
   "continueWithoutHint": "Halda áfram án vísbendingar",
-  "watchAdForHint": "Horfa á auglýsingu fyrir vísbendingu"
+  "watchAdForHint": "Horfa á auglýsingu fyrir vísbendingu",
+  "privacySettings": "Privacy Settings"
 }

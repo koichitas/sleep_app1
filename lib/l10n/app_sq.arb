@@ -37,5 +37,6 @@
   "hintDialogTitle": "Të duhet një ndihmë?",
   "hintDialogMessage": "Ke gabuar 3 herë radhazi.",
   "continueWithoutHint": "Vazhdo pa ndihmë",
-  "watchAdForHint": "Shiko reklamën për ndihmë"
+  "watchAdForHint": "Shiko reklamën për ndihmë",
+  "privacySettings": "Privacy Settings"
 }

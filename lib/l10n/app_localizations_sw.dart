@@ -133,4 +133,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Tazama tangazo kwa kidokezo';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

@@ -37,5 +37,6 @@
   "hintDialogTitle": "संकेत चाहिन्छ?",
   "hintDialogMessage": "तपाईंले लगातार ३ पटक गलत थिच्नुभयो।",
   "continueWithoutHint": "संकेत बिना जारी राख्नुहोस्",
-  "watchAdForHint": "संकेतका लागि विज्ञापन हेर्नुहोस्"
+  "watchAdForHint": "संकेतका लागि विज्ञापन हेर्नुहोस्",
+  "privacySettings": "Privacy Settings"
 }

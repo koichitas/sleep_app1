@@ -1,6 +1,5 @@
 {
   "@@locale": "zh",
-
   "appTitle": "睡眠挑战",
   "startScreenMessage": "今天辛苦了\n祝你好眠",
   "startButton": "开始",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "需要提示吗？",
   "hintDialogMessage": "您连续错了3次。",
   "continueWithoutHint": "继续游戏",
-  "watchAdForHint": "观看广告获取提示"
+  "watchAdForHint": "观看广告获取提示",
+  "privacySettings": "隐私设置"
 }

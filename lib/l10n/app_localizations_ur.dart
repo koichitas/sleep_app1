@@ -134,4 +134,7 @@ class AppLocalizationsUr extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'اشارے کے لیے اشتہار دیکھیں';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

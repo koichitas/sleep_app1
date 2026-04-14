@@ -134,4 +134,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Se reklame for hint';
+
+  @override
+  String get privacySettings => 'Personverninnstillinger';
 }

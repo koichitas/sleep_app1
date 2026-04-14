@@ -37,5 +37,6 @@
   "hintDialogTitle": "Χρειάζεσαι υπόδειξη;",
   "hintDialogMessage": "Έκανες λάθος 3 φορές στη σειρά.",
   "continueWithoutHint": "Συνέχεια χωρίς υπόδειξη",
-  "watchAdForHint": "Παρακολούθησε διαφήμιση για υπόδειξη"
+  "watchAdForHint": "Παρακολούθησε διαφήμιση για υπόδειξη",
+  "privacySettings": "Privacy Settings"
 }

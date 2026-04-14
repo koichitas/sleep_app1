@@ -132,4 +132,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Погледај рекламу за савет';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

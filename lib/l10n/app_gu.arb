@@ -37,5 +37,6 @@
   "hintDialogTitle": "સંકેત જોઈએ છે?",
   "hintDialogMessage": "તમે સળંગ 3 વાર ચૂક્યા.",
   "continueWithoutHint": "સંકેત વિના ચાલુ રાખો",
-  "watchAdForHint": "સંકેત માટે જાહેરાત જુઓ"
+  "watchAdForHint": "સંકેત માટે જાહેરાત જુઓ",
+  "privacySettings": "Privacy Settings"
 }

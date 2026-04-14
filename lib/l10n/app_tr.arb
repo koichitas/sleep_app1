@@ -1,6 +1,5 @@
 {
   "@@locale": "tr",
-
   "appTitle": "Uyku Meydan Okuma",
   "startScreenMessage": "Bugün harika iş çıkardın\nİyi geceler",
   "startButton": "Başla",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "İpucuna ihtiyacın var mı?",
   "hintDialogMessage": "Art arda 3 kez yanlış dokundun.",
   "continueWithoutHint": "İpuçsuz devam et",
-  "watchAdForHint": "İpucu için reklam izle"
+  "watchAdForHint": "İpucu için reklam izle",
+  "privacySettings": "Gizlilik Ayarları"
 }

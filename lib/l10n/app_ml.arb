@@ -37,5 +37,6 @@
   "hintDialogTitle": "ഒരു സൂചന വേണോ?",
   "hintDialogMessage": "തുടർച്ചയായി 3 തവണ തെറ്റി.",
   "continueWithoutHint": "സൂചനകൂടാതെ തുടരുക",
-  "watchAdForHint": "സൂചനയ്ക്കായി പരസ്യം കാണുക"
+  "watchAdForHint": "സൂചനയ്ക്കായി പരസ്യം കാണുക",
+  "privacySettings": "Privacy Settings"
 }

@@ -37,5 +37,6 @@
   "hintDialogTitle": "ຕ້ອງການຄຳແນະນຳບໍ?",
   "hintDialogMessage": "ທ່ານຜິດ 3 ຄັ້ງຕິດຕໍ່ກັນ.",
   "continueWithoutHint": "ສືບຕໍ່ໂດຍບໍ່ມີຄຳແນະນຳ",
-  "watchAdForHint": "ເບິ່ງໂຄສະນາເພື່ອຄຳແນະນຳ"
+  "watchAdForHint": "ເບິ່ງໂຄສະນາເພື່ອຄຳແນະນຳ",
+  "privacySettings": "Privacy Settings"
 }

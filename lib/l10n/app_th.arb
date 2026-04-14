@@ -1,6 +1,5 @@
 {
   "@@locale": "th",
-
   "appTitle": "ท้าทายการนอน",
   "startScreenMessage": "ทำงานได้ดีมากวันนี้\nฝันดีนะ",
   "startButton": "เริ่ม",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "ต้องการคำใบ้ไหม?",
   "hintDialogMessage": "คุณตอบผิด 3 ครั้งติดต่อกัน",
   "continueWithoutHint": "เล่นต่อโดยไม่รับคำใบ้",
-  "watchAdForHint": "ดูโฆษณาเพื่อรับคำใบ้"
+  "watchAdForHint": "ดูโฆษณาเพื่อรับคำใบ้",
+  "privacySettings": "การตั้งค่าความเป็นส่วนตัว"
 }

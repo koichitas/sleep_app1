@@ -37,5 +37,6 @@
   "hintDialogTitle": "Vajad vihjet?",
   "hintDialogMessage": "Puudutasid kolm korda järjest valesti.",
   "continueWithoutHint": "Jätka ilma vihjeta",
-  "watchAdForHint": "Vaata reklaami vihje saamiseks"
+  "watchAdForHint": "Vaata reklaami vihje saamiseks",
+  "privacySettings": "Privacy Settings"
 }

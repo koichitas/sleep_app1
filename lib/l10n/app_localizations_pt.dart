@@ -134,6 +134,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Ver anúncio para dica';
+
+  @override
+  String get privacySettings => 'Configurações de privacidade';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -266,4 +269,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get watchAdForHint => 'Assistir anúncio para dica';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

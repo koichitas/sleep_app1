@@ -132,4 +132,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Xem quảng cáo để nhận gợi ý';
+
+  @override
+  String get privacySettings => 'Cài đặt quyền riêng tư';
 }

@@ -37,5 +37,6 @@
   "hintDialogTitle": "Ai nevoie de un indiciu?",
   "hintDialogMessage": "Ai greșit de 3 ori la rând.",
   "continueWithoutHint": "Continuă fără indiciu",
-  "watchAdForHint": "Urmărește reclamă pentru indiciu"
+  "watchAdForHint": "Urmărește reclamă pentru indiciu",
+  "privacySettings": "Privacy Settings"
 }

@@ -37,5 +37,6 @@
   "hintDialogTitle": "به راهنمایی نیاز داری؟",
   "hintDialogMessage": "۳ بار متوالی اشتباه کردی.",
   "continueWithoutHint": "بدون راهنمایی ادامه بده",
-  "watchAdForHint": "آگهی تماشا کن برای راهنمایی"
+  "watchAdForHint": "آگهی تماشا کن برای راهنمایی",
+  "privacySettings": "Privacy Settings"
 }

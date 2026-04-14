@@ -135,4 +135,7 @@ class AppLocalizationsZu extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Buka isikhangiso ngesiphuzu';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

@@ -1,6 +1,5 @@
 {
   "@@locale": "ru",
-
   "appTitle": "Испытание сна",
   "startScreenMessage": "Хорошей работы сегодня\nСпокойной ночи",
   "startButton": "Начать",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "Нужна подсказка?",
   "hintDialogMessage": "Ты ошибся 3 раза подряд.",
   "continueWithoutHint": "Продолжить без подсказки",
-  "watchAdForHint": "Посмотреть рекламу для подсказки"
+  "watchAdForHint": "Посмотреть рекламу для подсказки",
+  "privacySettings": "Настройки конфиденциальности"
 }

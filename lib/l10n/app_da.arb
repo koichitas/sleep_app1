@@ -37,5 +37,6 @@
   "hintDialogTitle": "Har du brug for et hint?",
   "hintDialogMessage": "Du trykkede forkert 3 gange i træk.",
   "continueWithoutHint": "Fortsæt uden hint",
-  "watchAdForHint": "Se reklame for hint"
+  "watchAdForHint": "Se reklame for hint",
+  "privacySettings": "Fortrolighedsindstillinger"
 }

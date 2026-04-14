@@ -1,6 +1,5 @@
 {
   "@@locale": "pl",
-
   "appTitle": "Wyzwanie Snu",
   "startScreenMessage": "Dobra robota dzisiaj\nŚpij dobrze",
   "startButton": "Zacznij",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "Potrzebujesz podpowiedzi?",
   "hintDialogMessage": "Pomyliłeś się 3 razy z rzędu.",
   "continueWithoutHint": "Kontynuuj bez podpowiedzi",
-  "watchAdForHint": "Obejrzyj reklamę dla podpowiedzi"
+  "watchAdForHint": "Obejrzyj reklamę dla podpowiedzi",
+  "privacySettings": "Ustawienia prywatności"
 }

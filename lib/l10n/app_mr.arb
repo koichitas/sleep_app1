@@ -37,5 +37,6 @@
   "hintDialogTitle": "संकेत हवा का?",
   "hintDialogMessage": "तुम्ही सलग 3 वेळा चुकलात.",
   "continueWithoutHint": "संकेताशिवाय सुरू ठेवा",
-  "watchAdForHint": "संकेतासाठी जाहिरात पहा"
+  "watchAdForHint": "संकेतासाठी जाहिरात पहा",
+  "privacySettings": "Privacy Settings"
 }

@@ -466,6 +466,12 @@ abstract class AppLocalizations {
   /// In ja, this message translates to:
   /// **'広告を見てヒントをもらう'**
   String get watchAdForHint;
+
+  /// 米国州規制対象ユーザー向けプライバシー設定ボタン
+  ///
+  /// In ja, this message translates to:
+  /// **'プライバシー設定'**
+  String get privacySettings;
 }
 
 class _AppLocalizationsDelegate

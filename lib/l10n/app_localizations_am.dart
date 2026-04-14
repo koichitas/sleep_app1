@@ -131,4 +131,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'ለፍንጭ ማስታወቂያ ይመልከቱ';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

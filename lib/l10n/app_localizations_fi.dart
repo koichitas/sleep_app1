@@ -133,4 +133,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Katso mainos vihjeestä';
+
+  @override
+  String get privacySettings => 'Yksityisyysasetukset';
 }

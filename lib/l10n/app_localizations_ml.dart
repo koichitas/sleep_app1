@@ -135,4 +135,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'സൂചനയ്ക്കായി പരസ്യം കാണുക';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

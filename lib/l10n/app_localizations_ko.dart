@@ -131,4 +131,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get watchAdForHint => '광고 보고 힌트 받기';
+
+  @override
+  String get privacySettings => '개인정보 설정';
 }

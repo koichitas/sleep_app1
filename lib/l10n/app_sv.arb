@@ -37,5 +37,6 @@
   "hintDialogTitle": "Behöver du en ledtråd?",
   "hintDialogMessage": "Du har tryckt fel 3 gånger i rad.",
   "continueWithoutHint": "Fortsätt utan ledtråd",
-  "watchAdForHint": "Se reklam för ledtråd"
+  "watchAdForHint": "Se reklam för ledtråd",
+  "privacySettings": "Sekretessinställningar"
 }

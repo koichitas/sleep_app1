@@ -37,5 +37,6 @@
   "hintDialogTitle": "Кеңес керек пе?",
   "hintDialogMessage": "Қатарынан 3 рет қателестіңіз.",
   "continueWithoutHint": "Кеңессіз жалғастыру",
-  "watchAdForHint": "Кеңес алу үшін жарнама көру"
+  "watchAdForHint": "Кеңес алу үшін жарнама көру",
+  "privacySettings": "Privacy Settings"
 }

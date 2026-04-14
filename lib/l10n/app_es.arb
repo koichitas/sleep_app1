@@ -1,6 +1,5 @@
 {
   "@@locale": "es",
-
   "appTitle": "Desafío del Sueño",
   "startScreenMessage": "Buen trabajo hoy\nQue descanses bien",
   "startButton": "Comenzar",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "¿Necesitas una pista?",
   "hintDialogMessage": "Fallaste 3 veces seguidas.",
   "continueWithoutHint": "Continuar sin pista",
-  "watchAdForHint": "Ver anuncio para obtener pista"
+  "watchAdForHint": "Ver anuncio para obtener pista",
+  "privacySettings": "Configuración de privacidad"
 }

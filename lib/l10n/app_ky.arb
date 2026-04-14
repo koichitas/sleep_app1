@@ -37,5 +37,6 @@
   "hintDialogTitle": "Кеңеш керекпи?",
   "hintDialogMessage": "Катары менен 3 жолу жаңылдыңыз.",
   "continueWithoutHint": "Кеңешсиз улантуу",
-  "watchAdForHint": "Кеңеш үчүн жарнаманы көрүү"
+  "watchAdForHint": "Кеңеш үчүн жарнаманы көрүү",
+  "privacySettings": "Privacy Settings"
 }

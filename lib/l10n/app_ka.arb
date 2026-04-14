@@ -37,5 +37,6 @@
   "hintDialogTitle": "მინიშნება გჭირდება?",
   "hintDialogMessage": "სამჯერ ზედიზედ შეცდომა დაუშვი.",
   "continueWithoutHint": "მინიშნების გარეშე გაგრძელება",
-  "watchAdForHint": "რეკლამა მინიშნებისთვის"
+  "watchAdForHint": "რეკლამა მინიშნებისთვის",
+  "privacySettings": "Privacy Settings"
 }

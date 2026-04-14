@@ -37,5 +37,6 @@
   "hintDialogTitle": "Unahitaji kidokezo?",
   "hintDialogMessage": "Umekosea mara 3 mfululizo.",
   "continueWithoutHint": "Endelea bila kidokezo",
-  "watchAdForHint": "Tazama tangazo kwa kidokezo"
+  "watchAdForHint": "Tazama tangazo kwa kidokezo",
+  "privacySettings": "Privacy Settings"
 }

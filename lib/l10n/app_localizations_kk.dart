@@ -135,4 +135,7 @@ class AppLocalizationsKk extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Кеңес алу үшін жарнама көру';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

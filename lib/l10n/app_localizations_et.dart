@@ -132,4 +132,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Vaata reklaami vihje saamiseks';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

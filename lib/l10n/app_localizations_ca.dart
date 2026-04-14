@@ -134,4 +134,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Mira un anunci per a una pista';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

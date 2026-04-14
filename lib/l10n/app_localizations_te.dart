@@ -135,4 +135,7 @@ class AppLocalizationsTe extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'సూచన కోసం యాడ్ చూడు';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

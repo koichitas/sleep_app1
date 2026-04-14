@@ -133,4 +133,7 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'ਸੰਕੇਤ ਲਈ ਇਸ਼ਤਿਹਾਰ ਦੇਖੋ';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

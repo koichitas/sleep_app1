@@ -132,4 +132,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'સંકેત માટે જાહેરાત જુઓ';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

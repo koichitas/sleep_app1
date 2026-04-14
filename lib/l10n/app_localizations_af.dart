@@ -135,4 +135,7 @@ class AppLocalizationsAf extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Kyk advertensie vir wenk';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

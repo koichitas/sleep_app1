@@ -134,4 +134,7 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Govazd direl kzniqy hamar';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

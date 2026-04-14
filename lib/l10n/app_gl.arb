@@ -37,5 +37,6 @@
   "hintDialogTitle": "Precisas unha pista?",
   "hintDialogMessage": "Tocaches mal 3 veces seguidas.",
   "continueWithoutHint": "Continuar sen pista",
-  "watchAdForHint": "Ver un anuncio para pista"
+  "watchAdForHint": "Ver un anuncio para pista",
+  "privacySettings": "Privacy Settings"
 }

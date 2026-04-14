@@ -134,4 +134,7 @@ class AppLocalizationsIs extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Horfa á auglýsingu fyrir vísbendingu';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

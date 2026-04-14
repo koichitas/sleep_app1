@@ -37,5 +37,6 @@
   "hintDialogTitle": "Треба ти савет?",
   "hintDialogMessage": "Погрешио си 3 пута заредом.",
   "continueWithoutHint": "Настави без савета",
-  "watchAdForHint": "Погледај рекламу за савет"
+  "watchAdForHint": "Погледај рекламу за савет",
+  "privacySettings": "Privacy Settings"
 }

@@ -133,4 +133,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'குறிப்புக்காக விளம்பரம் பார்க்கவும்';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

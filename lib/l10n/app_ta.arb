@@ -37,5 +37,6 @@
   "hintDialogTitle": "குறிப்பு தேவையா?",
   "hintDialogMessage": "தொடர்ச்சியாக 3 முறை தவறு செய்தீர்கள்.",
   "continueWithoutHint": "குறிப்பு இல்லாமல் தொடரவும்",
-  "watchAdForHint": "குறிப்புக்காக விளம்பரம் பார்க்கவும்"
+  "watchAdForHint": "குறிப்புக்காக விளம்பரம் பார்க்கவும்",
+  "privacySettings": "Privacy Settings"
 }

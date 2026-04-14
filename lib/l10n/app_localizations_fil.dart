@@ -135,4 +135,7 @@ class AppLocalizationsFil extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Manood ng ad para sa pahiwatig';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

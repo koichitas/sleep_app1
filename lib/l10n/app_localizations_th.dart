@@ -132,4 +132,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'ดูโฆษณาเพื่อรับคำใบ้';
+
+  @override
+  String get privacySettings => 'การตั้งค่าความเป็นส่วนตัว';
 }

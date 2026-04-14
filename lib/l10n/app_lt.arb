@@ -37,5 +37,6 @@
   "hintDialogTitle": "Reikia užuominos?",
   "hintDialogMessage": "Tris kartus iš eilės palietei neteisingai.",
   "continueWithoutHint": "Tęsti be užuominos",
-  "watchAdForHint": "Žiūrėti reklamą užuominai"
+  "watchAdForHint": "Žiūrėti reklamą užuominai",
+  "privacySettings": "Privacy Settings"
 }

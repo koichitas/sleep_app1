@@ -1,6 +1,5 @@
 {
   "@@locale": "de",
-
   "appTitle": "Schlaf-Zahlenspiel",
   "startScreenMessage": "Gut gemacht heute\nSchlaf gut",
   "startButton": "Starten",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "Brauchst du einen Hinweis?",
   "hintDialogMessage": "Du hast 3 Mal hintereinander falsch getippt.",
   "continueWithoutHint": "Ohne Hinweis weitermachen",
-  "watchAdForHint": "Werbung ansehen für Hinweis"
+  "watchAdForHint": "Werbung ansehen für Hinweis",
+  "privacySettings": "Datenschutzeinstellungen"
 }

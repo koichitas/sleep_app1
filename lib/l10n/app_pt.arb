@@ -37,5 +37,6 @@
   "hintDialogTitle": "Precisa de uma dica?",
   "hintDialogMessage": "Errou 3 vezes seguidas.",
   "continueWithoutHint": "Continuar sem dica",
-  "watchAdForHint": "Ver anúncio para dica"
+  "watchAdForHint": "Ver anúncio para dica",
+  "privacySettings": "Configurações de privacidade"
 }

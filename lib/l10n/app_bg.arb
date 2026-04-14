@@ -37,5 +37,6 @@
   "hintDialogTitle": "Нужна ти е подсказка?",
   "hintDialogMessage": "Сгрешил си 3 пъти подред.",
   "continueWithoutHint": "Продължи без подсказка",
-  "watchAdForHint": "Гледай реклама за подсказка"
+  "watchAdForHint": "Гледай реклама за подсказка",
+  "privacySettings": "Privacy Settings"
 }

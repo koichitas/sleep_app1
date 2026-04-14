@@ -37,5 +37,6 @@
   "hintDialogTitle": "Патрэбна падказка?",
   "hintDialogMessage": "Ты памыліўся 3 разы запар.",
   "continueWithoutHint": "Працягнуць без падказкі",
-  "watchAdForHint": "Прагледзець рэкламу для падказкі"
+  "watchAdForHint": "Прагледзець рэкламу для падказкі",
+  "privacySettings": "Privacy Settings"
 }

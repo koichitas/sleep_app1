@@ -134,4 +134,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Reklám megtekintése tippért';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

@@ -37,5 +37,6 @@
   "hintDialogTitle": "需要提示嗎？",
   "hintDialogMessage": "您連續錯了3次。",
   "continueWithoutHint": "繼續遊戲",
-  "watchAdForHint": "觀看廣告獲取提示"
+  "watchAdForHint": "觀看廣告獲取提示",
+  "privacySettings": "Privacy Settings"
 }

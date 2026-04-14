@@ -133,4 +133,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Sledovat reklamu pro nápovědu';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

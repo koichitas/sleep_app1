@@ -37,5 +37,6 @@
   "hintDialogTitle": "Potrebuješ namig?",
   "hintDialogMessage": "Trikrat zapored si tapnil napačno.",
   "continueWithoutHint": "Nadaljuj brez namiga",
-  "watchAdForHint": "Oglej si oglas za namig"
+  "watchAdForHint": "Oglej si oglas za namig",
+  "privacySettings": "Privacy Settings"
 }

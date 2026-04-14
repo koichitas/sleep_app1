@@ -1,6 +1,5 @@
 {
   "@@locale": "nl",
-
   "appTitle": "Slaapuitdaging",
   "startScreenMessage": "Goed gedaan vandaag\nSlaap lekker",
   "startButton": "Starten",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "Heb je een hint nodig?",
   "hintDialogMessage": "Je hebt 3 keer achter elkaar fout getikt.",
   "continueWithoutHint": "Doorgaan zonder hint",
-  "watchAdForHint": "Advertentie bekijken voor hint"
+  "watchAdForHint": "Advertentie bekijken voor hint",
+  "privacySettings": "Privacy-instellingen"
 }

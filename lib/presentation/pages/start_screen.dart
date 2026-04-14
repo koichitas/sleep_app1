@@ -1,3 +1,4 @@
+import 'package:admob_kit/admob_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:sleep_app1/domain/game_record.dart';
 import 'package:sleep_app1/domain/record_repository.dart';
@@ -15,11 +16,20 @@ class StartScreen extends StatefulWidget {
 class _StartScreenState extends State<StartScreen> {
   final RecordRepository _repository = RecordRepository();
   List<GameRecord> _records = [];
+  bool _showPrivacyButton = false;
 
   @override
   void initState() {
     super.initState();
     _loadRecords();
+    _initAds();
+  }
+
+  Future<void> _initAds() async {
+    await AdmobService.initMobileAds();
+    if (!mounted) return;
+    final required = await AdmobService.isPrivacyOptionsRequired();
+    if (mounted) setState(() => _showPrivacyButton = required);
   }
 
   Future<void> _loadRecords() async {
@@ -91,6 +101,23 @@ class _StartScreenState extends State<StartScreen> {
                   else
                     ..._records.map((r) => _RecordRow(record: r)),
                 ],
+              ),
+            ),
+
+            // 米国州規制対象ユーザー向けプライバシー設定ボタン（常にスペース確保）
+            Visibility(
+              maintainSize: true,
+              maintainAnimation: true,
+              maintainState: true,
+              visible: _showPrivacyButton,
+              child: TextButton(
+                onPressed: AdmobService.showPrivacyOptionsForm,
+                child: Text(
+                  l10n.privacySettings,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: Colors.grey,
+                      ),
+                ),
               ),
             ),
           ],

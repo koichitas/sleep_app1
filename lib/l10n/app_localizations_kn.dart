@@ -136,4 +136,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'ಸುಳಿವಿಗಾಗಿ ಜಾಹೀರಾತು ನೋಡಿ';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

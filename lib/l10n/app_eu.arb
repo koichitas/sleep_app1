@@ -37,5 +37,6 @@
   "hintDialogTitle": "Laguntza behar duzu?",
   "hintDialogMessage": "3 aldiz jarraian oker sakatu duzu.",
   "continueWithoutHint": "Jarraitu laguntzarik gabe",
-  "watchAdForHint": "Ikusi iragarkia laguntza lortzeko"
+  "watchAdForHint": "Ikusi iragarkia laguntza lortzeko",
+  "privacySettings": "Privacy Settings"
 }

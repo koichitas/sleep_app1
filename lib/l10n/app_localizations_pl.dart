@@ -133,4 +133,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Obejrzyj reklamę dla podpowiedzi';
+
+  @override
+  String get privacySettings => 'Ustawienia prywatności';
 }

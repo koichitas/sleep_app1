@@ -37,5 +37,6 @@
   "hintDialogTitle": "Kailangan ng pahiwatig?",
   "hintDialogMessage": "Mali ka nang 3 beses nang sunud-sunod.",
   "continueWithoutHint": "Magpatuloy nang walang pahiwatig",
-  "watchAdForHint": "Manood ng ad para sa pahiwatig"
+  "watchAdForHint": "Manood ng ad para sa pahiwatig",
+  "privacySettings": "Privacy Settings"
 }

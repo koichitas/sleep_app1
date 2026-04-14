@@ -37,5 +37,6 @@
   "hintDialogTitle": "ត្រូវការជំនួយទេ?",
   "hintDialogMessage": "អ្នកខុស 3 ដងជាប់ៗគ្នា។",
   "continueWithoutHint": "បន្តដោយគ្មានជំនួយ",
-  "watchAdForHint": "មើលការផ្សាយដើម្បីទទួលជំនួយ"
+  "watchAdForHint": "មើលការផ្សាយដើម្បីទទួលជំនួយ",
+  "privacySettings": "Privacy Settings"
 }

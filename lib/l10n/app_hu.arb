@@ -37,5 +37,6 @@
   "hintDialogTitle": "Kell egy tipp?",
   "hintDialogMessage": "3-szor egymás után rosszat érintettél.",
   "continueWithoutHint": "Folytatás tipp nélkül",
-  "watchAdForHint": "Reklám megtekintése tippért"
+  "watchAdForHint": "Reklám megtekintése tippért",
+  "privacySettings": "Privacy Settings"
 }

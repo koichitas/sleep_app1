@@ -133,4 +133,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'ইঙ্গিতের জন্য বিজ্ঞাপন দেখুন';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

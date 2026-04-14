@@ -37,5 +37,6 @@
   "hintDialogTitle": "ইঙ্গিত দরকার?",
   "hintDialogMessage": "আপনি পরপর ৩ বার ভুল করেছেন।",
   "continueWithoutHint": "ইঙ্গিত ছাড়াই চালিয়ে যান",
-  "watchAdForHint": "ইঙ্গিতের জন্য বিজ্ঞাপন দেখুন"
+  "watchAdForHint": "ইঙ্গিতের জন্য বিজ্ঞাপন দেখুন",
+  "privacySettings": "Privacy Settings"
 }

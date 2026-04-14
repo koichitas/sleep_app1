@@ -1,6 +1,5 @@
 {
   "@@locale": "id",
-
   "appTitle": "Tantangan Tidur",
   "startScreenMessage": "Kerja bagus hari ini\nSelamat beristirahat",
   "startButton": "Mulai",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "Butuh petunjuk?",
   "hintDialogMessage": "Kamu salah 3 kali berturut-turut.",
   "continueWithoutHint": "Lanjutkan tanpa petunjuk",
-  "watchAdForHint": "Tonton iklan untuk petunjuk"
+  "watchAdForHint": "Tonton iklan untuk petunjuk",
+  "privacySettings": "Pengaturan Privasi"
 }

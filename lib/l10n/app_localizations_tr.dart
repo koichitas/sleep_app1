@@ -132,4 +132,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'İpucu için reklam izle';
+
+  @override
+  String get privacySettings => 'Gizlilik Ayarları';
 }

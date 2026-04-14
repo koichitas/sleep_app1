@@ -131,6 +131,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get watchAdForHint => '观看广告获取提示';
+
+  @override
+  String get privacySettings => '隐私设置';
 }
 
 /// The translations for Chinese, as used in Hong Kong (`zh_HK`).
@@ -260,6 +263,9 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
 
   @override
   String get watchAdForHint => '觀看廣告獲取提示';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -389,4 +395,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get watchAdForHint => '觀看廣告獲取提示';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

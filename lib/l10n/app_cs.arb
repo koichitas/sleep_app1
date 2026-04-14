@@ -37,5 +37,6 @@
   "hintDialogTitle": "Potřebuješ nápovědu?",
   "hintDialogMessage": "Ťuknul jsi 3krát za sebou špatně.",
   "continueWithoutHint": "Pokračovat bez nápovědy",
-  "watchAdForHint": "Sledovat reklamu pro nápovědu"
+  "watchAdForHint": "Sledovat reklamu pro nápovědu",
+  "privacySettings": "Privacy Settings"
 }

@@ -131,4 +131,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get watchAdForHint => '広告を見てヒントをもらう';
+
+  @override
+  String get privacySettings => 'プライバシー設定';
 }

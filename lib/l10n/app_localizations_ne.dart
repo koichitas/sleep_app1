@@ -133,4 +133,7 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'संकेतका लागि विज्ञापन हेर्नुहोस्';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

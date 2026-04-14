@@ -37,5 +37,6 @@
   "hintDialogTitle": "اشارہ چاہیے؟",
   "hintDialogMessage": "آپ نے مسلسل 3 بار غلط ٹیپ کیا۔",
   "continueWithoutHint": "بغیر اشارے کے جاری رکھیں",
-  "watchAdForHint": "اشارے کے لیے اشتہار دیکھیں"
+  "watchAdForHint": "اشارے کے لیے اشتہار دیکھیں",
+  "privacySettings": "Privacy Settings"
 }

@@ -1,6 +1,5 @@
 {
   "@@locale": "it",
-
   "appTitle": "Sfida del Sonno",
   "startScreenMessage": "Brava giornata\nDormi bene",
   "startButton": "Inizia",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "Hai bisogno di un suggerimento?",
   "hintDialogMessage": "Hai sbagliato 3 volte di fila.",
   "continueWithoutHint": "Continua senza suggerimento",
-  "watchAdForHint": "Guarda una pubblicità per un suggerimento"
+  "watchAdForHint": "Guarda una pubblicità per un suggerimento",
+  "privacySettings": "Impostazioni privacy"
 }

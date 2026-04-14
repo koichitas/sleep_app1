@@ -135,4 +135,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Urmărește reclamă pentru indiciu';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

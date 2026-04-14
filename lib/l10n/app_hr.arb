@@ -37,5 +37,6 @@
   "hintDialogTitle": "Trebaš savjet?",
   "hintDialogMessage": "Pogriješio si 3 puta zaredom.",
   "continueWithoutHint": "Nastavi bez savjeta",
-  "watchAdForHint": "Pogledaj reklamu za savjet"
+  "watchAdForHint": "Pogledaj reklamu za savjet",
+  "privacySettings": "Privacy Settings"
 }

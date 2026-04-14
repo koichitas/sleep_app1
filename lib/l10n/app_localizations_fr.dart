@@ -134,4 +134,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Regarder une pub pour un indice';
+
+  @override
+  String get privacySettings => 'Paramètres de confidentialité';
 }

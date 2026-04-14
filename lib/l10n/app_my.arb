@@ -37,5 +37,6 @@
   "hintDialogTitle": "အကြံပေးချက် လိုသလား?",
   "hintDialogMessage": "ဆက်တိုက် ၃ ကြိမ် မှားခဲ့သည်။",
   "continueWithoutHint": "အကြံပေးချက်မပါ ဆက်လက်",
-  "watchAdForHint": "အကြံပေးချက်အတွက် ကြော်ငြာကြည့်"
+  "watchAdForHint": "အကြံပေးချက်အတွက် ကြော်ငြာကြည့်",
+  "privacySettings": "Privacy Settings"
 }

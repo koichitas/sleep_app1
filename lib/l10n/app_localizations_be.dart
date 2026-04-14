@@ -133,4 +133,7 @@ class AppLocalizationsBe extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Прагледзець рэкламу для падказкі';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

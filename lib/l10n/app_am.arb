@@ -37,5 +37,6 @@
   "hintDialogTitle": "ፍንጭ ያስፈልጉዎታል?",
   "hintDialogMessage": "ተከታታይ 3 ጊዜ ስህተት ጫኑ።",
   "continueWithoutHint": "ያለ ፍንጭ ቀጥሉ",
-  "watchAdForHint": "ለፍንጭ ማስታወቂያ ይመልከቱ"
+  "watchAdForHint": "ለፍንጭ ማስታወቂያ ይመልከቱ",
+  "privacySettings": "Privacy Settings"
 }

@@ -131,4 +131,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'آگهی تماشا کن برای راهنمایی';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

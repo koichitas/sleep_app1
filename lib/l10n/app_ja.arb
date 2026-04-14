@@ -134,5 +134,8 @@
   "@continueWithoutHint": { "description": "ヒントなしで続けるボタン" },
 
   "watchAdForHint": "広告を見てヒントをもらう",
-  "@watchAdForHint": { "description": "広告視聴でヒントを得るボタン" }
+  "@watchAdForHint": { "description": "広告視聴でヒントを得るボタン" },
+
+  "privacySettings": "プライバシー設定",
+  "@privacySettings": { "description": "米国州規制対象ユーザー向けプライバシー設定ボタン" }
 }

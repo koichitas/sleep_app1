@@ -132,4 +132,7 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'ເບິ່ງໂຄສະນາເພື່ອຄຳແນະນຳ';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

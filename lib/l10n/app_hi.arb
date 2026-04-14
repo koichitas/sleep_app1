@@ -1,6 +1,5 @@
 {
   "@@locale": "hi",
-
   "appTitle": "नींद चुनौती",
   "startScreenMessage": "आज बहुत अच्छा काम किया\nअच्छी नींद लें",
   "startButton": "शुरू करें",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "संकेत चाहिए?",
   "hintDialogMessage": "आपने लगातार 3 बार गलत टैप किया।",
   "continueWithoutHint": "बिना संकेत जारी रखें",
-  "watchAdForHint": "संकेत के लिए विज्ञापन देखें"
+  "watchAdForHint": "संकेत के लिए विज्ञापन देखें",
+  "privacySettings": "गोपनीयता सेटिंग"
 }

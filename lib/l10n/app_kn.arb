@@ -37,5 +37,6 @@
   "hintDialogTitle": "ಸುಳಿವು ಬೇಕೇ?",
   "hintDialogMessage": "ಸತತ 3 ಬಾರಿ ತಪ್ಪು ಮಾಡಿದ್ದೀರಿ.",
   "continueWithoutHint": "ಸುಳಿವಿಲ್ಲದೆ ಮುಂದುವರಿಸಿ",
-  "watchAdForHint": "ಸುಳಿವಿಗಾಗಿ ಜಾಹೀರಾತು ನೋಡಿ"
+  "watchAdForHint": "ಸುಳಿವಿಗಾಗಿ ಜಾಹೀರಾತು ನೋಡಿ",
+  "privacySettings": "Privacy Settings"
 }

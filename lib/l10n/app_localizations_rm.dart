@@ -134,4 +134,7 @@ class AppLocalizationsRm extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Guardar publicitad per indizi';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

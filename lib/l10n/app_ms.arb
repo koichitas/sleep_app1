@@ -37,5 +37,6 @@
   "hintDialogTitle": "Perlukan petunjuk?",
   "hintDialogMessage": "Anda salah 3 kali berturut-turut.",
   "continueWithoutHint": "Teruskan tanpa petunjuk",
-  "watchAdForHint": "Tonton iklan untuk petunjuk"
+  "watchAdForHint": "Tonton iklan untuk petunjuk",
+  "privacySettings": "Privacy Settings"
 }

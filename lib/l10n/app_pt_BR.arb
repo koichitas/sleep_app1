@@ -1,6 +1,5 @@
 {
   "@@locale": "pt_BR",
-
   "appTitle": "Desafio do Sono",
   "startScreenMessage": "Bom trabalho hoje\nTenha um bom sono",
   "startButton": "Começar",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "Precisa de uma dica?",
   "hintDialogMessage": "Você errou 3 vezes seguidas.",
   "continueWithoutHint": "Continuar sem dica",
-  "watchAdForHint": "Assistir anúncio para dica"
+  "watchAdForHint": "Assistir anúncio para dica",
+  "privacySettings": "Privacy Settings"
 }

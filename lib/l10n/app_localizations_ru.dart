@@ -133,4 +133,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Посмотреть рекламу для подсказки';
+
+  @override
+  String get privacySettings => 'Настройки конфиденциальности';
 }

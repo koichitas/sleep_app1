@@ -133,4 +133,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Skatīties reklāmu padomam';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

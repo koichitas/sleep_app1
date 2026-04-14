@@ -133,4 +133,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Shiko reklamën për ndihmë';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

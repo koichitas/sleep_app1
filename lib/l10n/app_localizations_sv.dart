@@ -133,4 +133,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Se reklam för ledtråd';
+
+  @override
+  String get privacySettings => 'Sekretessinställningar';
 }

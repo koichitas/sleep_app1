@@ -134,4 +134,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Санамжийн тулд сурталчилгаа үзэх';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

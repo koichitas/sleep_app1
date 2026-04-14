@@ -65,10 +65,7 @@ class _GameScreenState extends State<GameScreen> {
     _totalStopwatch.start();
     _inactivityStopwatch.start();
     _resetInactivityTimer();
-    AdmobService.loadInterstitial();
-    AdmobService.loadReward();
-    AdmobService.loadHintReward();
-    AdmobService.loadHintInterstitial();
+    // 広告プリロードは1stステージクリア後（同意取得後）に行う
 
     if (kDebugMode) {
       // デバッグ表示を1秒ごとに更新
@@ -295,12 +292,14 @@ class _GameScreenState extends State<GameScreen> {
           ),
           actions: [
             TextButton(
-              onPressed: () {
+              onPressed: () async {
                 _resetInactivityTimer();
                 Navigator.of(dialogContext).pop();
                 AnalyticsService.logStageClear(_gridSize);
                 if (_gridSize == 4) {
-                  _showReadyGoDialog(); // ステージ1は広告なし
+                  // 同意フォーム表示（EEA・米国規制州のみ）→ 広告プリロード → 次ステージへ
+                  await AdmobService.gatherConsentAndPreloadAds();
+                  if (mounted) _showReadyGoDialog();
                 } else {
                   _showAd();
                 }

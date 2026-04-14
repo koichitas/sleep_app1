@@ -134,4 +134,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'İpucu üçün reklam izlə';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

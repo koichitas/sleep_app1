@@ -37,5 +37,6 @@
   "hintDialogTitle": "Necessites una pista?",
   "hintDialogMessage": "Has tocat malament 3 vegades seguides.",
   "continueWithoutHint": "Continua sense pista",
-  "watchAdForHint": "Mira un anunci per a una pista"
+  "watchAdForHint": "Mira un anunci per a una pista",
+  "privacySettings": "Privacy Settings"
 }

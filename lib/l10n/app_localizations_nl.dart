@@ -134,4 +134,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Advertentie bekijken voor hint';
+
+  @override
+  String get privacySettings => 'Privacy-instellingen';
 }

@@ -134,4 +134,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'Tonton iklan untuk petunjuk';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }

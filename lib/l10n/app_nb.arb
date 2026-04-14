@@ -37,5 +37,6 @@
   "hintDialogTitle": "Trenger du et hint?",
   "hintDialogMessage": "Du trykket feil 3 ganger på rad.",
   "continueWithoutHint": "Fortsett uten hint",
-  "watchAdForHint": "Se reklame for hint"
+  "watchAdForHint": "Se reklame for hint",
+  "privacySettings": "Personverninnstillinger"
 }

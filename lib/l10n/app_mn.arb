@@ -37,5 +37,6 @@
   "hintDialogTitle": "Санамж хэрэгтэй юу?",
   "hintDialogMessage": "Дараалан 3 удаа алдаа гаргасан.",
   "continueWithoutHint": "Санамжгүйгээр үргэлжлүүлэх",
-  "watchAdForHint": "Санамжийн тулд сурталчилгаа үзэх"
+  "watchAdForHint": "Санамжийн тулд сурталчилгаа үзэх",
+  "privacySettings": "Privacy Settings"
 }

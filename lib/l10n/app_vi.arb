@@ -1,6 +1,5 @@
 {
   "@@locale": "vi",
-
   "appTitle": "Thử Thách Giấc Ngủ",
   "startScreenMessage": "Hôm nay làm tốt lắm\nNgủ ngon nhé",
   "startButton": "Bắt đầu",
@@ -38,5 +37,6 @@
   "hintDialogTitle": "Cần gợi ý không?",
   "hintDialogMessage": "Bạn đã sai 3 lần liên tiếp.",
   "continueWithoutHint": "Tiếp tục không có gợi ý",
-  "watchAdForHint": "Xem quảng cáo để nhận gợi ý"
+  "watchAdForHint": "Xem quảng cáo để nhận gợi ý",
+  "privacySettings": "Cài đặt quyền riêng tư"
 }

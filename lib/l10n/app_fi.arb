@@ -37,5 +37,6 @@
   "hintDialogTitle": "Tarvitsetko vihjeen?",
   "hintDialogMessage": "Napautit väärin 3 kertaa peräkkäin.",
   "continueWithoutHint": "Jatka ilman vihjettä",
-  "watchAdForHint": "Katso mainos vihjeestä"
+  "watchAdForHint": "Katso mainos vihjeestä",
+  "privacySettings": "Yksityisyysasetukset"
 }

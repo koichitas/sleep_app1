@@ -37,5 +37,6 @@
   "hintDialogTitle": "İpucuna ehtiyacınız var?",
   "hintDialogMessage": "Ardıcıl 3 dəfə səhv toxundunuz.",
   "continueWithoutHint": "İpuçsuz davam et",
-  "watchAdForHint": "İpucu üçün reklam izlə"
+  "watchAdForHint": "İpucu üçün reklam izlə",
+  "privacySettings": "Privacy Settings"
 }

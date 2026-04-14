@@ -132,4 +132,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get watchAdForHint => 'რეკლამა მინიშნებისთვის';
+
+  @override
+  String get privacySettings => 'Privacy Settings';
 }
